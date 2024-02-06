@@ -1,9 +1,13 @@
 FROM python:3.9
 
-RUN pip install django djangorestframework
+RUN pip install fastapi
+
+RUN pip install "uvicorn[standard]"
 
 WORKDIR /app
 
-COPY ./life_insurance_back_project /app
+COPY ./life-insurance-back /app
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+EXPOSE 8000
+
+CMD ["uvicorn", "app:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
