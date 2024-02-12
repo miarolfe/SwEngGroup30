@@ -1,5 +1,7 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+
+#ENTER USERNAME AND PASSWORD THEN RUN CODE
 uri = "mongodb+srv://<username>:<password>@lifeinsurancecluster.nglevcg.mongodb.net/?retryWrites=true&w=majority"
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
