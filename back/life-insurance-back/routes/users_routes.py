@@ -4,6 +4,8 @@ from config.database import collection_name
 from schemas.users_schema import users_serialiser, user_serialiser
 from bson import ObjectId
 
+#get routes need to be fixed, causing RECURSION ERROR
+
 user_api_router = APIRouter()
 
 # retrieve
