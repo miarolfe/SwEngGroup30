@@ -1,3 +1,4 @@
+"""
 from typing import Union
 from fastapi import FastAPI
 import uvicorn
@@ -21,3 +22,4 @@ class Application:
 app = Application()
 app.configure_routes()
 app.run()
+"""
