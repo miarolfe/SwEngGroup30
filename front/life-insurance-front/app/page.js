@@ -6,7 +6,7 @@ import Header from '../components/Header';
 
 const Index = () => {
     return (
-        <div className="main-page">
+        <div className="font-serif main-page">
             <Head>
                 <title>
                     Munich Re Automation Solution Ltd
