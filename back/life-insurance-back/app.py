@@ -1,7 +1,8 @@
-"""
+""""
 from typing import Union
 from fastapi import FastAPI
 import uvicorn
+from routes.users_routes import user_api_router
 
 class Application:
     def __init__(self):
@@ -20,6 +21,6 @@ class Application:
         #     return {"item_id": item_id, "q": q}
 
 app = Application()
-app.configure_routes()
+app.app.include_router(user_api_router)
 app.run()
 """
