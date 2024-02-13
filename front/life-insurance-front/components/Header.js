@@ -7,9 +7,7 @@ const Header = () => {
         <header>
             <div className={styles.logo}>
                 <Link href="/">
-                    <a>
-                        <Image src="/logo.jpeg" alt="Munich RE"/>
-                    </a>
+                        <Image src="/logo.jpeg" alt="Munich RE" width={150} height={100}/>
                 </Link>
             </div>
             <div className={styles.underlogo}>
@@ -18,13 +16,13 @@ const Header = () => {
             <nav className={styles.nav}>
                 <ul>
                     <li>
-                        <Link href="/WhoWeAre"> <a> Who We Are </a> </Link>
+                        <Link href="/WhoWeAre">Who We Are</Link>
                     </li>
                     <li>
-                        <Link href="/TheTeam"> <a> The Team </a> </Link>
+                        <Link href="/TheTeam">The Team</Link>
                     </li>
                     <li>
-                        <Link href="/LifeInsurance"> <a> Life Insurance </a> </Link>
+                        <Link href="/LifeInsurance">Life Insurance</Link>
                     </li>
                 </ul>
             </nav>
