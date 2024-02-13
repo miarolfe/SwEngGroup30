@@ -1,11 +1,14 @@
 import React from "react";
 
-interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+type Props = {
   label: string;
   placeholder: string;
-}
+};
 
-const SingleLineTextBox = ({ label, ...props }: Props) => {
+const SingleLineTextBox = ({
+  label,
+  ...props
+}: Props & React.InputHTMLAttributes<HTMLInputElement>) => {
   return (
     <div className="w-full flex flex-col">
       <label>{label}</label>
