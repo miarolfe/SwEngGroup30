@@ -9,4 +9,12 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .mre-blue-bg {
+    background-color: #175788;
+  }
+
+  .grad-bg {
+    background: linear-gradient(90deg, rgba(51,61,215,1) 0%, rgba(98,174,232,1) 100%);
+  }
 }

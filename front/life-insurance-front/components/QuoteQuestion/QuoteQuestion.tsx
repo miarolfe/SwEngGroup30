@@ -1,3 +1,4 @@
+import LargeButton from "../LargeButton";
 import SingleLineTextBox from "../SingleLineTextBox";
 
 type Props = {
@@ -30,6 +31,10 @@ const QuoteQuestion = (props: Props) => {
           placeholder="Password"
           type="password"
         />
+
+        <div className="grow w-full flex justify-center items-end">
+          <LargeButton text="Next" />
+        </div>
       </div>
     </div>
   );
