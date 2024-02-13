@@ -3,6 +3,7 @@ import SingleLineTextBox from "../SingleLineTextBox";
 
 type Props = {
   question: string;
+  components: React.ReactNode[];
 };
 
 const QuoteQuestion = (props: Props) => {
@@ -18,19 +19,10 @@ const QuoteQuestion = (props: Props) => {
           <p className="font-semibold text-lg pb-6">{props.question}</p>
         </span>
 
-        {/* Email text box */}
-        <SingleLineTextBox
-          label="Email address"
-          placeholder="example@email.com"
-          type="email"
-        />
-
-        {/* Password text box */}
-        <SingleLineTextBox
-          label="Password"
-          placeholder="Password"
-          type="password"
-        />
+        {/* Loop over components */}
+        {props?.components?.map((Item, idx) => (
+          <div className="w-full py-2">{Item}</div>
+        ))}
 
         <div className="grow w-full flex justify-center items-end">
           <LargeButton text="Next" />
