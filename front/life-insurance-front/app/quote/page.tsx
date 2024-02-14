@@ -26,7 +26,6 @@ const QuoteBlock = ({
     if (!ref?.current) return;
     setWidth(ref.current.clientWidth);
     const observer = new ResizeObserver((entries) => {
-      console.log("AHHH");
       setWidth(entries[0].contentRect.width);
     });
     observer.observe(ref.current);
