@@ -17,4 +17,7 @@ def user_serialiser(user) -> dict:
     }
 
 def users_serialiser(users) -> list:
-    return [users_serialiser(user) for user in users]
+    to_return = []
+    for user in users:
+        to_return.append(user_serialiser(user))
+    return to_return
