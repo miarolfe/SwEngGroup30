@@ -17,4 +17,14 @@
   .grad-bg {
     background: linear-gradient(90deg, rgba(51,61,215,1) 0%, rgba(98,174,232,1) 100%);
   }
+
+  .test {
+    display: grid;
+    grid-template-columns: 0.2fr 0.6fr 0.2fr;
+    grid-template-rows: 0.1fr 0.8fr 0.1fr;
+  }
+
+  .test-c {
+    grid-area: 2 / 2 / 3 / 3;
+  }
 }

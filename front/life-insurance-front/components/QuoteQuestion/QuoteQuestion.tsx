@@ -4,13 +4,14 @@ import SingleLineTextBox from "../SingleLineTextBox";
 type Props = {
   question: string;
   components: React.ReactNode[];
+  onClickNext?: VoidFunction;
   active?: boolean;
 };
 
 const QuoteQuestion = ({ active = false, ...props }: Props) => {
   return (
     <div
-      className={`flex flex-col items-center bg-white h-4/5 rounded-md shadow-lg py-2 px-4 ${
+      className={`flex flex-col items-center bg-white h-full w-full rounded-md shadow-lg py-2 px-4 ${
         !active && "-translate-x-8"
       }`}
     >
@@ -29,7 +30,7 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
       ))}
 
       <div className="grow w-full flex justify-center items-end">
-        <LargeButton text="Next" />
+        <LargeButton text="Next" onClick={props.onClickNext} />
       </div>
     </div>
   );

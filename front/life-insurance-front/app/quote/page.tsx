@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 
 import QuoteQuestion from "@/components/QuoteQuestion/QuoteQuestion";
 import SingleLineTextBox from "@/components/SingleLineTextBox";
@@ -14,19 +14,57 @@ const QuoteBlock = ({
   current: number;
   children: React.ReactNode;
 }) => {
-  const st = "translateX(calc(" + (current - position) + "*30px))";
+  const ref = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState<number>(0);
+
+  // useEffect(() => {
+  //   if (!ref?.current) return;
+  //   setWidth(ref.current.clientWidth);
+  // }, [ref?.current?.clientWidth]);
+
+  useEffect(() => {
+    if (!ref?.current) return;
+    setWidth(ref.current.clientWidth);
+    const observer = new ResizeObserver((entries) => {
+      console.log("AHHH");
+      setWidth(entries[0].contentRect.width);
+    });
+    observer.observe(ref.current);
+    // return ref.current && observer.unobserve(ref.current);
+  }, [ref.current]);
+
+  // const style = useMemo(() => {
+  //   console.log(width);
+  //   return {
+  //     transform:
+  //       "translateX(" +
+  //       (position - current) * width +
+  //       "px) scale(" +
+  //       (current !== position ? "0.8" : "1") +
+  //       ")",
+  //     opacity: current !== position ? "0.5" : "1",
+  //   };
+  // }, [width]);
+
   const style = {
     transform:
-      "translate(" +
-      (position - current) * 200 +
+      "translateX(" +
+      (position - current) * width +
       "px) scale(" +
       (current !== position ? "0.8" : "1") +
       ")",
+    opacity: current !== position ? "0.5" : "1",
   };
+
   return (
     <div
       style={style}
-      className="flex justify-center items-center h-full transition duration-300"
+      ref={ref}
+      key={position}
+      className={
+        "flex justify-center items-center h-full transition duration-500 test-c" +
+        (position === 0 ? " z-10" : "")
+      }
     >
       {children}
     </div>
@@ -36,24 +74,31 @@ const QuoteBlock = ({
 const Quote = () => {
   const [name, setName] = useState<string>("");
   const [curr, setCurr] = useState<number>(0);
-  const [t, setT] = useState<boolean>(false);
 
-  const edgeStyle = "flex justify-center items-center h-full w-1/4";
+  const handleIncrement = () => {
+    if (curr === 2) return;
+    setCurr((curr) => curr + 1);
+  };
+
+  const handleDecrement = () => {
+    if (curr === 0) return;
+    setCurr((curr) => curr - 1);
+  };
 
   return (
-    <div className="flex flex-row justify-center items-center h-screen">
-      <button className="z-10" onClick={() => setCurr((curr) => curr + 1)}>
-        Test
+    <div className="flex flex-row justify-center items-center h-screen overflow-x-hidden">
+      <button className="z-20" onClick={handleDecrement}>
+        Prev
       </button>
-      <div className={`flex flex-row grow justify-between items-center h-full`}>
+      <div className={`h-full w-full test`}>
         <QuoteBlock position={0} current={curr}>
           <QuoteQuestion
-            question="Please enter some preliminary information"
-            active={t}
+            question="123"
+            onClickNext={handleIncrement}
             components={[
               <SingleLineTextBox
                 label="Name"
-                placeholder="John Doe"
+                placeholder="Name"
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -67,42 +112,46 @@ const Quote = () => {
           />
         </QuoteBlock>
 
-        <QuoteQuestion
-          question="Please enter some preliminary information"
-          active
-          components={[
-            <SingleLineTextBox
-              label="Name"
-              placeholder="John Doe"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />,
-            <SingleLineTextBox
-              label="Address"
-              placeholder="123 Main Street, Town"
-              type="text"
-            />,
-          ]}
-        />
+        <QuoteBlock position={1} current={curr}>
+          <QuoteQuestion
+            question="456"
+            onClickNext={handleIncrement}
+            components={[
+              <SingleLineTextBox
+                label="Name"
+                placeholder="Name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />,
+              <SingleLineTextBox
+                label="Address"
+                placeholder="123 Main Street, Town"
+                type="text"
+              />,
+            ]}
+          />
+        </QuoteBlock>
 
-        <QuoteQuestion
-          question="Please enter some preliminary information"
-          components={[
-            <SingleLineTextBox
-              label="Name"
-              placeholder="John Doe"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />,
-            <SingleLineTextBox
-              label="Address"
-              placeholder="123 Main Street, Town"
-              type="text"
-            />,
-          ]}
-        />
+        <QuoteBlock position={2} current={curr}>
+          <QuoteQuestion
+            question="78"
+            components={[
+              <SingleLineTextBox
+                label="Name"
+                placeholder="Name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />,
+              <SingleLineTextBox
+                label="Address"
+                placeholder="123 Main Street, Town"
+                type="text"
+              />,
+            ]}
+          />
+        </QuoteBlock>
       </div>
     </div>
   );
