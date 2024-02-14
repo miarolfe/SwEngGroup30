@@ -7,7 +7,7 @@ const LargeButton = (
 ) => {
   return (
     <button
-      className="w-5/6 h-10 rounded-full grad-bg text-white text-xl font-semibold"
+      className="w-5/6 h-10 rounded-full bg-blue-600 hover:bg-blue-800 transition-colors text-white text-xl font-semibold"
       {...props}
     >
       {props.text}

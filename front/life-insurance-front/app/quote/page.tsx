@@ -99,8 +99,9 @@ const Quote = () => {
       <div className={`h-full w-full test persp`}>
         <QuoteBlock position={0} current={curr}>
           <QuoteQuestion
-            question="123"
+            question="Please enter your full name and address"
             onClickNext={handleIncrement}
+            questionNo={1}
             components={[
               <SingleLineTextBox
                 label="Name"
@@ -120,8 +121,9 @@ const Quote = () => {
 
         <QuoteBlock position={1} current={curr}>
           <QuoteQuestion
-            question="456"
+            question="Do you have any medical conditions?"
             onClickNext={handleIncrement}
+            questionNo={2}
             components={[
               <SingleLineTextBox
                 label="Name"
@@ -141,7 +143,8 @@ const Quote = () => {
 
         <QuoteBlock position={2} current={curr}>
           <QuoteQuestion
-            question="78"
+            question="Do you take any medication?"
+            questionNo={3}
             components={[
               <SingleLineTextBox
                 label="Name"
