@@ -7,9 +7,14 @@ docker compose build && docker compose up
 ```
 This will build and run the SwEng Group 30 project.
 
+When you're done running the project, run the following command:
+```bash
+docker compose down
+```
+
 ## Technologies
 Front-end: [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/)
 
-Back-end: [Django](https://www.djangoproject.com/#:~:text=Django%20is%20a%20high%2Dlevel,Ridiculously%20fast.), [Django REST framework](https://www.django-rest-framework.org/)
+Back-end: [FastAPI](https://fastapi.tiangolo.com/)
 
 DevOps: [Docker](https://www.docker.com/), [Git](https://git-scm.com/), [GitHub](https://github.com/), [GitHub Actions](https://github.com/features/actions)
