@@ -45,13 +45,20 @@ const QuoteBlock = ({
   //   };
   // }, [width]);
 
+  const rotation = useMemo(() => {
+    if (current === position) return "";
+    if (current > position) return "rotateY(-15deg)";
+    return "rotateY(15deg)";
+  }, [current]);
+
   const style = {
     transform:
       "translateX(" +
       (position - current) * width +
       "px) scale(" +
       (current !== position ? "0.8" : "1") +
-      ")",
+      ")" +
+      rotation,
     opacity: current !== position ? "0.5" : "1",
   };
 
@@ -89,7 +96,7 @@ const Quote = () => {
       <button className="z-20" onClick={handleDecrement}>
         Prev
       </button>
-      <div className={`h-full w-full test`}>
+      <div className={`h-full w-full test persp`}>
         <QuoteBlock position={0} current={curr}>
           <QuoteQuestion
             question="123"

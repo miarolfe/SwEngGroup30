@@ -27,4 +27,9 @@
   .test-c {
     grid-area: 2 / 2 / 3 / 3;
   }
+
+  .persp {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
 }
