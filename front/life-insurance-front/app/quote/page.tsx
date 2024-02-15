@@ -81,24 +81,34 @@ const Quote = () => {
             onClickNext={handleIncrement}
             active={curr === 0}
             questionNo={1}
-            components={[
-              <SingleLineTextBox
-                label="Name"
-                placeholder="Name"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />,
-              <SingleLineTextBox
-                label="Address"
-                placeholder="123 Main Street, Town"
-                type="text"
-              />,
+            newComps={[
+              {
+                textPlaceholder: "Justin Ikechukwu Cunningham",
+                label: "Full name",
+              },
+              {
+                radioOptions: ["Hey"],
+                label: "lol",
+              },
             ]}
+            // components={[
+            //   <SingleLineTextBox
+            //     label="Name"
+            //     placeholder="Name"
+            //     type="text"
+            //     value={name}
+            //     onChange={(e) => setName(e.target.value)}
+            //   />,
+            //   <SingleLineTextBox
+            //     label="Address"
+            //     placeholder="123 Main Street, Town"
+            //     type="text"
+            //   />,
+            // ]}
           />
         </QuoteBlock>
 
-        <QuoteBlock position={1} current={curr}>
+        {/* <QuoteBlock position={1} current={curr}>
           <QuoteQuestion
             question="Do you have any medical conditions?"
             onClickNext={handleIncrement}
@@ -215,7 +225,7 @@ const Quote = () => {
               />,
             ]}
           />
-        </QuoteBlock>
+        </QuoteBlock> */}
       </div>
     </div>
   );

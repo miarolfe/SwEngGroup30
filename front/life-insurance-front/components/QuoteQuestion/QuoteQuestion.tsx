@@ -1,15 +1,40 @@
 import LargeButton from "../LargeButton";
+import SingleLineTextBox from "../SingleLineTextBox";
+
+type TextBox = {
+  label: string;
+  textPlaceholder: string;
+};
+
+type Radio = {
+  label: string;
+  radioOptions: string[];
+};
+
+type Inputs = TextBox | Radio;
 
 type Props = {
   question: string;
   questionNo: number;
-  components: React.ReactNode[];
+  // components: React.ReactNode[];
+  newComps: Inputs[];
   onClickBack?: VoidFunction;
   onClickNext?: VoidFunction;
   active?: boolean;
 };
 
 const QuoteQuestion = ({ active = false, ...props }: Props) => {
+  const getComponent = (input: Inputs, idx: number) => {
+    if ("textPlaceholder" in input)
+      return (
+        <SingleLineTextBox
+          label={input.label}
+          placeholder={input.textPlaceholder}
+        />
+      );
+
+    if ("radioOptions" in input) return <div>Radio</div>;
+  };
   return (
     <div
       className={`flex flex-col items-center glass h-full w-full rounded-2xl pb-2 overflow-hidden ${
@@ -32,8 +57,12 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
         </span>
 
         {/* Loop over components */}
-        {props?.components?.map((item, idx) => (
+        {/* {props?.components?.map((item, idx) => (
           <div className="w-full py-2">{item}</div>
+        ))} */}
+
+        {props?.newComps.map((item, idx) => (
+          <div className="w-full py-2">{getComponent(item, idx)}</div>
         ))}
 
         <div className="grow w-full flex justify-around items-end">

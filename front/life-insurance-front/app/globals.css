@@ -8,7 +8,7 @@
   }
 
   .grad-bg {
-    background: linear-gradient(270deg, rgba(51,61,215,1) 0%, rgba(98,174,232,1) 100%);
+    background: linear-gradient(270deg, rgba(51,61,215,1) 0%, rgb(72, 69, 130) 100%);
   }
 
   .test {
