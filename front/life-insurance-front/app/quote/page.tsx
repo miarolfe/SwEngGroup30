@@ -54,7 +54,7 @@ const QuoteBlock = ({
   const style = {
     transform:
       "translateX(" +
-      (position - current) * width +
+      (position - current) * (width || 1000) +
       "px) scale(" +
       (current !== position ? "0.8" : "1") +
       ")" +
@@ -82,7 +82,7 @@ const Quote = () => {
   const [curr, setCurr] = useState<number>(0);
 
   const handleIncrement = () => {
-    if (curr === 2) return;
+    if (curr === 5) return;
     setCurr((curr) => curr + 1);
   };
 
@@ -93,14 +93,12 @@ const Quote = () => {
 
   return (
     <div className="flex flex-row justify-center items-center h-screen overflow-x-hidden grad-bg">
-      <button className="z-20" onClick={handleDecrement}>
-        Prev
-      </button>
       <div className={`h-full w-full test persp`}>
         <QuoteBlock position={0} current={curr}>
           <QuoteQuestion
             question="Please enter your full name and address"
             onClickNext={handleIncrement}
+            active={curr === 0}
             questionNo={1}
             components={[
               <SingleLineTextBox
@@ -123,6 +121,8 @@ const Quote = () => {
           <QuoteQuestion
             question="Do you have any medical conditions?"
             onClickNext={handleIncrement}
+            onClickBack={handleDecrement}
+            active={curr === 1}
             questionNo={2}
             components={[
               <SingleLineTextBox
@@ -144,7 +144,81 @@ const Quote = () => {
         <QuoteBlock position={2} current={curr}>
           <QuoteQuestion
             question="Do you take any medication?"
+            active={curr === 2}
+            onClickNext={handleIncrement}
+            onClickBack={handleDecrement}
             questionNo={3}
+            components={[
+              <SingleLineTextBox
+                label="Name"
+                placeholder="Name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />,
+              <SingleLineTextBox
+                label="Address"
+                placeholder="123 Main Street, Town"
+                type="text"
+              />,
+            ]}
+          />
+        </QuoteBlock>
+
+        <QuoteBlock position={3} current={curr}>
+          <QuoteQuestion
+            question="Please enter your full name and address"
+            onClickNext={handleIncrement}
+            onClickBack={handleDecrement}
+            active={curr === 3}
+            questionNo={4}
+            components={[
+              <SingleLineTextBox
+                label="Name"
+                placeholder="Name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />,
+              <SingleLineTextBox
+                label="Address"
+                placeholder="123 Main Street, Town"
+                type="text"
+              />,
+            ]}
+          />
+        </QuoteBlock>
+
+        <QuoteBlock position={4} current={curr}>
+          <QuoteQuestion
+            question="Do you have any medical conditions?"
+            onClickNext={handleIncrement}
+            onClickBack={handleDecrement}
+            active={curr === 4}
+            questionNo={5}
+            components={[
+              <SingleLineTextBox
+                label="Name"
+                placeholder="Name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />,
+              <SingleLineTextBox
+                label="Address"
+                placeholder="123 Main Street, Town"
+                type="text"
+              />,
+            ]}
+          />
+        </QuoteBlock>
+
+        <QuoteBlock position={5} current={curr}>
+          <QuoteQuestion
+            question="Do you take any medication?"
+            active={curr === 5}
+            onClickBack={handleDecrement}
+            questionNo={6}
             components={[
               <SingleLineTextBox
                 label="Name"

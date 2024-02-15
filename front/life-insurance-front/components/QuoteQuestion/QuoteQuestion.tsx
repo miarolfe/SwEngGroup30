@@ -5,6 +5,7 @@ type Props = {
   question: string;
   questionNo: number;
   components: React.ReactNode[];
+  onClickBack?: VoidFunction;
   onClickNext?: VoidFunction;
   active?: boolean;
 };
@@ -12,13 +13,15 @@ type Props = {
 const QuoteQuestion = ({ active = false, ...props }: Props) => {
   return (
     <div
-      className={`flex flex-col items-center glass h-full w-full rounded-2xl pb-2 overflow-hidden`}
+      className={`flex flex-col items-center glass h-full w-full rounded-2xl pb-2 overflow-hidden ${
+        !active ? "pointer-events-none" : ""
+      }`}
     >
       <span className="w-full py-2 pl-2 mb-2 flex items-end">
         <p className="font-bold text-5xl text-white">
           Question {props.questionNo}
         </p>
-        <p className="text-2xl text-white">/3</p>
+        <p className="text-2xl text-white">/6</p>
       </span>
 
       <div className="w-full h-full flex flex-col px-2">
@@ -34,7 +37,14 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
           <div className="w-full py-2">{item}</div>
         ))}
 
-        <div className="grow w-full flex justify-center items-end">
+        <div className="grow w-full flex justify-around items-end">
+          {props?.questionNo !== 1 && (
+            <LargeButton
+              extraClasses="bg-white hover:bg-slate-200"
+              text="Back"
+              onClick={props.onClickBack}
+            />
+          )}
           <LargeButton text="Next" onClick={props.onClickNext} />
         </div>
       </div>
