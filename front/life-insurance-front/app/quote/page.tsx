@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 
 import QuoteQuestion from "@/components/QuoteQuestion/QuoteQuestion";
-import SingleLineTextBox from "@/components/SingleLineTextBox";
+import test from "./questions.json";
 
 const QuoteBlock = ({
   position,
@@ -75,143 +75,18 @@ const Quote = () => {
   return (
     <div className="flex flex-row justify-center items-center h-screen overflow-x-hidden grad-bg">
       <div className={`h-full w-full test persp`}>
-        <QuoteBlock position={0} current={curr}>
-          <QuoteQuestion
-            question="Please enter your full name and address"
-            onClickNext={handleIncrement}
-            active={curr === 0}
-            questionNo={1}
-            newComps={[
-              {
-                textPlaceholder: "Justin Ikechukwu Cunningham",
-                label: "Full name",
-              },
-              {
-                dropdownOptions: ["Yes", "No", "Maybe"],
-                label: "lol",
-              },
-            ]}
-          />
-        </QuoteBlock>
-
-        {/* <QuoteBlock position={1} current={curr}>
-          <QuoteQuestion
-            question="Do you have any medical conditions?"
-            onClickNext={handleIncrement}
-            onClickBack={handleDecrement}
-            active={curr === 1}
-            questionNo={2}
-            components={[
-              <SingleLineTextBox
-                label="Name"
-                placeholder="Name"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />,
-              <SingleLineTextBox
-                label="Address"
-                placeholder="123 Main Street, Town"
-                type="text"
-              />,
-            ]}
-          />
-        </QuoteBlock>
-
-        <QuoteBlock position={2} current={curr}>
-          <QuoteQuestion
-            question="Do you take any medication?"
-            active={curr === 2}
-            onClickNext={handleIncrement}
-            onClickBack={handleDecrement}
-            questionNo={3}
-            components={[
-              <SingleLineTextBox
-                label="Name"
-                placeholder="Name"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />,
-              <SingleLineTextBox
-                label="Address"
-                placeholder="123 Main Street, Town"
-                type="text"
-              />,
-            ]}
-          />
-        </QuoteBlock>
-
-        <QuoteBlock position={3} current={curr}>
-          <QuoteQuestion
-            question="Please enter your full name and address"
-            onClickNext={handleIncrement}
-            onClickBack={handleDecrement}
-            active={curr === 3}
-            questionNo={4}
-            components={[
-              <SingleLineTextBox
-                label="Name"
-                placeholder="Name"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />,
-              <SingleLineTextBox
-                label="Address"
-                placeholder="123 Main Street, Town"
-                type="text"
-              />,
-            ]}
-          />
-        </QuoteBlock>
-
-        <QuoteBlock position={4} current={curr}>
-          <QuoteQuestion
-            question="Do you have any medical conditions?"
-            onClickNext={handleIncrement}
-            onClickBack={handleDecrement}
-            active={curr === 4}
-            questionNo={5}
-            components={[
-              <SingleLineTextBox
-                label="Name"
-                placeholder="Name"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />,
-              <SingleLineTextBox
-                label="Address"
-                placeholder="123 Main Street, Town"
-                type="text"
-              />,
-            ]}
-          />
-        </QuoteBlock>
-
-        <QuoteBlock position={5} current={curr}>
-          <QuoteQuestion
-            question="Do you take any medication?"
-            active={curr === 5}
-            onClickBack={handleDecrement}
-            questionNo={6}
-            components={[
-              <SingleLineTextBox
-                label="Name"
-                placeholder="Name"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />,
-              <SingleLineTextBox
-                label="Address"
-                placeholder="123 Main Street, Town"
-                type="text"
-              />,
-            ]}
-          />
-        </QuoteBlock> */}
+        {test.map((item, idx) => (
+          <QuoteBlock position={idx} key={idx} current={curr}>
+            <QuoteQuestion
+              question={item.question}
+              onClickNext={handleIncrement}
+              onClickBack={handleDecrement}
+              active={curr === idx}
+              questionNo={idx + 1}
+              newComps={item.inputs}
+            />
+          </QuoteBlock>
+        ))}
       </div>
     </div>
   );
