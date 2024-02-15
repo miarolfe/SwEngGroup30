@@ -92,7 +92,7 @@ const Quote = () => {
   };
 
   return (
-    <div className="flex flex-row justify-center items-center h-screen overflow-x-hidden">
+    <div className="flex flex-row justify-center items-center h-screen overflow-x-hidden grad-bg">
       <button className="z-20" onClick={handleDecrement}>
         Prev
       </button>

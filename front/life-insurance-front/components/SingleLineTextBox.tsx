@@ -11,9 +11,9 @@ const SingleLineTextBox = ({
 }: Props & React.InputHTMLAttributes<HTMLInputElement>) => {
   return (
     <div className="w-full flex flex-col">
-      <label>{label}</label>
+      <label className="text-white">{label}</label>
       <input
-        className="w-full h-14 border pl-3 pr-3 mt-2 rounded-md hover:border-sky-300 transition-colors"
+        className="glass-darker w-full h-14 border pl-3 pr-3 mt-2 rounded-md shadow hover:border-sky-300 transition-colors"
         {...props}
       />
     </div>

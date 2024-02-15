@@ -12,11 +12,9 @@ type Props = {
 const QuoteQuestion = ({ active = false, ...props }: Props) => {
   return (
     <div
-      className={`flex flex-col items-center bg-white h-full w-full rounded-md shadow-lg pb-2 overflow-hidden ${
-        !active && "-translate-x-8"
-      }`}
+      className={`flex flex-col items-center glass h-full w-full rounded-2xl pb-2 overflow-hidden`}
     >
-      <span className="w-full grad-bg py-2 pl-2 mb-2 flex items-end">
+      <span className="w-full py-2 pl-2 mb-2 flex items-end">
         <p className="font-bold text-5xl text-white">
           Question {props.questionNo}
         </p>
@@ -26,7 +24,9 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
       <div className="w-full h-full flex flex-col px-2">
         {/* Question Text */}
         <span className="w-full">
-          <p className="font-semibold text-2xl pb-4">{props.question}</p>
+          <p className="font-semibold text-white text-2xl pb-4">
+            {props.question}
+          </p>
         </span>
 
         {/* Loop over components */}
