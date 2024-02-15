@@ -3,12 +3,14 @@
     "question": "Enter some contact information",
     "inputs": [
       {
-        "textPlaceholder": "Justin Ikechukwu Cunningham",
-        "label": "Full name"
+        "textPlaceholder": "Your name",
+        "label": "Full name",
+        "stateName": "fullName"
       },
       {
         "dropdownOptions": ["Yes", "No", "Maybe"],
-        "label": "lol"
+        "label": "Thing",
+        "stateName": "thing"
       }
     ]
   },
@@ -17,34 +19,8 @@
     "inputs": [
       {
         "dropdownOptions": ["Yes", "No", "Maybe"],
-        "label": "lol"
-      }
-    ]
-  },
-  {
-    "question": "Do you have any diagnosed medical conditions?",
-    "inputs": [
-      {
-        "dropdownOptions": ["Yes", "No", "Maybe"],
-        "label": "lol"
-      }
-    ]
-  },
-  {
-    "question": "Do you have any diagnosed medical conditions?",
-    "inputs": [
-      {
-        "dropdownOptions": ["Yes", "No", "Maybe"],
-        "label": "lol"
-      }
-    ]
-  },
-  {
-    "question": "Do you have any diagnosed medical conditions?",
-    "inputs": [
-      {
-        "dropdownOptions": ["Yes", "No", "Maybe"],
-        "label": "lol"
+        "label": "Example",
+        "stateName": "example"
       }
     ]
   }

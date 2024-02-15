@@ -1,9 +1,9 @@
 "use client";
-
+// @todo: Create state to hold all the form variables
 import { useState, useRef, useEffect, useMemo } from "react";
 
 import QuoteQuestion from "@/components/QuoteQuestion/QuoteQuestion";
-import test from "./questions.json";
+import qData from "./questions.json";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
 
 const QuoteBlock = ({
@@ -59,11 +59,27 @@ const QuoteBlock = ({
   );
 };
 
+type QuestionState = {
+  key: string;
+  val: string;
+};
+
 const Quote = () => {
   const [curr, setCurr] = useState<number>(0);
+  const [data, setData] = useState<{ [stateName: string]: string }>({});
+
+  // useEffect(() => {
+  //   qData.map((item) => {
+  //     item.inputs.map((question) => {
+  //       if (!data.hasOwnProperty(question.stateName)) {
+  //         setData({question.stateName: 'world'});
+  //       }
+  //     })
+  //   })
+  // })
 
   const handleIncrement = () => {
-    if (curr === test.length - 1) return;
+    if (curr === qData.length - 1) return;
     setCurr((prev) => prev + 1);
   };
 
@@ -78,19 +94,19 @@ const Quote = () => {
         <ProgressBar
           number={1}
           label="Questions"
-          proportion={Math.floor(((curr + 1) / test.length) * 100)}
+          proportion={Math.floor(((curr + 1) / qData.length) * 100)}
           active
         />
         <ProgressBar number={2} label="Your Quote" proportion={0} />
         <ProgressBar number={3} label="Payment" proportion={0} />
       </div>
-      {test.map((item, idx) => (
+      {qData.map((item, idx) => (
         <QuoteBlock position={idx} key={idx} current={curr}>
           <QuoteQuestion
             question={item.question}
             onClickNext={handleIncrement}
             onClickBack={handleDecrement}
-            length={test.length}
+            length={qData.length}
             active={curr === idx}
             questionNo={idx + 1}
             newComps={item.inputs}

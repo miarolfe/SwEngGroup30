@@ -5,16 +5,19 @@ import SingleLineTextBox from "../SingleLineTextBox";
 type TextBox = {
   label: string;
   textPlaceholder: string;
+  stateName: string;
 };
 
 type Radio = {
   label: string;
   radioOptions: string[];
+  stateName: string;
 };
 
 type Dropdown = {
   label: string;
   dropdownOptions: string[];
+  stateName: string;
 };
 
 type Inputs = TextBox | Radio | Dropdown;
@@ -74,7 +77,7 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
         <div className="grow w-full flex justify-around items-end">
           {props?.questionNo !== 1 && (
             <LargeButton
-              extraClasses="bg-white hover:bg-slate-200"
+              extraClasses="glass hover:glass-light"
               text="Back"
               onClick={props.onClickBack}
             />
