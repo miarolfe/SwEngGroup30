@@ -1,3 +1,4 @@
+import Dropdown from "../Dropdown/Dropdown";
 import LargeButton from "../LargeButton";
 import SingleLineTextBox from "../SingleLineTextBox";
 
@@ -40,7 +41,7 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
       );
 
     // Dropdown
-    if ("dropdownOptions" in input) return <div>Dropdown</div>;
+    if ("dropdownOptions" in input) return <Dropdown />;
 
     // Radio
     if ("radioOptions" in input) return <div>Radio</div>;

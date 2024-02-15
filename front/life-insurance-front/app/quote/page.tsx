@@ -91,20 +91,6 @@ const Quote = () => {
                 label: "lol",
               },
             ]}
-            // components={[
-            //   <SingleLineTextBox
-            //     label="Name"
-            //     placeholder="Name"
-            //     type="text"
-            //     value={name}
-            //     onChange={(e) => setName(e.target.value)}
-            //   />,
-            //   <SingleLineTextBox
-            //     label="Address"
-            //     placeholder="123 Main Street, Town"
-            //     type="text"
-            //   />,
-            // ]}
           />
         </QuoteBlock>
 
