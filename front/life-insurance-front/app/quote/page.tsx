@@ -87,7 +87,7 @@ const Quote = () => {
                 label: "Full name",
               },
               {
-                radioOptions: ["Hey"],
+                dropdownOptions: ["Yes", "No", "Maybe"],
                 label: "lol",
               },
             ]}

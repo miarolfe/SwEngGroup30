@@ -11,7 +11,12 @@ type Radio = {
   radioOptions: string[];
 };
 
-type Inputs = TextBox | Radio;
+type Dropdown = {
+  label: string;
+  dropdownOptions: string[];
+};
+
+type Inputs = TextBox | Radio | Dropdown;
 
 type Props = {
   question: string;
@@ -25,6 +30,7 @@ type Props = {
 
 const QuoteQuestion = ({ active = false, ...props }: Props) => {
   const getComponent = (input: Inputs, idx: number) => {
+    // Textbox
     if ("textPlaceholder" in input)
       return (
         <SingleLineTextBox
@@ -33,6 +39,10 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
         />
       );
 
+    // Dropdown
+    if ("dropdownOptions" in input) return <div>Dropdown</div>;
+
+    // Radio
     if ("radioOptions" in input) return <div>Radio</div>;
   };
   return (
