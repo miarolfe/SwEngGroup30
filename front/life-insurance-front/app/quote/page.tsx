@@ -17,11 +17,6 @@ const QuoteBlock = ({
   const ref = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState<number>(0);
 
-  // useEffect(() => {
-  //   if (!ref?.current) return;
-  //   setWidth(ref.current.clientWidth);
-  // }, [ref?.current?.clientWidth]);
-
   useEffect(() => {
     if (!ref?.current) return;
     setWidth(ref.current.clientWidth);
@@ -29,21 +24,7 @@ const QuoteBlock = ({
       setWidth(entries[0].contentRect.width);
     });
     observer.observe(ref.current);
-    // return ref.current && observer.unobserve(ref.current);
   }, [ref.current]);
-
-  // const style = useMemo(() => {
-  //   console.log(width);
-  //   return {
-  //     transform:
-  //       "translateX(" +
-  //       (position - current) * width +
-  //       "px) scale(" +
-  //       (current !== position ? "0.8" : "1") +
-  //       ")",
-  //     opacity: current !== position ? "0.5" : "1",
-  //   };
-  // }, [width]);
 
   const rotation = useMemo(() => {
     if (current === position) return "";

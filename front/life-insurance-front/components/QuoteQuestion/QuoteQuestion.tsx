@@ -1,5 +1,4 @@
 import LargeButton from "../LargeButton";
-import SingleLineTextBox from "../SingleLineTextBox";
 
 type Props = {
   question: string;
