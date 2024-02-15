@@ -20,5 +20,32 @@
         "label": "lol"
       }
     ]
+  },
+  {
+    "question": "Do you have any diagnosed medical conditions?",
+    "inputs": [
+      {
+        "dropdownOptions": ["Yes", "No", "Maybe"],
+        "label": "lol"
+      }
+    ]
+  },
+  {
+    "question": "Do you have any diagnosed medical conditions?",
+    "inputs": [
+      {
+        "dropdownOptions": ["Yes", "No", "Maybe"],
+        "label": "lol"
+      }
+    ]
+  },
+  {
+    "question": "Do you have any diagnosed medical conditions?",
+    "inputs": [
+      {
+        "dropdownOptions": ["Yes", "No", "Maybe"],
+        "label": "lol"
+      }
+    ]
   }
 ]

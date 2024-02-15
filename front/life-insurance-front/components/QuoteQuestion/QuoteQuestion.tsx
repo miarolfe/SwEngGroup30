@@ -59,10 +59,10 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
         <p className="text-2xl text-white"> /{props.length}</p>
       </span>
 
-      <div className="w-full h-full flex flex-col px-2">
+      <div className="w-full h-full flex flex-col px-4">
         {/* Question Text */}
         <span className="w-full">
-          <p className="font-semibold text-white text-2xl pb-4">
+          <p className="font-medium text-white text-2xl pb-4">
             {props.question}
           </p>
         </span>
@@ -79,7 +79,10 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
               onClick={props.onClickBack}
             />
           )}
-          <LargeButton text="Next" onClick={props.onClickNext} />
+          <LargeButton
+            text={props.questionNo === props.length ? "Get quote" : "Next"}
+            onClick={props.onClickNext}
+          />
         </div>
       </div>
     </div>

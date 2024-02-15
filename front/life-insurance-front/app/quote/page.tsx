@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useMemo } from "react";
 
 import QuoteQuestion from "@/components/QuoteQuestion/QuoteQuestion";
 import test from "./questions.json";
+import ProgressBar from "@/components/ProgressBar/ProgressBar";
 
 const QuoteBlock = ({
   position,
@@ -28,8 +29,8 @@ const QuoteBlock = ({
 
   const rotation = useMemo(() => {
     if (current === position) return "";
-    if (current > position) return "rotateY(-15deg)";
-    return "rotateY(15deg)";
+    if (current > position) return "rotateY(-10deg)";
+    return "rotateY(10deg)";
   }, [current]);
 
   const style = {
@@ -59,36 +60,43 @@ const QuoteBlock = ({
 };
 
 const Quote = () => {
-  const [name, setName] = useState<string>("");
   const [curr, setCurr] = useState<number>(0);
 
   const handleIncrement = () => {
     if (curr === test.length - 1) return;
-    setCurr((curr) => curr + 1);
+    setCurr((prev) => prev + 1);
   };
 
   const handleDecrement = () => {
     if (curr === 0) return;
-    setCurr((curr) => curr - 1);
+    setCurr((prev) => prev - 1);
   };
 
   return (
-    <div className="flex flex-row justify-center items-center h-screen overflow-x-hidden grad-bg">
-      <div className={`h-full w-full test persp`}>
-        {test.map((item, idx) => (
-          <QuoteBlock position={idx} key={idx} current={curr}>
-            <QuoteQuestion
-              question={item.question}
-              onClickNext={handleIncrement}
-              onClickBack={handleDecrement}
-              length={test.length}
-              active={curr === idx}
-              questionNo={idx + 1}
-              newComps={item.inputs}
-            />
-          </QuoteBlock>
-        ))}
+    <div className="h-screen overflow-x-hidden grad-bg w-full test persp">
+      <div className="progress-grid-child flex justify-around items-center">
+        <ProgressBar
+          number={1}
+          label="Questions"
+          proportion={Math.floor(((curr + 1) / test.length) * 100)}
+          active
+        />
+        <ProgressBar number={2} label="Your Quote" proportion={0} />
+        <ProgressBar number={3} label="Payment" proportion={0} />
       </div>
+      {test.map((item, idx) => (
+        <QuoteBlock position={idx} key={idx} current={curr}>
+          <QuoteQuestion
+            question={item.question}
+            onClickNext={handleIncrement}
+            onClickBack={handleDecrement}
+            length={test.length}
+            active={curr === idx}
+            questionNo={idx + 1}
+            newComps={item.inputs}
+          />
+        </QuoteBlock>
+      ))}
     </div>
   );
 };
