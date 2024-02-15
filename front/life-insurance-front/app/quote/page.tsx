@@ -63,7 +63,7 @@ const Quote = () => {
   const [curr, setCurr] = useState<number>(0);
 
   const handleIncrement = () => {
-    if (curr === 5) return;
+    if (curr === test.length - 1) return;
     setCurr((curr) => curr + 1);
   };
 
@@ -81,6 +81,7 @@ const Quote = () => {
               question={item.question}
               onClickNext={handleIncrement}
               onClickBack={handleDecrement}
+              length={test.length}
               active={curr === idx}
               questionNo={idx + 1}
               newComps={item.inputs}

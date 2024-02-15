@@ -22,8 +22,8 @@ type Inputs = TextBox | Radio | Dropdown;
 type Props = {
   question: string;
   questionNo: number;
-  // components: React.ReactNode[];
   newComps: Inputs[];
+  length: number;
   onClickBack?: VoidFunction;
   onClickNext?: VoidFunction;
   active?: boolean;
@@ -48,7 +48,7 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
   };
   return (
     <div
-      className={`flex flex-col items-center glass h-full w-full rounded-2xl pb-2 overflow-hidden ${
+      className={`flex flex-col shadow-xl items-center glass h-full w-full rounded-2xl pb-2 overflow-hidden ${
         !active ? "pointer-events-none" : ""
       }`}
     >
@@ -56,7 +56,7 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
         <p className="font-bold text-5xl text-white">
           Question {props.questionNo}
         </p>
-        <p className="text-2xl text-white">/6</p>
+        <p className="text-2xl text-white"> /{props.length}</p>
       </span>
 
       <div className="w-full h-full flex flex-col px-2">
@@ -66,11 +66,6 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
             {props.question}
           </p>
         </span>
-
-        {/* Loop over components */}
-        {/* {props?.components?.map((item, idx) => (
-          <div className="w-full py-2">{item}</div>
-        ))} */}
 
         {props?.newComps.map((item, idx) => (
           <div className="w-full py-2">{getComponent(item, idx)}</div>
