@@ -1,5 +1,4 @@
 "use client";
-// @todo: Create state to hold all the form variables
 import { useState, useRef, useEffect, useMemo } from "react";
 
 import QuoteQuestion from "@/components/QuoteQuestion/QuoteQuestion";
@@ -68,15 +67,20 @@ const Quote = () => {
   const [curr, setCurr] = useState<number>(0);
   const [data, setData] = useState<{ [stateName: string]: string }>({});
 
-  // useEffect(() => {
-  //   qData.map((item) => {
-  //     item.inputs.map((question) => {
-  //       if (!data.hasOwnProperty(question.stateName)) {
-  //         setData({question.stateName: 'world'});
-  //       }
-  //     })
-  //   })
-  // })
+  useEffect(() => {
+    qData.map((item): void => {
+      item.inputs.map((question) => {
+        if (!data.hasOwnProperty(question.stateName)) {
+          setData((prev) => ({ ...prev, [question.stateName]: "" }));
+        }
+      });
+    });
+  });
+
+  // @todo: Remove this console.log
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   const handleIncrement = () => {
     if (curr === qData.length - 1) return;
@@ -106,6 +110,8 @@ const Quote = () => {
             question={item.question}
             onClickNext={handleIncrement}
             onClickBack={handleDecrement}
+            data={data}
+            setData={setData}
             length={qData.length}
             active={curr === idx}
             questionNo={idx + 1}

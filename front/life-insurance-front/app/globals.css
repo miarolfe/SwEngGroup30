@@ -32,7 +32,7 @@
 
   .glass {
     /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.44);
+    background: rgba(255, 255, 255, 0.27);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(12.9px);
     -webkit-backdrop-filter: blur(12.9px);

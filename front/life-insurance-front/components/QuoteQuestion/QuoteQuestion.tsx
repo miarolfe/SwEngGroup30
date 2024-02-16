@@ -5,28 +5,29 @@ import SingleLineTextBox from "../SingleLineTextBox";
 type TextBox = {
   label: string;
   textPlaceholder: string;
-  stateName: string;
 };
 
 type Radio = {
   label: string;
   radioOptions: string[];
-  stateName: string;
 };
 
 type Dropdown = {
   label: string;
   dropdownOptions: string[];
-  stateName: string;
 };
 
-type Inputs = TextBox | Radio | Dropdown;
+type Inputs = (TextBox | Radio | Dropdown) & { stateName: string };
 
 type Props = {
   question: string;
   questionNo: number;
   newComps: Inputs[];
   length: number;
+  data: { [stateName: string]: string };
+  setData: React.Dispatch<
+    React.SetStateAction<{ [stateName: string]: string }>
+  >;
   onClickBack?: VoidFunction;
   onClickNext?: VoidFunction;
   active?: boolean;
@@ -40,6 +41,13 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
         <SingleLineTextBox
           label={input.label}
           placeholder={input.textPlaceholder}
+          value={props.data[input.stateName]}
+          onChange={(e) =>
+            props.setData((prev) => ({
+              ...prev,
+              [input.stateName]: e.target.value,
+            }))
+          }
         />
       );
 
@@ -56,10 +64,8 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
       }`}
     >
       <span className="w-full py-2 pl-2 mb-2 flex items-end">
-        <p className="font-bold text-5xl text-white">
-          Question {props.questionNo}
-        </p>
-        <p className="text-2xl text-white"> /{props.length}</p>
+        <p className="font-bold text-5xl text-white">{props.questionNo}</p>
+        <p className="text-xl text-white ml-2">of {props.length}</p>
       </span>
 
       <div className="w-full h-full flex flex-col px-4">
