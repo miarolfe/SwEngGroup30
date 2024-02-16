@@ -58,11 +58,6 @@ const QuoteBlock = ({
   );
 };
 
-type QuestionState = {
-  key: string;
-  val: string;
-};
-
 const Quote = () => {
   const [curr, setCurr] = useState<number>(0);
   const [data, setData] = useState<{ [stateName: string]: string }>({});

@@ -61,6 +61,7 @@
     /* font-size: 72px; */
     background: rgba(255, 255, 255, 0.44);
     backdrop-filter: blur(12.9px);
+    background-clip: text;
     -webkit-backdrop-filter: blur(12.9px);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
