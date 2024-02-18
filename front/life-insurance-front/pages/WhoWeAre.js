@@ -12,8 +12,8 @@ const WhoWeAre = () => {
             </Head>
             <Header />
             <main>
-                <section>
-                    <h2>
+                <section className="flex text-center">
+                    <h2 className="md:text-center">
                         Who We Are
                     </h2>
                     <p>
