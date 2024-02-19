@@ -12,7 +12,7 @@ const LifeInsurance = () => {
             </Head>
             <Header />
             <main>
-                <section>
+                <section  style={{ textAlign: 'center' }}>
                     <h2>
                         Life Insurance
                     </h2>
