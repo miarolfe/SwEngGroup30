@@ -30,6 +30,7 @@ type Props = {
   >;
   onClickBack?: VoidFunction;
   onClickNext?: VoidFunction;
+  onClickSubmit?: VoidFunction;
   active?: boolean;
 };
 
@@ -90,7 +91,11 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
           )}
           <LargeButton
             text={props.questionNo === props.length ? "Get quote" : "Next"}
-            onClick={props.onClickNext}
+            onClick={
+              props.questionNo === props.length
+                ? props.onClickSubmit
+                : props.onClickNext
+            }
           />
         </div>
       </div>

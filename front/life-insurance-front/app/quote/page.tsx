@@ -61,6 +61,7 @@ const QuoteBlock = ({
 const Quote = () => {
   const [curr, setCurr] = useState<number>(0);
   const [data, setData] = useState<{ [stateName: string]: string }>({});
+  const [currentStep, setCurrentStep] = useState<number>(1);
 
   useEffect(() => {
     qData.map((item): void => {
@@ -72,11 +73,6 @@ const Quote = () => {
     });
   });
 
-  // @todo: Remove this console.log
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   const handleIncrement = () => {
     if (curr === qData.length - 1) return;
     setCurr((prev) => prev + 1);
@@ -87,24 +83,20 @@ const Quote = () => {
     setCurr((prev) => prev - 1);
   };
 
-  return (
-    <div className="h-screen overflow-x-hidden grad-bg w-full test persp">
-      <div className="progress-grid-child flex justify-around items-center">
-        <ProgressBar
-          number={1}
-          label="Questions"
-          proportion={Math.floor(((curr + 1) / qData.length) * 100)}
-          active
-        />
-        <ProgressBar number={2} label="Your Quote" proportion={0} />
-        <ProgressBar number={3} label="Payment" proportion={0} />
-      </div>
-      {qData.map((item, idx) => (
+  const handleSubmit = () => {
+    setCurrentStep(2);
+  };
+
+  const currentComponent = useMemo(() => {
+    console.log("changing");
+    if (currentStep === 1) {
+      return qData.map((item, idx) => (
         <QuoteBlock position={idx} key={idx} current={curr}>
           <QuoteQuestion
             question={item.question}
             onClickNext={handleIncrement}
             onClickBack={handleDecrement}
+            onClickSubmit={handleSubmit}
             data={data}
             setData={setData}
             length={qData.length}
@@ -113,7 +105,34 @@ const Quote = () => {
             newComps={item.inputs}
           />
         </QuoteBlock>
-      ))}
+      ));
+    }
+    if (currentStep === 2) return <></>;
+  }, [currentStep, curr]);
+
+  return (
+    <div className="h-screen overflow-x-hidden grad-bg w-full test persp">
+      <div className="progress-grid-child flex justify-around items-center">
+        <ProgressBar
+          number={1}
+          label="Questions"
+          proportion={Math.floor(((curr + 1) / qData.length) * 100)}
+          active={currentStep >= 1}
+        />
+        <ProgressBar
+          number={2}
+          label="Your Quote"
+          proportion={currentStep >= 2 ? 100 : 0}
+          active={currentStep >= 2}
+        />
+        <ProgressBar
+          number={3}
+          label="Payment"
+          proportion={0}
+          active={currentStep >= 3}
+        />
+      </div>
+      {currentComponent}
     </div>
   );
 };
