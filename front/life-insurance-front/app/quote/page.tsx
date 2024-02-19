@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 
 import QuoteQuestion from "@/components/QuoteQuestion/QuoteQuestion";
+import Quote from "@/components/Quote/Quote";
 import qData from "./questions.json";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
 
@@ -49,7 +50,7 @@ const QuoteBlock = ({
       ref={ref}
       key={position}
       className={
-        "flex justify-center items-center h-full transition duration-500 test-c" +
+        "flex justify-center items-center h-full transition duration-500 quote-page-block" +
         (position === 0 ? " z-10" : "")
       }
     >
@@ -58,7 +59,7 @@ const QuoteBlock = ({
   );
 };
 
-const Quote = () => {
+const QuotePage = () => {
   const [curr, setCurr] = useState<number>(0);
   const [data, setData] = useState<{ [stateName: string]: string }>({});
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -107,7 +108,12 @@ const Quote = () => {
         </QuoteBlock>
       ));
     }
-    if (currentStep === 2) return <></>;
+    if (currentStep === 2)
+      return (
+        <div className="cover-quote-page">
+          <Quote />
+        </div>
+      );
   }, [currentStep, curr]);
 
   return (
@@ -137,4 +143,4 @@ const Quote = () => {
   );
 };
 
-export default Quote;
+export default QuotePage;

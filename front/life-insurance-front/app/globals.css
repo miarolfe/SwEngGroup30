@@ -17,8 +17,12 @@
     grid-template-rows: 0.15fr 0.8fr 0.05fr;
   }
 
-  .test-c {
+  .quote-page-block {
     grid-area: 2 / 2 / 3 / 3;
+  }
+
+  .cover-quote-page {
+    grid-area: 2 / 1 / 4 / 4;
   }
 
   .progress-grid-child {
