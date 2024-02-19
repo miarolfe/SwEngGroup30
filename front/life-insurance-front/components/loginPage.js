@@ -1,6 +1,8 @@
 import '../app/globals.css'
 import {useState} from "react";
 import {useRouter} from "next/router";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faGoogle, faTwitter, faFacebook} from '@fortawesome/free-brands-svg-icons';
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
@@ -54,21 +56,15 @@ const LoginPage = () => {
             </form>
             <div className="mt-8 flex space-x-4">
                 <button className="bg-blue-700 text-white px-4 py-2 rounded-md flex items-center justify-center space-x-2">
-                    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-                        {/* Facebook icon */}
-                    </svg>
+                    <FontAwesomeIcon icon={faFacebook} />
                     <span>Facebook</span>
                 </button>
                 <button className="bg-red-600 text-white px-4 py-2 rounded-md flex items-center justify-center space-x-2">
-                    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-                        {/* Google icon */}
-                    </svg>
+                    <FontAwesomeIcon icon={faGoogle} />
                     <span>Google</span>
                 </button>
                 <button className="bg-blue-400 text-white px-4 py-2 rounded-md flex items-center justify-center space-x-2">
-                    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-                        {/* Twitter icon */}
-                    </svg>
+                    <FontAwesomeIcon icon={faTwitter} />
                     <span>Twitter</span>
                 </button>
             </div>
