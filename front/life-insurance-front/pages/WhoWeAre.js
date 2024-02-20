@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "../components/Header";
+import '../app/globals.css'
 
 const WhoWeAre = () => {
 
@@ -12,13 +13,11 @@ const WhoWeAre = () => {
             </Head>
             <Header />
             <main>
-                <section>
-                    <h2>
-                        Who We Are
-                    </h2>
-                    <p>
-                        description of the tab
-                    </p>
+            <section className="text-center">
+                <br/>
+                <br/>
+                <h2 className="text-4xl">Who We Are</h2>
+                <p>description of tab   </p>
                 </section>
             </main>
         </div>
