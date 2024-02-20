@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 import Dropdown from "../Dropdown/Dropdown";
 import LargeButton from "../LargeButton";
 import SingleLineTextBox from "../SingleLineTextBox";
@@ -17,7 +19,10 @@ type Dropdown = {
   dropdownOptions: string[];
 };
 
-type Inputs = (TextBox | Radio | Dropdown) & { stateName: string };
+type Inputs = (TextBox | Radio | Dropdown) & {
+  stateName: string;
+  required?: boolean;
+};
 
 type Props = {
   question: string;
@@ -43,12 +48,12 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
           label={input.label}
           placeholder={input.textPlaceholder}
           value={props.data[input.stateName]}
-          onChange={(e) =>
-            props.setData((prev) => ({
-              ...prev,
-              [input.stateName]: e.target.value,
-            }))
-          }
+          // onChange={(e) =>
+          //   props.setData((prev) => ({
+          //     ...prev,
+          //     [input.stateName]: e.target.value,
+          //   }))
+          // }
         />
       );
 
@@ -58,6 +63,20 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
     // Radio
     if ("radioOptions" in input) return <div>Radio</div>;
   };
+
+  // Check for empty fields
+  const isEmptyFields = useMemo(() => {
+    props?.newComps.map((item) => {
+      console.log(!item?.required);
+      if (!!item?.required && !props.data[item.stateName]) {
+        console.log("returning true");
+        return true;
+      }
+    });
+    console.log("Here");
+    return false;
+  }, [props.data]);
+
   return (
     <div
       className={`flex flex-col shadow-xl items-center glass h-full w-full rounded-2xl pb-2 overflow-hidden ${
@@ -91,6 +110,7 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
           )}
           <LargeButton
             text={props.questionNo === props.length ? "Get quote" : "Next"}
+            disabled={isEmptyFields}
             onClick={
               props.questionNo === props.length
                 ? props.onClickSubmit

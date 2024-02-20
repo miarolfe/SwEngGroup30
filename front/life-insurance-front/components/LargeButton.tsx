@@ -1,17 +1,29 @@
+import { useMemo } from "react";
+
 type Props = {
   text: string;
   extraClasses?: string;
+  disabled?: boolean;
 };
 
 const LargeButton = (
   props: Props & React.HTMLAttributes<HTMLButtonElement>
 ) => {
+  const disabledButtonStyle = useMemo(() => {
+    if (props?.disabled)
+      return "mx-2 bg-blue-600 brightness-50 hover:cursor-not-allowed ";
+
+    if (!!props?.extraClasses) return props.extraClasses;
+
+    return "mx-2 bg-blue-600 hover:bg-blue-800 text-white";
+  }, [props?.disabled]);
+
   return (
     <button
+      disabled={props?.disabled}
       className={
         "w-5/6 h-10 rounded-full font-semibold text-xl transition-colors " +
-        (props?.extraClasses ||
-          "mx-2 bg-blue-600  hover:bg-blue-800 text-white")
+        disabledButtonStyle
       }
       {...props}
     >

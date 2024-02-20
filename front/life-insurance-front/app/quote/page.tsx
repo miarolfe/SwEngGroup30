@@ -89,7 +89,6 @@ const QuotePage = () => {
   };
 
   const currentComponent = useMemo(() => {
-    console.log("changing");
     if (currentStep === 1) {
       return qData.map((item, idx) => (
         <QuoteBlock position={idx} key={idx} current={curr}>

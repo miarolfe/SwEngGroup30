@@ -5,12 +5,14 @@
       {
         "textPlaceholder": "Your name",
         "label": "Full name",
-        "stateName": "fullName"
+        "stateName": "fullName",
+        "required": true
       },
       {
         "dropdownOptions": ["Yes", "No", "Maybe"],
         "label": "Thing",
-        "stateName": "thing"
+        "stateName": "thing",
+        "required": true
       }
     ]
   },
@@ -20,7 +22,8 @@
       {
         "dropdownOptions": ["Yes", "No", "Maybe"],
         "label": "Example",
-        "stateName": "example"
+        "stateName": "example",
+        "required": true
       }
     ]
   }
