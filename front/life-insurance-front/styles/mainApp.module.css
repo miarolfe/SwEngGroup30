@@ -1,0 +1,51 @@
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.underlogo {
+    text-align: center;
+    color: grey;
+    margin-bottom: 20px;
+}
+
+.underlogo p {
+    position: relative;
+}
+
+.underlogo p:before,
+.underlogo p:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-top: 1px solid grey;
+}
+
+.underlogo p:before {
+    top: -10px;
+}
+
+.underlogo p:after {
+    bottom: -10px;
+}
+
+.nav {
+    text-align: center;
+}
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+}

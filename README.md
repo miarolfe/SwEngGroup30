@@ -7,6 +7,11 @@ docker compose build && docker compose up
 ```
 This will build and run the SwEng Group 30 project.
 
+When you're done running the project, run the following command:
+```bash
+docker compose down
+```
+
 ## Technologies
 Front-end: [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/)
 
