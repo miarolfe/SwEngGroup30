@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "../components/Header";
+import '../app/globals.css'
 
 const LifeInsurance = () => {
 
@@ -12,12 +13,14 @@ const LifeInsurance = () => {
             </Head>
             <Header />
             <main>
-                <section  style={{ textAlign: 'center' }}>
-                    <h2>
+                <section className="text-center">
+                    <br/>
+                    <br/>
+                    <h2 className="text-4xl">
                         Life Insurance
                     </h2>
                     <p>
-                        description of the tab
+                        leads to questionaire page maybe
                     </p>
                 </section>
             </main>
