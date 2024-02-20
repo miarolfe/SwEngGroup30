@@ -15,6 +15,6 @@ docker compose down
 ## Technologies
 Front-end: [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/)
 
-Back-end: [FastAPI](https://fastapi.tiangolo.com/)
+Back-end: [Django](https://www.djangoproject.com/#:~:text=Django%20is%20a%20high%2Dlevel,Ridiculously%20fast.), [Django REST framework](https://www.django-rest-framework.org/)
 
 DevOps: [Docker](https://www.docker.com/), [Git](https://git-scm.com/), [GitHub](https://github.com/), [GitHub Actions](https://github.com/features/actions)
