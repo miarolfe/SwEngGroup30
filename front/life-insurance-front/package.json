@@ -9,16 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^14.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "fontawesome-free": "^1.0.4",
+    "next": "14.1.0",
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "autoprefixer": "^10.4.17",
-    "postcss": "^8.4.35",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
