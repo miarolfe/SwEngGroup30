@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "../components/Header";
+import '../styles/main-page.css'
 
 const TheTeam = () => {
 
@@ -12,8 +13,10 @@ const TheTeam = () => {
             </Head>
             <Header />
             <main>
-                <section style={{textAlign: 'center'}}>
-                    <h2>
+                <br />
+                <br />
+                <section className="text-center">
+                    <h2 className="text-4xl">
                         The Team
                     </h2>
                     <img src="" width={1500} height={400}></img>
@@ -24,12 +27,12 @@ const TheTeam = () => {
                         here you'll find the development team who worked 
                         tirelessly over the last 12 weeks in creating this site
                     </p>
-                    <section style={{textAlign: 'left'}}>
+                    <section className="text-left">
                         <br></br>
-                        <h1> Front-End Team</h1>
+                        <h1 className="text-3xl font-mono "> Front-End Team</h1>
 
-                        <div style={{ display: 'flex', marginBottom: '20px' }}>
-                            <img src="/empty-profile.jpg" alt="karolina" width={150} height={150} style={{ marginRight: '20px' }} />
+                        <div className="flex ">
+                            <img src="/empty-profile.jpg" alt="karolina" width={150} height={150} className="mx-5 mb-5" />
                             <div>
                                 <p>Karolina Raczynska - Team Lead</p>
                                 <br />
@@ -38,7 +41,7 @@ const TheTeam = () => {
                         </div>
 
                         <div style={{ display: 'flex', marginBottom: '20px' }}>
-                        <img src="/empty-profile.jpg" alt="Hamza" widht={150} height={150} style={{ marginRight: '20px' }}></img>
+                        <img src="/empty-profile.jpg" alt="Hamza" width={150} height={150} className="mx-5"></img>
                             <div>
                                 <p>Hamza Bana - Developer</p>
                                 <br />
@@ -47,7 +50,7 @@ const TheTeam = () => {
                         </div>
 
                         <div style={{ display: 'flex', marginBottom: '20px' }}>
-                        <img src="/empty-profile.jpg" alt="Justin" widht={150} height={150} style={{ marginRight: '20px' }}></img>
+                        <img src="/empty-profile.jpg" alt="Justin" width={150} height={150} className="mx-5"></img>
                         
                         
                             <div>
@@ -58,7 +61,7 @@ const TheTeam = () => {
                         </div>
 
                         <div style={{ display: 'flex', marginBottom: '20px' }}>
-                        <img src="/empty-profile.jpg" alt="Ben" widht={150} height={150} style={{ marginRight: '20px' }}></img>
+                        <img src="/empty-profile.jpg" alt="Ben" width={150} height={150} className="mx-5"></img>
                             <div>
                             <p>Ben Byrne - Developer</p>
                                 <br />
@@ -67,7 +70,7 @@ const TheTeam = () => {
                         </div>
 
                         <div style={{ display: 'flex', marginBottom: '20px' }}>
-                        <img src="/empty-profile.jpg" alt="Luke" widht={150} height={150} style={{ marginRight: '20px' }}></img>
+                        <img src="/empty-profile.jpg" alt="Luke" width={150} height={150} className="mx-5"></img>
                             <div>
                             <p>Luke Boylan - Developer</p>
                                 <br />
@@ -80,7 +83,7 @@ const TheTeam = () => {
                         <br></br>
 
                         <div style={{ display: 'flex', marginBottom: '20px' }}>
-                            <img src="/empty-profile.jpg" alt="Nouxi" width={150} height={150} style={{ marginRight: '20px' }} />
+                            <img src="/empty-profile.jpg" alt="Nouxi" width={150} height={150} className="mx-5" />
                             <div>
                                 <p>Nouxi Zhang - Team Lead</p>
                                 <br />
@@ -89,7 +92,7 @@ const TheTeam = () => {
                         </div>
 
                         <div style={{ display: 'flex', marginBottom: '20px' }}>
-                            <img src="/empty-profile.jpg" alt="Jake" width={150} height={150} style={{ marginRight: '20px' }} />
+                            <img src="/empty-profile.jpg" alt="Jake" width={150} height={150} className="mx-5" />
                             <div>
                                 <p>Jake McKenna - developer</p>
                                 <br />
@@ -98,7 +101,7 @@ const TheTeam = () => {
                         </div>
 
                         <div style={{ display: 'flex', marginBottom: '20px' }}>
-                        <img src="/empty-profile.jpg" alt="Mia" widht={150} height={150} style={{ marginRight: '20px' }}></img>
+                        <img src="/empty-profile.jpg" alt="Mia" width={150} height={150} className="mx-5"></img>
                             <div>
                             <p>Mia Rolfe - Developer</p>
                                 <br />
@@ -107,7 +110,7 @@ const TheTeam = () => {
                         </div>
 
                         <div style={{ display: 'flex', marginBottom: '20px' }}>
-                        <img src="/empty-profile.jpg" alt="Reece" widht={150} height={150} style={{ marginRight: '20px' }}></img>
+                        <img src="/empty-profile.jpg" alt="Reece" width={150} height={150} className="mx-5"></img>
                             <div>
                             <p>Reece Webb - Developer</p>
                                 <br />
@@ -116,7 +119,7 @@ const TheTeam = () => {
                         </div>
 
                         <div style={{ display: 'flex', marginBottom: '20px' }}>
-                        <img src="/empty-profile.jpg" alt="kate" widht={150} height={150} style={{ marginRight: '20px' }}></img>
+                        <img src="/empty-profile.jpg" alt="kate" width={150} height={150} className="mx-5"></img>
                             <div>
                             <p>Kate Byrne - Developer</p>
                                 <br />
@@ -125,9 +128,9 @@ const TheTeam = () => {
                         </div>
 
                         <div style={{ display: 'flex', marginBottom: '20px' }}>
-                        <img src="/empty-profile.jpg" alt="Essien" width={150} height={150} style={{ marginRight: '20px' }} />
+                        <img src="/empty-profile.jpg" alt="Essien" width={150} height={150} className="mx-5" />
                             <div>
-                                <p>Essien Thompson - Team Lead</p>
+                                <p>Essien Thompson - Developer</p>
                                 <br />
                                 <p>He does things</p>
                             </div>
