@@ -29,6 +29,27 @@ const LoginPage = () => {
         }
     };
 
+    const handleRegister = async (e) => {
+        try {
+            const res = await fetch("api/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username,
+                    password
+                })
+            });
+
+            if (res.ok) {
+                console.log("Worked");
+            }
+        } catch (error) {
+
+        }
+    }
+
     return (
         <div className="min-h-screen flex flex-col justify-center items-center">
             <form onSubmit={handleLogin} className="w-80">
@@ -68,8 +89,8 @@ const LoginPage = () => {
                     <span>Twitter</span>
                 </button>
             </div>
-            <div className="mt-4">
-                <a href="#" className="text-blue-500 hover:underline">Register new account</a>
+            <div className="mt-4" onClick={handleRegister}>
+                <h4 className="text-blue-500 hover:underline">Register new account</h4>
                 {/*<span className="mx-2">|</span>*/}
                 {/*<a href="#" className="text-blue-500 hover:underline">Continue without account</a> */}
             </div>
