@@ -1,32 +1,56 @@
+"use client";
+
 import '../app/globals.css'
 import {useState} from "react";
 import {useRouter} from "next/router";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGoogle, faTwitter, faFacebook} from '@fortawesome/free-brands-svg-icons';
+import {signIn} from "next-auth/react";
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const router = useRouter();
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const response = await fetch('/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password }),
-        });
-        if (response.ok) {
-            const data = await response.json();
-            onLogin(data);
+
+        try {
+            const res = await signIn("credentials", {
+                email: username, 
+                password,
+                redirect: false
+            });
+
+            if (res.error) {
+                console.log("Invalid Crentials");
+                return
+            }
+
+            router.push ('/quote')
+            console.log("hurray");
+
+        } catch (error) {
+            console.log(error);
+        }
+
+        // const response = await fetch('/api/login', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({ username, password }),
+        // });
+        // if (response.ok) {
+        //     const data = await response.json();
+        //     onLogin(data);
 
 
-            router.push ('/question-page')
-        }
-        else {
-            console.error ('Login failed');
-        }
+        //     router.push ('/question-page')
+        // }
+        // else {
+        //     console.error ('Login failed');
+        // }
     };
 
     const handleRegister = async (e) => {
