@@ -8,9 +8,7 @@ const Header = () => {
             <div className={styles.topRow}>
                 <div className={styles.logo}>
                     <Link href="/">
-                        <a>
-                            <Image src="/logo.jpeg" alt="Munich RE" width={150} height={100}/>
-                        </a>
+                        <Image src="/logo.jpeg" alt="Munich RE" width={150} height={100}/>
                     </Link>
                     <div className={styles.underlogo}>
                         Munich Re Automation Solutions Ltd
