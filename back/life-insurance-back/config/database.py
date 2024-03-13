@@ -17,3 +17,19 @@ except Exception as e:
 db = client.user_app
 
 collection_name = db["users_app"]
+
+
+db2 = client.DiseaseList
+collection_disease = db2["DiseaseList"]
+
+diseases = list(collection_disease.find())
+riskScore = 0
+
+for disease in diseases:
+    diseaseName = disease["Name"]
+    userResponse = input(f"Do you have {diseaseName}? (Yes/No): ").lower()
+    if userResponse == "yes":
+        riskScore += int(disease["Score"])
+
+print(f"Your total risk score is: {riskScore}")
+
