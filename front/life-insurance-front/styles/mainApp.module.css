@@ -72,3 +72,9 @@
 .loginButton:hover {
     background-color: #434190;
 }
+
+.loginLogo {
+    display: block;
+    vertical-align: middle;
+    margin-left: 86px;
+}

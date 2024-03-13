@@ -3,6 +3,9 @@ import {useState} from "react";
 import {useRouter} from "next/router";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGoogle, faTwitter, faFacebook} from '@fortawesome/free-brands-svg-icons';
+import Image from "next/image";
+import styles from '../../styles/mainApp.module.css';
+import Link from "next/link";
 
 const LoginUnderwriter = () => {
     const [username, setUsername] = useState('');
@@ -33,6 +36,9 @@ const LoginUnderwriter = () => {
         <div className="min-h-screen flex flex-col justify-center items-center">
             <form onSubmit={handleLogin} className="w-80">
                 <div className="mb-4">
+                    <div className={styles.loginLogo}>
+                        <Image src="/logo.jpeg" alt="Munich RE" width={150} height={100}/>
+                    </div>
                     <label htmlFor="username" className="block mb-2">Username:</label>
                     <input
                         type="text"
