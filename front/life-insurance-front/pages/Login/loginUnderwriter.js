@@ -1,10 +1,10 @@
-import '../app/globals.css'
+import '../../app/globals.css'
 import {useState} from "react";
 import {useRouter} from "next/router";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGoogle, faTwitter, faFacebook} from '@fortawesome/free-brands-svg-icons';
 
-const LoginPage = () => {
+const LoginUnderwriter = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -54,28 +54,9 @@ const LoginPage = () => {
                 </div>
                 <button type="submit" className="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">Login</button>
             </form>
-            <div className="mt-8 flex space-x-4">
-                <button className="bg-blue-700 text-white px-4 py-2 rounded-md flex items-center justify-center space-x-2">
-                    <FontAwesomeIcon icon={faFacebook} />
-                    <span>Facebook</span>
-                </button>
-                <button className="bg-red-600 text-white px-4 py-2 rounded-md flex items-center justify-center space-x-2">
-                    <FontAwesomeIcon icon={faGoogle} />
-                    <span>Google</span>
-                </button>
-                <button className="bg-blue-400 text-white px-4 py-2 rounded-md flex items-center justify-center space-x-2">
-                    <FontAwesomeIcon icon={faTwitter} />
-                    <span>Twitter</span>
-                </button>
-            </div>
-            <div className="mt-4">
-                <a href="#" className="text-blue-500 hover:underline">Register new account</a>
-                {/*<span className="mx-2">|</span>*/}
-                {/*<a href="#" className="text-blue-500 hover:underline">Continue without account</a> */}
-            </div>
         </div>
     );
 
 };
 
-export default LoginPage;
+export default LoginUnderwriter;
