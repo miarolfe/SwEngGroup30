@@ -15,5 +15,7 @@ except Exception as e:
     print(e)
     
 db = client.user_app
+db2 = client.Disease
 
 collection_name = db["users_app"]
+collection_disease = db2["DiseaseList"]
