@@ -3,7 +3,7 @@ import pymongo
 from config.database import collection_name as user_collection, collection_disease as disease_collection
 from schemas.users_schema import users_serialiser, user_serialiser
 from bson import ObjectId
-
+BASE_RISK_SCORE = 10
 diseaseCursor : pymongo.cursor.Cursor = disease_collection.find()
 diseaseDict : dict = []
 HereditaryRisk : dict = []
@@ -14,7 +14,65 @@ for disease in diseaseCursor:
     HereditaryRisk[diseaseName.casefold()] = disease["HereditaryRisk"]
 
 def getRiskScoreFromUserHealthCondition(user : dict) -> float:
-    return calculateRiskScorefromHereditaryConditions(user) + calculateRiskScoreFromMedicalHistory(user)
+    riskScoreFromHealthDisease : float =  calculateRiskScorefromHereditaryConditions(user) + calculateRiskScoreFromMedicalHistory(user) + BASE_RISK_SCORE
+    riskScoreFromHabbit : float = getRiskScoreFromSmokingHistory(user) + getRiskScoreFromDrinkingHistory(user) - getDeductionFromHabbit(user)
+    totalRiskScore = riskScoreFromHealthDisease + riskScoreFromHabbit
+    return totalRiskScore
+
+
+
+def getDeductionFromHabbit(user : dict) -> float:
+    exerciseHourPerWeek : float = user["exerciseHourPerWeek"]
+    if exerciseHourPerWeek < 3:
+        return 0
+    elif exerciseHourPerWeek < 5:
+        return 0.03
+    elif exerciseHourPerWeek < 10:
+        return 0.125
+    elif exerciseHourPerWeek < 15:
+        return 0.25
+    elif exerciseHourPerWeek < 20:
+        return 0.375
+    else:
+        return 0.5
+
+
+
+def getRiskScoreFromSmokingHistory(user : dict) -> float:
+    smokingYears : int = user["smokingHistory"]
+    if smokingYears < 3:
+        return 0
+    elif smokingYears < 5:
+        return 0.124
+    elif smokingYears < 10:
+        return 0.348
+    elif smokingYears < 15:
+        return 0.756
+    elif smokingYears < 20:
+        return 0.8653
+    elif smokingYears < 25:
+        return 0.921
+    else:
+        return 1.0
+    
+def getRiskScoreFromDrinkingHistory(user : dict) -> float:
+    drinkingYears : int = user["drinkingHistory"]
+    if drinkingYears < 3:
+        return 0
+    elif drinkingYears < 5:
+        return 0.056
+    elif drinkingYears < 10:
+        return 0.2465
+    elif drinkingYears < 15:
+        return 0.3657
+    elif drinkingYears < 20:
+        return 0.5237
+    elif drinkingYears < 25:
+        return 0.75482
+    elif drinkingYears < 30:
+        return 0.8562
+    else:
+        return 1.0
 
 def calculateRiskScorefromHereditaryConditions(user : dict) -> float:
     riskScore : float = 0.0
