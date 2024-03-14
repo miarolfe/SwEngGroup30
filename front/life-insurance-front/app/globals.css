@@ -2,6 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .mre-blue-bg {
+    background-color: #175788;
+  }
+
+  .grad-bg {
+    background: linear-gradient(270deg, rgba(51,61,215,1) 0%, rgb(72, 69, 130) 100%);
+  }
+
+  .test {
+    display: grid;
+    grid-template-columns: 0.2fr 0.6fr 0.2fr;
+    grid-template-rows: 0.15fr 0.8fr 0.05fr;
+  }
+
+  .quote-page-block {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+
+  .cover-quote-page {
+    grid-area: 2 / 1 / 4 / 4;
+  }
+
+  .progress-grid-child {
+    grid-area: 1 / 1 / 2 / 4;
+  }
+
+  .persp {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .glass {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.27);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.9px);
+    -webkit-backdrop-filter: blur(12.9px);
+    /* border: 1px solid rgba(255, 255, 255, 0.19); */
+  }
+
+  .glass-light {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.9px);
+    -webkit-backdrop-filter: blur(12.9px);
+    /* border: 1px solid rgba(255, 255, 255, 0.19); */
+  }
+
+  .glass-darker {
+    /* From https://css.glass */
+    background: rgba(226, 226, 226, 0.44);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.9px);
+    -webkit-backdrop-filter: blur(12.9px);
+    cursor: pointer;
+  }
+
+  .glass-text {
+    /* font-size: 72px; */
+    background: rgba(255, 255, 255, 0.44);
+    backdrop-filter: blur(12.9px);
+    background-clip: text;
+    -webkit-backdrop-filter: blur(12.9px);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -26,8 +102,4 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
+
