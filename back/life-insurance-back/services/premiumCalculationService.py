@@ -1,5 +1,4 @@
-import riskCalculationService
-
+from services import riskCalculationService
 
 ENTRY_LEVEL_INSURED_AMOUNT = 300000
 HIGH_LEVEL_INSURED_AMOUNT = 500000
@@ -45,7 +44,7 @@ def calculateEntryLevelPremium(riskScore : float) -> float:
     totalAmount : float = tolerance + ENTRY_LEVEL_INSURED_AMOUNT
     yearlyPremimun : float = totalAmount/NUMBER_OF_YEAR_INSURED
     monthlyPremium : float = yearlyPremimun / 12
-    return monthlyPremium/10
+    return monthlyPremium/100
 
 def calculateHighLevelPremium(riskScore : float) -> float:
     # riskScore : float = riskCalculationService.getRiskScoreFromUserHealthCondition(user)
@@ -53,7 +52,7 @@ def calculateHighLevelPremium(riskScore : float) -> float:
     totalAmount : float = tolerance + HIGH_LEVEL_INSURED_AMOUNT
     yearlyPremimun : float = totalAmount/NUMBER_OF_YEAR_INSURED
     monthlyPremium : float = yearlyPremimun / 12
-    return monthlyPremium/10
+    return monthlyPremium/100
 
 
 def calculatePremiumLevelPremium(riskScore : float) -> float:
@@ -62,4 +61,4 @@ def calculatePremiumLevelPremium(riskScore : float) -> float:
     totalAmount : float = tolerance + PREMIUM_LEVEL_INSURED_AMOUNT
     yearlyPremimun : float = totalAmount/NUMBER_OF_YEAR_INSURED
     monthlyPremium : float = yearlyPremimun / 12
-    return monthlyPremium/10
+    return monthlyPremium/100

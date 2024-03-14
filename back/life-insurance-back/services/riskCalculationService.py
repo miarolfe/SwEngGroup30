@@ -1,24 +1,22 @@
-
-import pymongo
 from config.database import collection_name as user_collection, collection_disease as disease_collection
-from schemas.users_schema import users_serialiser, user_serialiser
-from bson import ObjectId
+import pymongo
 BASE_RISK_SCORE = 10
 SMOKING_RISK_PROPORTION = 0.15
 DRINKING_RISK_PROPORTION = 0.1
 DISEASE_RISK_PROPORTION = 0.6
 EXCERCISE_RISK_PROPORTION = 0.1
-diseaseCursor : pymongo.cursor.Cursor = disease_collection.find()
-diseaseDict : dict = []
-HereditaryRisk : dict = []
-for disease in diseaseCursor:
-    diseaseName : str = disease["Name"]
-    score : int = disease["Score"]
-    diseaseDict[diseaseName.casefold()] = score
-    HereditaryRisk[diseaseName.casefold()] = disease["HereditaryRisk"]
 
 def getRiskScoreFromUserHealthCondition(user : dict) -> float:
-    riskScoreFromHealthDisease : float =  ((calculateRiskScorefromHereditaryConditions(user) + calculateRiskScoreFromMedicalHistory(user)) * DISEASE_RISK_PROPORTION) + BASE_RISK_SCORE
+    diseaseCursor : pymongo.cursor.Cursor = disease_collection.find()
+    diseaseDict : dict = {}
+    hereditaryRisk : dict = {}
+    for disease in diseaseCursor:
+        diseaseName : str = disease["Name"]
+        score : int = int(disease["Score"])
+        diseaseDict[diseaseName.casefold()] = score
+        hereditaryRisk[diseaseName.casefold()] = score/12
+
+    riskScoreFromHealthDisease : float =  ((calculateRiskScorefromHereditaryConditions(user, diseaseDict, hereditaryRisk) + calculateRiskScoreFromMedicalHistory(user, diseaseDict)) * DISEASE_RISK_PROPORTION) + BASE_RISK_SCORE
     riskScoreFromHabbit : float = (getRiskScoreFromSmokingHistory(user) * SMOKING_RISK_PROPORTION) + (getRiskScoreFromDrinkingHistory(user) * DRINKING_RISK_PROPORTION) - (getDeductionFromHabbit(user) * EXCERCISE_RISK_PROPORTION)
     totalRiskScore = riskScoreFromHealthDisease + riskScoreFromHabbit
     return totalRiskScore
@@ -78,19 +76,19 @@ def getRiskScoreFromDrinkingHistory(user : dict) -> float:
     else:
         return 1.0
 
-def calculateRiskScorefromHereditaryConditions(user : dict) -> float:
+def calculateRiskScorefromHereditaryConditions(user : dict, diseaseDict, hereditaryRisk) -> float:
     riskScore : float = 0.0
     hereditaryConditionsOfUser : list[str] = user['hereditaryConditions']
     for hereditaryCondition in hereditaryConditionsOfUser:
         hereditaryConditionInLoweCase : str = hereditaryCondition.casefold()
         try:
-            riskScore = riskScore + (diseaseDict[hereditaryConditionInLoweCase] * HereditaryRisk[hereditaryConditionInLoweCase])
+            riskScore = riskScore + (diseaseDict[hereditaryConditionInLoweCase] * hereditaryRisk[hereditaryConditionInLoweCase])
         except KeyError:
             # unknown disease -> increment the riskScore by 3 multiply by 0.2 (hereditary risk score)
             riskScore = riskScore + (3 * 0.2)
     return riskScore
 
-def calculateRiskScoreFromMedicalHistory(user : dict) -> int:
+def calculateRiskScoreFromMedicalHistory(user : dict, diseaseDict) -> int:
     riskScore : int = 0
     healthConditions : list[str] = user["healthConditions"]
     for healthProblem in healthConditions:
