@@ -1,10 +1,13 @@
-import '../app/globals.css'
+import '../../app/globals.css'
 import {useState} from "react";
 import {useRouter} from "next/router";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGoogle, faTwitter, faFacebook} from '@fortawesome/free-brands-svg-icons';
+import Image from "next/image";
+import styles from '../../styles/mainApp.module.css';
+import Link from "next/link";
 
-const LoginPage = () => {
+const LoginUnderwriter = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -33,6 +36,9 @@ const LoginPage = () => {
         <div className="min-h-screen flex flex-col justify-center items-center">
             <form onSubmit={handleLogin} className="w-80">
                 <div className="mb-4">
+                    <div className={styles.loginLogo}>
+                        <Image src="/logo.jpeg" alt="Munich RE" width={150} height={100}/>
+                    </div>
                     <label htmlFor="username" className="block mb-2">Username:</label>
                     <input
                         type="text"
@@ -54,28 +60,9 @@ const LoginPage = () => {
                 </div>
                 <button type="submit" className="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">Login</button>
             </form>
-            <div className="mt-8 flex space-x-4">
-                <button className="bg-blue-700 text-white px-4 py-2 rounded-md flex items-center justify-center space-x-2">
-                    <FontAwesomeIcon icon={faFacebook} />
-                    <span>Facebook</span>
-                </button>
-                <button className="bg-red-600 text-white px-4 py-2 rounded-md flex items-center justify-center space-x-2">
-                    <FontAwesomeIcon icon={faGoogle} />
-                    <span>Google</span>
-                </button>
-                <button className="bg-blue-400 text-white px-4 py-2 rounded-md flex items-center justify-center space-x-2">
-                    <FontAwesomeIcon icon={faTwitter} />
-                    <span>Twitter</span>
-                </button>
-            </div>
-            <div className="mt-4">
-                <a href="#" className="text-blue-500 hover:underline">Register new account</a>
-                {/*<span className="mx-2">|</span>*/}
-                {/*<a href="#" className="text-blue-500 hover:underline">Continue without account</a> */}
-            </div>
         </div>
     );
 
 };
 
-export default LoginPage;
+export default LoginUnderwriter;

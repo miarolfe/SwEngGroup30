@@ -1,4 +1,4 @@
-import LoginPage from '../components/loginPage';
+import LoginClient from './Login/loginClient';
 
 
 
@@ -8,7 +8,7 @@ const Login = () => {
     }
     return (
         <div>
-            <LoginPage onLogin={handleLogin} />
+            <LoginClient onLogin={handleLogin} />
         </div>
     );
 };
