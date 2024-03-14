@@ -1,52 +1,42 @@
-from fastapi import APIRouter
-from models.users_model import User
-from config.database import collection_name, collection_disease
+
+import pymongo
+from config.database import collection_name as user_collection, collection_disease as disease_collection
 from schemas.users_schema import users_serialiser, user_serialiser
 from bson import ObjectId
 
-#get routes need to be fixed, causing RECURSION ERROR
+diseaseCursor : pymongo.cursor.Cursor = disease_collection.find()
+diseaseDict : dict = []
+for disease in diseaseCursor:
+    diseaseName : str = disease["Name"]
+    score : int = disease["Score"]
+    diseaseDict[diseaseName.casefold()] = score
 
-user_api_router = APIRouter()
+def getRiskScore(user : dict) -> float:
+    riskScore : float = 0.0
 
-# retrieve
-@user_api_router.get("/")
-async def get_users():
-    users = users_serialiser(collection_name.find())
-    return users
-
-@user_api_router.get("/{id}")
-async def get_user(id: str):
-    return users_serialiser(collection_name.find_one({"_id": ObjectId(id)}))
-
-
-# post
-@user_api_router.post("/")
-async def create_user(user: User):
-    _id = collection_name.insert_one(dict(user))
-    return users_serialiser(collection_name.find({"_id": _id.inserted_id}))
+    riskScore = riskScore + calculateRiskScoreFromMedicalHistory(user)
+    
 
 
-# update
-@user_api_router.put("/{id}")
-async def update_user(id: str, user: User):
-    collection_name.find_one_and_update({"_id": ObjectId(id)}, {
-        "$set": dict(user)
-    })
-    return users_serialiser(collection_name.find({"_id": ObjectId(id)}))
+    return riskScore
 
-# delete
-@user_api_router.delete("/{id}")
-async def delete_user(id: str):
-    collection_name.find_one_and_delete({"_id": ObjectId(id)})
-    return {"status": "ok"}
+def calculateRiskScoreFromMedicalHistory(user : dict) -> int:
+    riskScore : int = 0
+    healthConditions : list[str] = user["healthConditions"]
+    for healthProblem in healthConditions:
+        try:
+            score : int = diseaseDict[healthProblem]
+            riskScore = riskScore + score
+        except KeyError:
+            # unknown disease -> increment score by 3
+            score = score + 3
+    return riskScore
 
-@user_api_router.get("/{id}/calc")
-async def get_calculation(id: str):
-    user = collection_name.find_one({"_id": ObjectId(id)})
-    diseaseList = collection_disease.find()
-    print(f"user type = {type(user)}\n")
-    print(f"diseaseList type = {type(diseaseList)}, values: {diseaseList}\n")
-    print(f"user['healthConditions'] = {user['healthConditions']}\n")
+
+def get_calculation(user : dict):
+    # user = user_collection.find_one({"_id": ObjectId(id)})
+    diseaseList = disease_collection.find()
+    
     #find hereditary and health conditions and puts them into one unique list
     combined_conditions = user['hereditaryConditions'] + user['healthConditions']
     unique_combined_conditions = list(set(combined_conditions))
