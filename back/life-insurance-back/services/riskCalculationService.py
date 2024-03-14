@@ -6,18 +6,26 @@ from bson import ObjectId
 
 diseaseCursor : pymongo.cursor.Cursor = disease_collection.find()
 diseaseDict : dict = []
+HereditaryRisk : dict = []
 for disease in diseaseCursor:
     diseaseName : str = disease["Name"]
     score : int = disease["Score"]
     diseaseDict[diseaseName.casefold()] = score
+    HereditaryRisk[diseaseName.casefold()] = disease["HereditaryRisk"]
 
-def getRiskScore(user : dict) -> float:
+def getRiskScoreFromUserHealthCondition(user : dict) -> float:
+    return calculateRiskScorefromHereditaryConditions(user) + calculateRiskScoreFromMedicalHistory(user)
+
+def calculateRiskScorefromHereditaryConditions(user : dict) -> float:
     riskScore : float = 0.0
-
-    riskScore = riskScore + calculateRiskScoreFromMedicalHistory(user)
-    
-
-
+    hereditaryConditionsOfUser : list[str] = user['hereditaryConditions']
+    for hereditaryCondition in hereditaryConditionsOfUser:
+        hereditaryConditionInLoweCase : str = hereditaryCondition.casefold()
+        try:
+            riskScore = riskScore + (diseaseDict[hereditaryConditionInLoweCase] * HereditaryRisk[hereditaryConditionInLoweCase])
+        except KeyError:
+            # unknown disease -> increment the riskScore by 3 multiply by 0.2 (hereditary risk score)
+            riskScore = riskScore + (3 * 0.2)
     return riskScore
 
 def calculateRiskScoreFromMedicalHistory(user : dict) -> int:
@@ -25,7 +33,7 @@ def calculateRiskScoreFromMedicalHistory(user : dict) -> int:
     healthConditions : list[str] = user["healthConditions"]
     for healthProblem in healthConditions:
         try:
-            score : int = diseaseDict[healthProblem]
+            score : int = diseaseDict[healthProblem.casefold()]
             riskScore = riskScore + score
         except KeyError:
             # unknown disease -> increment score by 3
