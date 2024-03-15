@@ -4,7 +4,7 @@ import LoginPage from '../components/loginPage';
 
 const Login = () => {
     const handleLogin = (username, password) => {
-        fetch('../app/api/userExists'{
+        fetch('../app/api/userExists', {
             // fetch content from existing users
 
 
