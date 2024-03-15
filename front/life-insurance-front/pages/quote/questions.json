@@ -1,0 +1,30 @@
+[
+  {
+    "question": "Enter some contact information",
+    "inputs": [
+      {
+        "textPlaceholder": "Your name",
+        "label": "Full name",
+        "stateName": "fullName",
+        "required": true
+      },
+      {
+        "dropdownOptions": ["Yes", "No", "Maybe"],
+        "label": "Thing",
+        "stateName": "thing",
+        "required": true
+      }
+    ]
+  },
+  {
+    "question": "Do you have any diagnosed medical conditions?",
+    "inputs": [
+      {
+        "dropdownOptions": ["Yes", "No", "Maybe"],
+        "label": "Example",
+        "stateName": "example",
+        "required": true
+      }
+    ]
+  }
+]

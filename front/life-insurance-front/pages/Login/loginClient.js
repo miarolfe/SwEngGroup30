@@ -17,16 +17,17 @@ const LoginClient = () => {
             },
             body: JSON.stringify({ username, password }),
         });
-        if (response.ok) {
-            const data = await response.json();
-            onLogin(data);
-
-
-            router.push ('/question-page')
-        }
-        else {
-            console.error ('Login failed');
-        }
+        // if (response.ok) {
+        //     const data = await response.json();
+        //     onLogin(data);
+        //
+        //
+        //     router.push ('/UserNavPage')
+        // }
+        // else {
+        //     console.error ('Login failed');
+        // }
+        router.push ('/UserNavPage')
     };
 
     return (
