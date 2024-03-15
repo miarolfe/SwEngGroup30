@@ -44,7 +44,9 @@ async def delete_user(id: str):
 async def get_calculation(id: str):
     user = collection_name.find_one({"_id": ObjectId(id)})
     diseaseList = collection_disease.find()
-    
+    print(f"user type = {type(user)}\n")
+    print(f"diseaseList type = {type(diseaseList)}, values: {diseaseList}\n")
+    print(f"user['healthConditions'] = {user['healthConditions']}\n")
     #find hereditary and health conditions and puts them into one unique list
     combined_conditions = user['hereditaryConditions'] + user['healthConditions']
     unique_combined_conditions = list(set(combined_conditions))
