@@ -5,18 +5,19 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGoogle, faTwitter, faFacebook} from '@fortawesome/free-brands-svg-icons';
 
 const LoginClient = () => {
+    const router = useRouter();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const response = await fetch('/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password }),
-        });
+        // const response = await fetch('/api/login', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({ username, password }),
+        // });
         // if (response.ok) {
         //     const data = await response.json();
         //     onLogin(data);
@@ -27,7 +28,7 @@ const LoginClient = () => {
         // else {
         //     console.error ('Login failed');
         // }
-        router.push ('/UserNavPage')
+        await router.push('/UserNavPage')
     };
 
     return (
