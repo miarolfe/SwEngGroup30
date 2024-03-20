@@ -16,11 +16,11 @@ const UserNavPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/premium/${username}', {
-                method: 'GET',
+            const response = await fetch(`http://127.0.0.1:8000/api/premium/${username}`, {
+            method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json',
-                }
+                'Content-Type': 'application/json',
+            }
             });
 
             if (response.ok) {
