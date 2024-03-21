@@ -1,33 +1,91 @@
+"use client";
 import '../../app/globals.css'
 import {useState} from "react";
 import {useRouter} from "next/router";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGoogle, faTwitter, faFacebook} from '@fortawesome/free-brands-svg-icons';
+import {signIn} from "next-auth/react";
 
 const LoginClient = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const router = useRouter();
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const response = await fetch('/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password }),
-        });
-        if (response.ok) {
-            const data = await response.json();
-            onLogin(data);
+
+        try {
+            const res = await signIn("credentials", {
+                email: username, 
+                password,
+                redirect: false
+            });
+
+            if (res.error) {
+                console.log("Invalid Crentials");
+                return
+            }
+
+            router.push ('/quote')
+            console.log("hurray");
+
+        } catch (error) {
+            console.log(error);
+        }
+
+        // const response = await fetch('/api/login', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({ username, password }),
+        // });
+        // if (response.ok) {
+        //     const data = await response.json();
+        //     onLogin(data);
 
 
-            router.push ('/question-page')
-        }
-        else {
-            console.error ('Login failed');
-        }
+        //     router.push ('/question-page')
+        // }
+        // else {
+        //     console.error ('Login failed');
+        // }
     };
+
+    const handleRegister = async (e) => {
+        try {
+            const resUserExists = await fetch("api/userExists", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({email: username})
+            });
+
+            const {user} = await resUserExists.json();
+            if (user) {
+                console.log("User Exists");
+                return;
+            }
+
+            const res = await fetch("api/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: username,
+                    password
+                })
+            });
+
+            if (res.ok) {
+                console.log("Worked");
+            }
+        } catch (error) {
+
+        }
+    }
 
     return (
         <div className="min-h-screen flex flex-col justify-center items-center">
@@ -68,8 +126,8 @@ const LoginClient = () => {
                     <span>Twitter</span>
                 </button>
             </div>
-            <div className="mt-4">
-                <a href="#" className="text-blue-500 hover:underline">Register new account</a>
+            <div className="mt-4" onClick={handleRegister}>
+                <h4 className="text-blue-500 hover:underline">Register new account</h4>
                 {/*<span className="mx-2">|</span>*/}
                 {/*<a href="#" className="text-blue-500 hover:underline">Continue without account</a> */}
             </div>
