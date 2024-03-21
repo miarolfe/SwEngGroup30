@@ -1,6 +1,8 @@
+import { useState } from "react";
 
 const LoginPage = ({}) => {
-
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     const handleSubmit = (e) => {
         e.preventDefault();
         onLogin(username, password);
