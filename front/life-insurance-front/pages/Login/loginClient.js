@@ -1,13 +1,12 @@
 "use client";
-
-import '../app/globals.css'
+import '../../app/globals.css'
 import {useState} from "react";
 import {useRouter} from "next/router";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGoogle, faTwitter, faFacebook} from '@fortawesome/free-brands-svg-icons';
 import {signIn} from "next-auth/react";
 
-const LoginPage = () => {
+const LoginClient = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const router = useRouter();
@@ -137,4 +136,4 @@ const LoginPage = () => {
 
 };
 
-export default LoginPage;
+export default LoginClient;
