@@ -7,16 +7,17 @@ import {faGoogle, faTwitter, faFacebook} from '@fortawesome/free-brands-svg-icon
 import {signIn} from "next-auth/react";
 
 const LoginClient = () => {
+    const router = useRouter();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const router = useRouter();
+
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
         try {
             const res = await signIn("credentials", {
-                email: username, 
+                email: username,
                 password,
                 redirect: false
             });
@@ -26,7 +27,7 @@ const LoginClient = () => {
                 return
             }
 
-            router.push ('/quote')
+            await router.push('/UserNavPage')
             console.log("hurray");
 
         } catch (error) {
