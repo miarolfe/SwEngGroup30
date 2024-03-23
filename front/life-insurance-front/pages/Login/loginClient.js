@@ -10,7 +10,7 @@ const LoginClient = () => {
     const router = useRouter();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const router = useRouter();
+
 
     const handleLogin = async (e) => {
         e.preventDefault();
