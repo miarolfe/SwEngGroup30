@@ -1,5 +1,6 @@
 from config.database import collection_name as user_collection, collection_disease as disease_collection
 import pymongo
+from datetime import datetime
 BASE_RISK_SCORE = 10
 SMOKING_RISK_PROPORTION = 0.15
 DRINKING_RISK_PROPORTION = 0.1
@@ -100,8 +101,29 @@ def calculateRiskScoreFromMedicalHistory(user : dict, diseaseDict) -> int:
             score = score + 3
     return riskScore
 
+
+
+def calculateAgeFromDOB(dateOfBirth):
+    currentDate = datetime.now()
+    dob = datetime.strptime(dateOfBirth, '%Y-%m-%d')
+    age = currentDate.year - dob.year
+    # Check if the current date has passed the birthday of the person this year
+    # If not, subtract 1 from the age
+    if (currentDate.month, currentDate.day) < (dob.month, dob.day):
+        age -= 1
+    
+    return age
+
 def getRiskScoreFromAge(user : dict) -> float:
-    age : int = user["age"]
+    age : int = 20
+    try:
+        age = user["age"]
+    except:
+        pass
+    try:
+        age = calculateAgeFromDOB(user["DOB"])
+    except:
+        pass
     if age < 30:
         return 0
     elif age < 40:
@@ -114,7 +136,15 @@ def getRiskScoreFromAge(user : dict) -> float:
         return 1
     
 def getYearsInsuredLeft(user : dict) -> int:
-    age : int = user["age"]
+    age : int = 20
+    try:
+        age = user["age"]
+    except:
+        pass
+    try:
+        age = calculateAgeFromDOB(user["DOB"])
+    except:
+        pass
     return 70 - age
     
 

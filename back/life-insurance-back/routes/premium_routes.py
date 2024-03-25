@@ -10,8 +10,6 @@ premium_calculator_router = APIRouter()
 @premium_calculator_router.get("/api/premium/{name}")
 async def getPremiumForUser(name : str):
     users = users_serialiser(user_collection.find())
-    # size : int = len(users)
-    # print(f"users type = {users}\n")
     return calculatePremium(users[0])
 
 class UserRequestObject(BaseModel):
