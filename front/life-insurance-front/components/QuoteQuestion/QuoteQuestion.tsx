@@ -67,13 +67,10 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
   // Check for empty fields
   const isEmptyFields = useMemo(() => {
     props?.newComps.map((item) => {
-      console.log(!item?.required);
       if (!!item?.required && !props.data[item.stateName]) {
-        console.log("returning true");
         return true;
       }
     });
-    console.log("Here");
     return false;
   }, [props.data]);
 
