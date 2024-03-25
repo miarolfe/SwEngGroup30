@@ -37,7 +37,7 @@ const authOptions = {
     },
     secret: process.env.NEXTAUTH_SECRET,
     pages: {
-        signin: "/login",
+        signIn: "/Login/loginClient",
     }
 }
 
