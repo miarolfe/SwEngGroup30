@@ -103,7 +103,7 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
         <div className="grow w-full flex justify-around items-end">
           {props?.questionNo !== 1 && (
             <LargeButton
-              extraClasses="glass hover:glass-light"
+              extraclasses="glass hover:glass-light"
               text="Back"
               onClick={props.onClickBack}
             />
