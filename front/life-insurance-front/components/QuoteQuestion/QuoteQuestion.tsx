@@ -58,7 +58,8 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
       );
 
     // Dropdown
-    if ("dropdownOptions" in input) return <Dropdown />;
+    if ("dropdownOptions" in input)
+      return <Dropdown options={input.dropdownOptions} label={input.label} />;
 
     // Radio
     if ("radioOptions" in input) return <div>Radio</div>;
@@ -67,13 +68,10 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
   // Check for empty fields
   const isEmptyFields = useMemo(() => {
     props?.newComps.map((item) => {
-      console.log(!item?.required);
       if (!!item?.required && !props.data[item.stateName]) {
-        console.log("returning true");
         return true;
       }
     });
-    console.log("Here");
     return false;
   }, [props.data]);
 
@@ -83,18 +81,19 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
         !active ? "pointer-events-none" : ""
       }`}
     >
-      <span className="w-full py-2 pl-2 mb-2 flex items-end">
+      <span className="flex items-end w-full py-2 pl-2 mb-2 flex items-end">
         <p className="font-bold text-5xl text-white">{props.questionNo}</p>
         <p className="text-xl text-white ml-2">of {props.length}</p>
+        <p className="font-bold text-white pl-4 text-4xl">{props.question}</p>
       </span>
 
       <div className="w-full h-full flex flex-col px-4">
         {/* Question Text */}
-        <span className="w-full">
+        {/* <span className="w-full">
           <p className="font-medium text-white text-2xl pb-4">
             {props.question}
           </p>
-        </span>
+        </span> */}
 
         {props?.newComps.map((item, idx) => (
           <div className="w-full py-2">{getComponent(item, idx)}</div>
@@ -103,7 +102,7 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
         <div className="grow w-full flex justify-around items-end">
           {props?.questionNo !== 1 && (
             <LargeButton
-              extraClasses="glass hover:glass-light"
+              extraclasses="glass hover:glass-light"
               text="Back"
               onClick={props.onClickBack}
             />

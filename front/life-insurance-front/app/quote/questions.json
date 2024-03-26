@@ -1,6 +1,6 @@
 [
   {
-    "question": "Enter some contact information",
+    "question": "Personal Information",
     "inputs": [
       {
         "textPlaceholder": "Your name",
@@ -9,20 +9,94 @@
         "required": true
       },
       {
-        "dropdownOptions": ["Yes", "No", "Maybe"],
-        "label": "Thing",
-        "stateName": "thing",
+        "dropdownOptions": ["Male", "Female", "Other"],
+        "label": "Sex",
+        "stateName": "sex",
+        "required": true
+      },
+      {
+        "textPlaceholder": "25/03/2024",
+        "label": "Date of birth (DD/MM/YYYY)",
+        "stateName": "dob",
         "required": true
       }
     ]
   },
   {
-    "question": "Do you have any diagnosed medical conditions?",
+    "question": "Occupation",
     "inputs": [
       {
-        "dropdownOptions": ["Yes", "No", "Maybe"],
-        "label": "Example",
-        "stateName": "example",
+        "textPlaceholder": "Occupation",
+        "label": "What's your current occupation?",
+        "stateName": "occupation",
+        "required": true
+      },
+      {
+        "textPlaceholder": "Occupation",
+        "label": "What's your annual income from any income sources you have?",
+        "stateName": "income",
+        "required": true
+      }
+    ]
+  },
+  {
+    "question": "Basic Health Information",
+    "inputs": [
+      {
+        "textPlaceholder": "Weight (kg)",
+        "label": "What's your current weight, in kilograms?",
+        "stateName": "weight",
+        "required": true
+      },
+      {
+        "textPlaceholder": "Height (m)",
+        "label": "What's your height, in metres?",
+        "stateName": "height",
+        "required": true
+      },
+      {
+        "textPlaceholder": "Exercise",
+        "label": "How many hours, per week, would you exercise?",
+        "stateName": "exerciseHours",
+        "required": true
+      }
+    ]
+  },
+  {
+    "question": "Harmful Substances",
+    "inputs": [
+      {
+        "dropdownOptions": ["Yes", "No"],
+        "label": "Have you ever smoked?",
+        "stateName": "smokedBefore",
+        "required": true
+      },
+      {
+        "dropdownOptions": ["Yes", "No"],
+        "label": "Have you ever drank alcohol?",
+        "stateName": "alcohol before",
+        "required": true
+      }
+    ]
+  },
+  {
+    "question": "Hereditary Conditions",
+    "inputs": [
+      {
+        "dropdownOptions": ["Disease 1", "Disease 2"],
+        "label": "Please list any hereditary conditions in your family. This includes conditions you don't currently have.",
+        "stateName": "hereditaryConditions",
+        "required": true
+      }
+    ]
+  },
+  {
+    "question": "Health Conditions",
+    "inputs": [
+      {
+        "dropdownOptions": ["Disease 1", "Disease 2"],
+        "label": "Please list any health conditions YOU have.",
+        "stateName": "healthConditions",
         "required": true
       }
     ]

@@ -11,6 +11,12 @@
     background: linear-gradient(270deg, rgba(51,61,215,1) 0%, rgb(72, 69, 130) 100%);
   }
 
+  .grad-blue-text {
+    background: linear-gradient(270deg, rgba(51,61,215,1) 0%, rgb(72, 69, 130) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .test {
     display: grid;
     grid-template-columns: 0.2fr 0.6fr 0.2fr;
@@ -59,6 +65,20 @@
     backdrop-filter: blur(12.9px);
     -webkit-backdrop-filter: blur(12.9px);
     cursor: pointer;
+  }
+
+  .glass-darker-noshadow {
+    /* From https://css.glass */
+    background: rgba(226, 226, 226, 0.44);
+    backdrop-filter: blur(12.9px);
+    -webkit-backdrop-filter: blur(12.9px);
+    cursor: pointer;
+  }
+
+  .glass-noshadow {
+    background: rgba(255, 255, 255, 0.27);
+    backdrop-filter: blur(12.9px);
+    -webkit-backdrop-filter: blur(12.9px);
   }
 
   .glass-text {

@@ -2,7 +2,7 @@ import { useMemo } from "react";
 
 type Props = {
   text: string;
-  extraClasses?: string;
+  extraclasses?: string;
   disabled?: boolean;
 };
 
@@ -13,7 +13,7 @@ const LargeButton = (
     if (props?.disabled)
       return "mx-2 bg-blue-600 brightness-50 hover:cursor-not-allowed ";
 
-    if (!!props?.extraClasses) return props.extraClasses;
+    if (!!props?.extraclasses) return props.extraclasses;
 
     return "mx-2 bg-blue-600 hover:bg-blue-800 text-white";
   }, [props?.disabled]);
