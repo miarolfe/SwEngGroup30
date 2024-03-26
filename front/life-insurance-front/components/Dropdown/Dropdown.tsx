@@ -25,7 +25,9 @@ const Dropdown = (props: DropdownType) => {
           className="flex p-2 items-center h-14 w-full glass rounded-md border text-white"
           aria-label="Food"
         >
-          <Select.Value className="flex grow" placeholder="Select an option" />
+          <div className="grow flex">
+            <Select.Value placeholder="Select an option" />
+          </div>
           <Select.Icon className="SelectIcon">
             <ChevronDownIcon className="h-8 w-8 text-white" />
           </Select.Icon>
@@ -41,41 +43,6 @@ const Dropdown = (props: DropdownType) => {
                   {item}
                 </SelectItem>
               ))}
-              {/* <Select.Group>
-                <Select.Label className="text-gray-500 my-2">
-                  Fruits
-                </Select.Label>
-                <SelectItem value="apple">Apple</SelectItem>
-                <SelectItem value="banana">Banana</SelectItem>
-                <SelectItem value="blueberry">Blueberry</SelectItem>
-                <SelectItem value="grapes">Grapes</SelectItem>
-                <SelectItem value="pineapple">Pineapple</SelectItem>
-              </Select.Group>
-
-              <Select.Separator className="h-0.5 bg-violet-700 my-2" />
-
-              <Select.Group>
-                <Select.Label className="text-gray-500 my-2">
-                  Vegetables
-                </Select.Label>
-                <SelectItem value="aubergine">Aubergine</SelectItem>
-                <SelectItem value="broccoli">Broccoli</SelectItem>
-                <SelectItem value="carrot" disabled>
-                  Carrot
-                </SelectItem>
-                <SelectItem value="courgette">Courgette</SelectItem>
-                <SelectItem value="leek">Leek</SelectItem>
-              </Select.Group>
-
-              <Select.Separator className="h-0.5 bg-violet-700 my-2" />
-
-              <Select.Group>
-                <Select.Label className="text-gray-500 my-2">Meat</Select.Label>
-                <SelectItem value="beef">Beef</SelectItem>
-                <SelectItem value="chicken">Chicken</SelectItem>
-                <SelectItem value="lamb">Lamb</SelectItem>
-                <SelectItem value="pork">Pork</SelectItem>
-              </Select.Group> */}
             </Select.Viewport>
             <Select.ScrollDownButton className="flex justify-center align-center">
               <ChevronDownIcon className="h-8 w-8 text-violet-700" />
