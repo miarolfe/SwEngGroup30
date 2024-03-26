@@ -12,29 +12,31 @@ def calculatePremium(user : dict) -> dict:
     entryLevelCost = calculateEntryLevelPremium(riskScore)
     highLevelCost = calculateHighLevelPremium(riskScore)
     premiumLevelCost = calculatePremiumLevelPremium(riskScore)
-
+    NUMBER_OF_YEAR_INSURED = riskCalculationService.getYearsInsuredLeft(user)
+    comment : str = "This is an example of comment message"
     entryLevelRecommendation : dict = {
         "premium": entryLevelCost,
         "amountInsured" : ENTRY_LEVEL_INSURED_AMOUNT,
-        "yearInsured" : NUMBER_OF_YEAR_INSURED,
-        "comment" : "This is an example of comment message"
+        "maxYearInsured" : NUMBER_OF_YEAR_INSURED,
+        # "comment" : "This is an example of comment message"
     }
     highLevelRecommendation : dict = {
         "premium": highLevelCost,
         "amountInsured" : HIGH_LEVEL_INSURED_AMOUNT,
-        "yearInsured" : NUMBER_OF_YEAR_INSURED,
-        "comment" : "This is an example of comment message"
+        "maxYearInsured" : NUMBER_OF_YEAR_INSURED,
+        # "comment" : "This is an example of comment message"
     }
     premiumLevelRecommendation : dict = {
         "premium": premiumLevelCost,
         "amountInsured" : PREMIUM_LEVEL_INSURED_AMOUNT,
-        "yearInsured" : NUMBER_OF_YEAR_INSURED,
-        "comment" : "This is an example of comment message"
+        "maxYearInsured" : NUMBER_OF_YEAR_INSURED,
+        # "comment" : "This is an example of comment message"
     }
     return {
         "entryLevelRecommendation" : entryLevelRecommendation,
         "highLevelRecommendation" : highLevelRecommendation,
-        "premiumLevelRecommendation" : premiumLevelRecommendation
+        "premiumLevelRecommendation" : premiumLevelRecommendation,
+        "comment" : comment
     }
 
 

@@ -10,8 +10,6 @@ premium_calculator_router = APIRouter()
 @premium_calculator_router.get("/api/premium/{name}")
 async def getPremiumForUser(name : str):
     users = users_serialiser(user_collection.find())
-    # size : int = len(users)
-    # print(f"users type = {users}\n")
     return calculatePremium(users[0])
 
 class UserRequestObject(BaseModel):
@@ -41,5 +39,10 @@ async def getPremiumForUser(user : UserRequestObject):
     # users = users_serialiser(user_collection.find())
     # size : int = len(users)
     # print(f"users type = {users}\n")
-    return calculatePremium(userDictionary)
+    if(user.age < 0):
+        return "Please enter a valid age"
+    elif(user.age >= 70):
+        return "Sorry but we are unable to insure you for health insurance as your age exceeds our age limit"
+    else:
+        return calculatePremium(userDictionary)
     # return user

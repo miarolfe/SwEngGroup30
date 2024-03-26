@@ -1,10 +1,12 @@
 from config.database import collection_name as user_collection, collection_disease as disease_collection
 import pymongo
+from datetime import datetime
 BASE_RISK_SCORE = 10
 SMOKING_RISK_PROPORTION = 0.15
 DRINKING_RISK_PROPORTION = 0.1
 DISEASE_RISK_PROPORTION = 0.6
 EXCERCISE_RISK_PROPORTION = 0.1
+AGE_RISK_PROPORTION = 0.25
 
 def getRiskScoreFromUserHealthCondition(user : dict) -> float:
     diseaseCursor : pymongo.cursor.Cursor = disease_collection.find()
@@ -17,11 +19,10 @@ def getRiskScoreFromUserHealthCondition(user : dict) -> float:
         hereditaryRisk[diseaseName.casefold()] = score/12
 
     riskScoreFromHealthDisease : float =  ((calculateRiskScorefromHereditaryConditions(user, diseaseDict, hereditaryRisk) + calculateRiskScoreFromMedicalHistory(user, diseaseDict)) * DISEASE_RISK_PROPORTION) + BASE_RISK_SCORE
-    riskScoreFromHabbit : float = (getRiskScoreFromSmokingHistory(user) * SMOKING_RISK_PROPORTION) + (getRiskScoreFromDrinkingHistory(user) * DRINKING_RISK_PROPORTION) - (getDeductionFromHabbit(user) * EXCERCISE_RISK_PROPORTION)
+    riskScoreFromHabbit : float = (getRiskScoreFromSmokingHistory(user) * SMOKING_RISK_PROPORTION) + (getRiskScoreFromDrinkingHistory(user) * DRINKING_RISK_PROPORTION) + (getRiskScoreFromAge(user) * AGE_RISK_PROPORTION) - (getDeductionFromHabbit(user) * EXCERCISE_RISK_PROPORTION)
     totalRiskScore = riskScoreFromHealthDisease + riskScoreFromHabbit
+    print(totalRiskScore)
     return totalRiskScore
-
-
 
 def getDeductionFromHabbit(user : dict) -> float:
     exerciseHourPerWeek : float = user["exerciseHourPerWeek"]
@@ -100,6 +101,52 @@ def calculateRiskScoreFromMedicalHistory(user : dict, diseaseDict) -> int:
             score = score + 3
     return riskScore
 
+
+
+def calculateAgeFromDOB(dateOfBirth):
+    currentDate = datetime.now()
+    dob = datetime.strptime(dateOfBirth, '%Y-%m-%d')
+    age = currentDate.year - dob.year
+    # Check if the current date has passed the birthday of the person this year
+    # If not, subtract 1 from the age
+    if (currentDate.month, currentDate.day) < (dob.month, dob.day):
+        age -= 1
+    
+    return age
+
+def getRiskScoreFromAge(user : dict) -> float:
+    age : int = 20
+    try:
+        age = user["age"]
+    except:
+        pass
+    try:
+        age = calculateAgeFromDOB(user["DOB"])
+    except:
+        pass
+    if age < 30:
+        return 0
+    elif age < 40:
+        return 0.1
+    elif age < 50:
+        return 0.25
+    elif age < 60:
+        return 0.50
+    elif age < 70:
+        return 1
+    
+def getYearsInsuredLeft(user : dict) -> int:
+    age : int = 20
+    try:
+        age = user["age"]
+    except:
+        pass
+    try:
+        age = calculateAgeFromDOB(user["DOB"])
+    except:
+        pass
+    return 70 - age
+    
 
 # def get_calculation(user : dict):
 #     # user = user_collection.find_one({"_id": ObjectId(id)})
