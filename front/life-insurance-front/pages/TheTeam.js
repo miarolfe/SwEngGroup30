@@ -27,17 +27,20 @@ const TheTeam = () => {
                         here you'll find the development team who worked 
                         tirelessly over the last 12 weeks in creating this site
                     </p>
-                    <div className = "flex-row">
+                    <p>
+                        <img src="emblem.jpg" width={100} height={100} className="mx-5 mb-5"></img>
+                    </p>
+                    <div className = "/flex-row">
                         <section alt="front end profiles" className="flex-column inline-block float-left text-left bg-gray-100 p-8 rounded-lg shadow-md">
                             <br></br>
                             <h1 className="text-3xl font-mono text-right"> Front-End Team</h1>
 
                             <div className="flex ">
-                                <img src="/empty-profile.jpg" alt="karolina" width={150} height={150} className="mx-5 mb-5"/>
+                                <img src="/Headshots/Karolina.jpg" alt="karolina" width={150} height={150} className="mx-5 mb-5"/>
                                 <div>
                                     <p>Karolina Raczynska - Team Lead</p>
                                     <br />
-                                    <p>She does things</p>
+                                    <p>Front end leader: worked on AWS login applications </p>
                                 </div>
                             </div>
 
@@ -46,34 +49,34 @@ const TheTeam = () => {
                                 <div>
                                     <p>Hamza Bana - Developer</p>
                                     <br />
-                                    <p>He does things</p>
+                                    <p>Project leader: organised meetings worked on AWS, </p>
                                 </div>
                             </div>
 
                             <div className="flex ">
-                            <img src="/empty-profile.jpg" alt="Justin" width={150} height={150} className="mx-5 mb-5"></img>
+                            <img src="/Headshots/Justin.png" alt="Justin" width={150} height={150} className="mx-5 mb-5"></img>
                                 <div>
                                 <p>Justin Ikechukwu Cunningham - Developer</p>
                                     <br />
-                                    <p>He does things</p>
+                                    <p>Worked on the questionare page, progress bar, </p>
                                 </div>
                             </div>
 
                             <div className="flex ">
-                            <img src="/Headshots/BenTemp.png" alt="Ben" width={150} height={150} className="mx-5 mb-5"></img>
+                            <img src="/Headshots/Ben.png" alt="Ben" width={150} height={150} className="mx-5 mb-5"></img>
                                 <div>
                                 <p>Ben Byrne - Developer</p>
                                     <br />
-                                    <p>He does things</p>
+                                    <p>Worked mainly team and login pages.</p>
                                 </div>
                             </div>
 
                             <div className="flex ">
-                            <img src="/empty-profile.jpg" alt="Luke" width={150} height={150} className="mx-5 mb-5"></img>
+                            <img src="/Headshots/Luke.png" alt="Luke" width={150} height={150} className="mx-5 mb-5"></img>
                                 <div>
                                 <p>Luke Boylan - Developer</p>
                                     <br />
-                                    <p>He does things</p>
+                                    <p>Worked on page layout such as our team page, </p>
                                 </div>
                             </div>
                         </section>
@@ -86,7 +89,7 @@ const TheTeam = () => {
                                     <div>
                                         <p>Nouxi Zhang - Team Lead</p>
                                         <br />
-                                        <p>He does things </p>
+                                        <p>Back end lead: Worked on AI implementation, mongoDB,  </p>
                                     </div>
                                     <img src="/empty-profile.jpg" alt="Nouxi" width={150} height={150} className="float right mx-5 mb-5" />
                                 </div>
@@ -95,7 +98,7 @@ const TheTeam = () => {
                                     <div>
                                         <p>Jake McKenna - developer</p>
                                         <br />
-                                        <p>He does things</p>
+                                        <p>Worked on authentification, </p>
                                     </div>
                                     <img src="/empty-profile.jpg" alt="Jake" width={150} height={150} className="mx-5 mb-5" />
                                 </div>
@@ -106,7 +109,7 @@ const TheTeam = () => {
                                         <br />
                                         <p>She does things</p>
                                     </div>
-                                    <img src="/empty-profile.jpg" alt="Mia" width={150} height={150} className="mx-5 mb-5"></img>
+                                    <img src="/Headshots/Mia.jpeg" alt="Mia" width={150} height={150} className="mx-5 mb-5"></img>
                                 </div>
 
                                 <div className="flex ">
@@ -133,11 +136,19 @@ const TheTeam = () => {
                                         <br />
                                         <p>He does things</p>
                                     </div>
-                                    <img src="/empty-profile.jpg" alt="Essien" width={150} height={150} className="mx-5 mb-5" />
+                                    <img src="/Headshots/Essien.jpg" alt="Essien" width={150} height={150} className="mx-5 mb-5" />
                                 </div>
                             </section>
                     </div>
 
+                </section>
+                <section alt="emblem"className=" flex-column inline-block float-middle text-middle justify-middle bg-gray-100 p-8 rounded-lg shadow-md">
+                        <h1 className =" text-3xl font-mono text-left"></h1>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <img src="/emblem.jpg" alt="emblem" width={150} height={150} className="mx-5 mb-5"/>
                 </section>
             </main>
         </div>
