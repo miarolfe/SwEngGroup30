@@ -81,18 +81,19 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
         !active ? "pointer-events-none" : ""
       }`}
     >
-      <span className="w-full py-2 pl-2 mb-2 flex items-end">
+      <span className="flex items-end w-full py-2 pl-2 mb-2 flex items-end">
         <p className="font-bold text-5xl text-white">{props.questionNo}</p>
         <p className="text-xl text-white ml-2">of {props.length}</p>
+        <p className="font-bold text-white pl-4 text-4xl">{props.question}</p>
       </span>
 
       <div className="w-full h-full flex flex-col px-4">
         {/* Question Text */}
-        <span className="w-full">
+        {/* <span className="w-full">
           <p className="font-medium text-white text-2xl pb-4">
             {props.question}
           </p>
-        </span>
+        </span> */}
 
         {props?.newComps.map((item, idx) => (
           <div className="w-full py-2">{getComponent(item, idx)}</div>
