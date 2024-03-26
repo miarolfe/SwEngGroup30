@@ -72,7 +72,7 @@ const TheTeam = () => {
                             </div>
 
                             <div className="flex ">
-                            <img src="/Headshots/Luke.png" alt="Luke" width={150} height={150} className="mx-5 mb-5"></img>
+                            <img src="/Headshots/Luke.jpg" alt="Luke" width={150} height={150} className="mx-5 mb-5"></img>
                                 <div>
                                 <p>Luke Boylan - Developer</p>
                                     <br />
