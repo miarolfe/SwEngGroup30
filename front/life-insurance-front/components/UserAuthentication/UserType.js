@@ -5,9 +5,9 @@ import Link from "next/link";
 const UserType = () => {
 
     return (
-        <div>
+        <div className="flex justify-center">
             <main>
-                <div class="bg-gray-100 p-8 rounded-lg shadow-md">
+                <div class=" p-8 rounded-lg shadow-md max-w-50 glass-box">
                     <h2 class="text-center text-2xl font-bold text-gray-800 mb-4">Select Your Login Type</h2>
                     <div class="flex justify-center space-x-4">
                         <Link href="/Login/loginClient">

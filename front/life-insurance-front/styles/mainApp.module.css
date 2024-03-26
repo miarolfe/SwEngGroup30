@@ -30,9 +30,11 @@
 
 /* Navigation bar styling */
 .nav {
+    position: relative;
     text-align: center;
     border-top: 1px solid grey; /* Top border for nav */
     border-bottom: 1px solid grey; /* Bottom border for nav */
+    
 }
 
 /* List styling in nav bar */

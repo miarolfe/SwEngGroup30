@@ -1,18 +1,18 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import '../app/globals.css'
+import Footer from "../components/Footer";
 
 const TheTeam = () => {
 
     return (
-        <div>
+        <div className="main-bg min-h-screen h-full">
+            <Header />
             <Head>
                 <title>
                     The Team
                 </title>
             </Head>
-            <Header />
-            <main>
                 <br />
                 <br />
                 <section className="text-center">
@@ -27,15 +27,13 @@ const TheTeam = () => {
                         here you'll find the development team who worked 
                         tirelessly over the last 12 weeks in creating this site
                     </p>
-                    <p>
-                        <img src="emblem.jpg" width={100} height={100} className="mx-5 mb-5"></img>
-                    </p>
-                    <div className = "/flex-row">
-                        <section alt="front end profiles" className="flex-column inline-block float-left text-left bg-gray-100 p-8 rounded-lg shadow-md">
+                    <div className = "flex-row">
+                        <section alt="front end profiles" className="ml-5 flex-column inline-block float-left 
+                                                            text-left glass-box p-8 rounded-lg shadow-md">
                             <br></br>
                             <h1 className="text-3xl font-mono text-right"> Front-End Team</h1>
 
-                            <div className="flex ">
+                            <div className="flex">
                                 <img src="/Headshots/Karolina.jpg" alt="karolina" width={150} height={150} className="mx-5 mb-5"/>
                                 <div>
                                     <p>Karolina Raczynska - Team Lead</p>
@@ -76,12 +74,14 @@ const TheTeam = () => {
                                 <div>
                                 <p>Luke Boylan - Developer</p>
                                     <br />
-                                    <p>Worked on page layout such as our team page, </p>
+                                    <p>Worked on page layout and styling </p>
+                                    <p>such as our team and login page. </p>
                                 </div>
                             </div>
                         </section>
 
-                            <section alt="backend profiles" className=" flex-column inline-block float-right text-right justify-right bg-gray-100 p-8 rounded-lg shadow-md">
+                        {/*need to figure out how to align these profiles to the right of the page-->*/}
+                            <section alt="backend profiles" className="mr-5 flex-column inline-block float-right text-right justify-right glass-box p-8 rounded-lg shadow-md">
                                 <h1 className =" text-3xl font-mono text-left"> Back-end Team</h1>
                                 <br></br>
 
@@ -105,7 +105,7 @@ const TheTeam = () => {
 
                                 <div className="flex ">
                                     <div>
-                                    <p>Mia Rolfe - Developer</p>
+                                    <p>Mia Rolfe - DevOps Lead</p>
                                         <br />
                                         <p>She does things</p>
                                     </div>
@@ -140,17 +140,10 @@ const TheTeam = () => {
                                 </div>
                             </section>
                     </div>
-
+                    
                 </section>
-                <section alt="emblem"className=" flex-column inline-block float-middle text-middle justify-middle bg-gray-100 p-8 rounded-lg shadow-md">
-                        <h1 className =" text-3xl font-mono text-left"></h1>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <img src="/emblem.jpg" alt="emblem" width={150} height={150} className="mx-5 mb-5"/>
-                </section>
-            </main>
+            
+                <Footer/>
         </div>
     );
 }

@@ -1,11 +1,12 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import '../app/globals.css'
+import Footer from "../components/Footer";
 
 const LifeInsurance = () => {
 
     return (
-        <div>
+        <div className="main-bg min-h-screen h-full">
             <Head>
                 <title>
                     Life Insurance
@@ -24,6 +25,7 @@ const LifeInsurance = () => {
                     </p>
                 </section>
             </main>
+            <Footer/>
         </div>
     );
 }
