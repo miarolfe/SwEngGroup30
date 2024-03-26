@@ -1,7 +1,7 @@
 from config.database import quoteRequestCollection
 from datetime import datetime
 from pydantic import BaseModel
-
+import json
 def getCurrentDateAndTime():
     # Get the current date and time
     currentDate = datetime.now()
@@ -21,3 +21,19 @@ def insertQuoteRequestToDB(data : dict) -> None:
 def deleteQuoteRequestFromDatabase(quoteRequestId : str) -> None:
     ret = quoteRequestCollection.delete_one({"userId": quoteRequestId})
     print(f"ret = {ret}\n")
+
+
+def serializeQuoteRequest(documents):
+    retVal = []
+    for document in documents:
+        doc = {
+            "userId" : document["userId"],
+            "medicalRecord" : document["medicalRecord"],
+            "timestamp": document["Timestamp"]
+        }
+        retVal.append(doc)   
+    return retVal
+
+def getAllQuoteRequestsFromDB() -> list[dict]:
+    documents = quoteRequestCollection.find()
+    return serializeQuoteRequest(documents)
