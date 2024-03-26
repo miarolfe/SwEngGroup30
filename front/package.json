@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "mongoose": "^8.2.0",
+    "next-auth": "^4.24.6"
+  }
+}

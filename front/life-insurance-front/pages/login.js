@@ -3,7 +3,24 @@ import LoginClient from './Login/loginClient';
 
 
 const Login = () => {
-    const handleLogin = () => {
+    const handleLogin = (username, password) => {
+        fetch('../app/api/userExists', {
+            // fetch content from existing users
+
+
+
+
+
+        //     if (isStaff(username, password)){
+
+        //     }
+        //     else if (isClient(username, password)){
+
+        // }
+        //     else {
+
+        //     }
+        })
 
     }
     return (

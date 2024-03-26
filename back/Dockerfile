@@ -6,7 +6,8 @@ COPY ./life-insurance-back /app
 
 RUN pip install -r requirements.txt
 
-RUN python -m uvicorn main:app --reload
+#RUN python -m uvicorn main:app --reload
 
 EXPOSE 8000
 
+CMD ["python", "./app.py"]
