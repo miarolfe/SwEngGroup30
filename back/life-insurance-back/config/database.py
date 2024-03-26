@@ -16,6 +16,7 @@ except Exception as e:
     
 db = client.user_app
 db2 = client.Disease
-
+db3 = client.QuoteRequests
 collection_name = db["users_app"]
 collection_disease = db2["DiseaseList"]
+quoteRequestCollection = db3["quote_request"]
