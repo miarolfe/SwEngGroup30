@@ -58,7 +58,8 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
       );
 
     // Dropdown
-    if ("dropdownOptions" in input) return <Dropdown />;
+    if ("dropdownOptions" in input)
+      return <Dropdown options={input.dropdownOptions} label={input.label} />;
 
     // Radio
     if ("radioOptions" in input) return <div>Radio</div>;
