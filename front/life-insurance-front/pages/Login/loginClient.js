@@ -55,7 +55,7 @@ const LoginClient = () => {
 
     const handleRegister = async (e) => {
         try {
-            const resUserExists = await fetch("api/userExists", {
+            const resUserExists = await fetch("/api/userExists", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -69,7 +69,7 @@ const LoginClient = () => {
                 return;
             }
 
-            const res = await fetch("api/register", {
+            const res = await fetch("/api/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
