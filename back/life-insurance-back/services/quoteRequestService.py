@@ -1,7 +1,7 @@
 from config.database import quoteRequestCollection
+from services.userQuoteListService import addQuoteToList
 from datetime import datetime
-from pydantic import BaseModel
-import json
+from bson import ObjectId
 def getCurrentDateAndTime():
     # Get the current date and time
     currentDate = datetime.now()
@@ -14,22 +14,22 @@ def getCurrentDateAndTime():
 
 
 def insertQuoteRequestToDB(data : dict) -> None:
-    data["Timestamp"] = getCurrentDateAndTime()
+    data["timestamp"] = getCurrentDateAndTime()
     id = quoteRequestCollection.insert_one(data)
 
 
-def deleteQuoteRequestFromDatabase(quoteRequestId : str) -> None:
-    ret = quoteRequestCollection.delete_one({"userId": quoteRequestId})
-    print(f"ret = {ret}\n")
+def deleteQuoteRequestFromDatabase(quoteRequestId : str, quote : dict) -> None:
+    ret = quoteRequestCollection.delete_one({"userId": ObjectId(quoteRequestId)})
+    addQuoteToList(newQuote=quote, userId=quoteRequestId)
 
 
 def serializeQuoteRequest(documents):
     retVal = []
     for document in documents:
         doc = {
-            "userId" : document["userId"],
+            "userId" : str(document["userId"]),
             "medicalRecord" : document["medicalRecord"],
-            "timestamp": document["Timestamp"]
+            "timestamp": document["timestamp"]
         }
         retVal.append(doc)   
     return retVal
