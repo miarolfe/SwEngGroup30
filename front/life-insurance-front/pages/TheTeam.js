@@ -2,155 +2,121 @@ import Head from "next/head";
 import Header from "../components/Header";
 import '../app/globals.css'
 import Footer from "../components/Footer";
+import TeamMember from "../components/TeamMember";
+import Center from "next"
 
 const TheTeam = () => {
 
     return (
-        <div className="main-bg min-h-screen h-full">
+        <div className="main-bg">
             <Header />
             <Head>
                 <title>
                     The Team
                 </title>
             </Head>
-                <br />
-                <br />
-                <section className="text-center">
+            <br />
+            <br />
+            <section className="text-center team-page grid grid-cols-1 gap-4">
+                <div class="team-page-heading">
                     <h2 className="text-4xl">
-                        The Team
+                        <b>The Team</b>
                     </h2>
-                    <img src="" width={1500} height={200}></img>
-                    <p>
-                        /\ image of all of us /\
-                    </p>
-                    <p>
-                        here you'll find the development team who worked 
-                        tirelessly over the last 12 weeks in creating this site
-                    </p>
-                    <div className = "flex-row">
-                        <section alt="front end profiles" className="ml-5 flex-column inline-block float-left 
-                                                            text-left glass-box p-8 rounded-lg shadow-md">
-                            <br></br>
-                            <h1 className="text-3xl font-mono text-right"> Front-End Team</h1>
-
-                            <div className="flex">
-                                <img src="/Headshots/Karolina.jpg" alt="karolina" width={150} height={150} className="mx-5 mb-5"/>
-                                <div>
-                                    <p>Karolina Raczynska - Team Lead</p>
-                                    <br />
-                                    <p>Front end leader: worked on AWS login applications </p>
-
-                                </div>
-                            </div>
-
-                            <div className="flex ">
-                            <img src="/Headshots/Hamza.jpg" alt="Hamza" width={150} height={150} className="mx-5 mb-5"></img>
-                                <div>
-                                    <p>Hamza Bana - Developer</p>
-                                    <br />
-                                    <p>Project leader: organised meetings worked on AWS, </p>
-                                </div>
-                            </div>
-
-                            <div className="flex ">
-                            <img src="/Headshots/Justin.png" alt="Justin" width={150} height={150} className="mx-5 mb-5"></img>
-                                <div>
-                                <p>Justin Ikechukwu Cunningham - Developer</p>
-                                    <br />
-                                    <p>Worked on the questionare page, progress bar, </p>
-                                </div>
-                            </div>
-
-                            <div className="flex ">
-                            <img src="/Headshots/Ben.png" alt="Ben" width={150} height={150} className="mx-5 mb-5"></img>
-                                <div>
-                                <p>Ben Byrne - Developer</p>
-
-                                    <br />
-                                    <p>Worked mainly team and login pages.</p>
-                                </div>
-                            </div>
-
-                            <div className="flex ">
-                            <img src="/Headshots/Luke.jpg" alt="Luke" width={150} height={150} className="mx-5 mb-5"></img>
-                                <div>
-                                <p>Luke Boylan - Developer</p>
-                                    <br />
-                                    <p>Worked on page layout and styling </p>
-                                    <p>such as our team and login page. </p>
-
-                                </div>
-                            </div>
-                        </section>
-
-                        {/*need to figure out how to align these profiles to the right of the page-->*/}
-                            <section alt="backend profiles" className="mr-5 flex-column inline-block float-right text-right justify-right glass-box p-8 rounded-lg shadow-md">
-                                <h1 className =" text-3xl font-mono text-left"> Back-end Team</h1>
-                                <br></br>
-
-                                <div className="flex ">
-                                    <div>
-                                        <p>Nouxi Zhang - Team Lead</p>
-                                        <br />
-                                        <p>Back end lead: Worked on AI implementation, mongoDB,  </p>
-                                    </div>
-                                    <img src="/empty-profile.jpg" alt="Nouxi" width={150} height={150} className="float right mx-5 mb-5" />
-                                </div>
-
-                                <div className="flex ">
-                                    <div>
-                                        <p>Jake McKenna - developer</p>
-                                        <br />
-                                        <p>Worked on authentification, </p>
-                                    </div>
-                                    <img src="/empty-profile.jpg" alt="Jake" width={150} height={150} className="mx-5 mb-5" />
-
-                                </div>
-
-                                <div className="flex ">
-                                    <div>
-                                    <p>Mia Rolfe - DevOps Lead</p>
-                                        <br />
-                                        <p>She does things</p>
-                                    </div>
-                                    <img src="/Headshots/Mia.jpeg" alt="Mia" width={150} height={150} className="mx-5 mb-5"></img>
-
-                                </div>
-
-                                <div className="flex ">
-                                    <div>
-                                    <p>Reece Webb - Developer</p>
-                                        <br />
-                                        <p>He does things</p>
-                                    </div>
-                                    <img src="/empty-profile.jpg" alt="Reece" width={150} height={150} className="mx-5 mb-5"></img>
-                                </div>
-
-                                <div className="flex ">
-                                    <div>
-                                    <p>Kate Byrne - Developer</p>
-                                        <br />
-                                        <p>She does things</p>
-                                    </div>
-                                    <img src="/empty-profile.jpg" alt="kate" width={150} height={150} className="mx-5 mb-5"></img>
-                                </div>
-
-                                <div className="flex ">
-                                    <div>
-                                        <p>Essien Thompson - Developer</p>
-                                        <br />
-                                        <p>He does things</p>
-                                    </div>
-                                    <img src="/Headshots/Essien.jpg" alt="Essien" width={150} height={150} className="mx-5 mb-5" />
-                                </div>
-                            </section>
-                    </div>
-                    
-
-                </section>
-                <div className="bottom-0">
-                <Footer/>
                 </div>
+                
+                <img src="team.jpg" class="team-image"></img>
+                {/* <p>
+                    here you'll find the development team who worked
+                    tirelessly over the last 12 weeks in creating this site
+                </p> */}
+                <div className="flex-row">
+                    <div alt="backend profiles" className="team-member-list content-center grid grid-cols-1 2xl:grid-cols-2 gap-4 inline-block float-center 
+                                                            text-left ">
+                        
+                        <TeamMember
+                            name="Hamza Bana"
+                            position="Project Lead"
+                            imageSrc="/Headshots/Hamza.jpg"
+                            bio="Organised meetings, worked on AWS"
+                        />
+
+                        <TeamMember
+                            name="Karolina Raczynska"
+                            position="Front-end Lead"
+                            imageSrc="/Headshots/Karolina.jpg"
+                            bio="Worked on AWS login applications"
+                        />
+
+                        <TeamMember
+                            name="Mia Rolfe"
+                            position="DevOps Lead"
+                            imageSrc="/Headshots/Mia.jpeg"
+                            bio="She does things"
+                        />
+
+                        <TeamMember
+                            name="Nuoxi Zhang"
+                            position="Back-end Lead"
+                            imageSrc="/empty-profile.jpg"
+                            bio="Back end lead: Worked on AI implementation, mongoDB"
+                        />                    
+
+                        <TeamMember
+                            name="Luke Boylan"
+                            position="Front-end Developer"
+                            imageSrc="/Headshots/Luke.jpg"
+                            bio="Worked on page layout and styling, such as our team and login page"
+                        />
+
+                        <TeamMember
+                            name="Ben Byrne"
+                            position="Front-end Developer"
+                            imageSrc="/Headshots/Ben.png"
+                            bio="Worked mainly on team and login pages"
+                        />
+
+                        <TeamMember
+                            name="Kate Byrne"
+                            position="Back-end Developer"
+                            imageSrc="/empty-profile.jpg"
+                            bio="She does things"
+                        />
+
+                        <TeamMember
+                            name="Justin Ikechukwu Cunningham"
+                            position="Front-end Developer"
+                            imageSrc="/Headshots/Justin.png"
+                            bio="Worked on the questionnaire page, progress bar"
+                        />
+
+                        <TeamMember
+                            name="Jake McKenna"
+                            position="Back-end Developer"
+                            imageSrc="/empty-profile.jpg"
+                            bio="Worked on authentication"
+                        />
+
+                        <TeamMember
+                            name="Essien Thompson"
+                            position="Back-end Developer"
+                            imageSrc="/Headshots/Essien.jpg"
+                            bio="He does things"
+                        />
+
+                        <TeamMember
+                            name="Reece Webb"
+                            position="Back-end Developer"
+                            imageSrc="/empty-profile.jpg"
+                            bio="He does things"
+                        />
+                    </div>
+                </div>
+
+
+            </section>
+            <div className="bottom-0">
+                <Footer />
+            </div>
         </div>
     );
 }
