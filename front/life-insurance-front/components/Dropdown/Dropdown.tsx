@@ -54,9 +54,7 @@ const Dropdown = (props: DropdownType) => {
   );
 };
 
-type ButtonProps = React.HTMLProps<HTMLButtonElement>;
-
-const SelectItem = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const SelectItem = React.forwardRef<null, Select.SelectItemProps>(
   (props, ref) => {
     return (
       <Select.Item
