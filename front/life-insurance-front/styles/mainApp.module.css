@@ -8,7 +8,7 @@
 
 /* Header styling */
 .header {
-    background-color: white;
+    background: linear-gradient(270deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.76)));
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin-bottom: 20px; /* Added space below the header */
 }
@@ -30,9 +30,11 @@
 
 /* Navigation bar styling */
 .nav {
+    position: relative;
     text-align: center;
     border-top: 1px solid grey; /* Top border for nav */
     border-bottom: 1px solid grey; /* Bottom border for nav */
+    
 }
 
 /* List styling in nav bar */

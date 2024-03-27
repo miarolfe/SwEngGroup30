@@ -7,6 +7,17 @@
     background-color: #175788;
   }
 
+  .main-bg {
+    background: linear-gradient(270deg, rgb(31, 119, 185) 0%, rgb(118, 83, 182));
+  }
+
+.header-bg {
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.623) 0%, rgb(255, 255, 255) );
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px; /* Added space below the header */
+}
+
+
   .grad-bg {
     background: linear-gradient(270deg, rgba(51,61,215,1) 0%, rgb(72, 69, 130) 100%);
   }
@@ -90,6 +101,16 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .glass-box {
+    /* slightly more opaque just for boxes/divs etc. */
+    background: rgba(226, 226, 226, 0.80);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.9px);
+    -webkit-backdrop-filter: blur(12.9px);
+    cursor: pointer;
+  }
+
 }
 
 @layer utilities {
@@ -104,14 +125,6 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -120,6 +133,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+title {
+  font-weight: bold;
 }
 
 

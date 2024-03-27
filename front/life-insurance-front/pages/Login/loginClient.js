@@ -89,7 +89,7 @@ const LoginClient = () => {
     }
 
     return (
-        <div className="min-h-screen flex flex-col justify-center items-center">
+        <div className="main-bg min-h-screen flex flex-col justify-center items-center">
             <form onSubmit={handleLogin} className="w-80">
                 <div className="mb-4">
                     <label htmlFor="username" className="block mb-2">Username:</label>
@@ -128,7 +128,7 @@ const LoginClient = () => {
                 </button>
             </div>
             <div className="mt-4" onClick={handleRegister}>
-                <h4 className="text-blue-500 hover:underline">Register new account</h4>
+                <h4 className="text-blue-200 hover:underline">Register new account</h4>
                 {/*<span className="mx-2">|</span>*/}
                 {/*<a href="#" className="text-blue-500 hover:underline">Continue without account</a> */}
             </div>
