@@ -3,12 +3,6 @@ from services.quoteRequestService import insertQuoteRequestToDB, deleteQuoteRequ
 
 quoteRequestRouter = APIRouter()
 
-# class QuoteRequest(BaseModel):
-#     userId : str
-#     medicalRecord : str
-
-
-
 @quoteRequestRouter.post("/api/quoteRequest/add")
 async def insertQuoteRequest(data : dict):
     print(f"type: {type(data)}, data: {data}\n")
