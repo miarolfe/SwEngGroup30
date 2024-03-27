@@ -18,10 +18,14 @@ def getRiskScoreFromUserHealthCondition(user : dict) -> float:
         diseaseDict[diseaseName.casefold()] = score
         hereditaryRisk[diseaseName.casefold()] = score/12
 
-    riskScoreFromHealthDisease : float =  ((calculateRiskScorefromHereditaryConditions(user, diseaseDict, hereditaryRisk) + calculateRiskScoreFromMedicalHistory(user, diseaseDict)) * DISEASE_RISK_PROPORTION) + BASE_RISK_SCORE
+    hereditaryRiskScore = calculateRiskScorefromHereditaryConditions(user, diseaseDict, hereditaryRisk)
+    medicalHistoryRiskScore = calculateRiskScoreFromMedicalHistory(user, diseaseDict)
+    if hereditaryRiskScore >= 80 or medicalHistoryRiskScore >= 80:
+        return max(hereditaryRiskScore, medicalHistoryRiskScore)
+
+    riskScoreFromHealthDisease : float =  ((hereditaryRiskScore + medicalHistoryRiskScore) * DISEASE_RISK_PROPORTION) + BASE_RISK_SCORE
     riskScoreFromHabbit : float = (getRiskScoreFromSmokingHistory(user) * SMOKING_RISK_PROPORTION) + (getRiskScoreFromDrinkingHistory(user) * DRINKING_RISK_PROPORTION) + (getRiskScoreFromAge(user) * AGE_RISK_PROPORTION) - (getDeductionFromHabbit(user) * EXCERCISE_RISK_PROPORTION)
     totalRiskScore = riskScoreFromHealthDisease + riskScoreFromHabbit
-    print(totalRiskScore)
     return totalRiskScore
 
 def getDeductionFromHabbit(user : dict) -> float:
@@ -82,6 +86,9 @@ def calculateRiskScorefromHereditaryConditions(user : dict, diseaseDict, heredit
     hereditaryConditionsOfUser : list[str] = user['hereditaryConditions']
     for hereditaryCondition in hereditaryConditionsOfUser:
         hereditaryConditionInLoweCase : str = hereditaryCondition.casefold()
+        if hereditaryConditionInLoweCase == "cancer":
+            riskScore = 100
+            break
         try:
             riskScore = riskScore + (diseaseDict[hereditaryConditionInLoweCase] * hereditaryRisk[hereditaryConditionInLoweCase])
         except KeyError:
@@ -93,6 +100,9 @@ def calculateRiskScoreFromMedicalHistory(user : dict, diseaseDict) -> int:
     riskScore : int = 0
     healthConditions : list[str] = user["healthConditions"]
     for healthProblem in healthConditions:
+        if healthProblem.casefold() == "cancer":
+            riskScore = 100
+            break
         try:
             score : int = diseaseDict[healthProblem.casefold()]
             riskScore = riskScore + score

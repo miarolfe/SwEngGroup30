@@ -1,18 +1,8 @@
-from services.userQuoteListService import getAllUser, addQuoteToList, getQuoteHistoryForAnUser
+from services.userQuoteListService import addQuoteToList, getQuoteHistoryForAnUser
 from fastapi import APIRouter
 from models.quoteListItem import QuoteListItem, QuoteItem
 from services.quoteRequestService import getCurrentDateAndTime
 userQuoteListRouter = APIRouter()
-
-
-
-
-
-
-# @userQuoteListRouter.get("/api/user/quotelist")
-# async def getAllUsers():
-#     return getAllUser()
-
 
 @userQuoteListRouter.get("/api/user/quotelist/{userId}")
 def getEntireQuoteHistory(userId : str):
@@ -35,7 +25,7 @@ def convertQuoteItemToDict(quoteItem : QuoteItem) -> dict:
         "comment":quoteItem.comment
     }
 
-@userQuoteListRouter.put("/api/user/quotelist/{userId}")
-async def updateUserQuoteList(userId : str, newQuote:QuoteListItem):
-    print(f"newQuote in route: {newQuote}\n")
-    addQuoteToList(convertQuoteListItemToDict(newQuote), userId)
+# @userQuoteListRouter.put("/api/user/quotelist/{userId}")
+# async def updateUserQuoteList(userId : str, newQuote:QuoteListItem):
+#     print(f"newQuote in route: {newQuote}\n")
+#     addQuoteToList(convertQuoteListItemToDict(newQuote), userId)

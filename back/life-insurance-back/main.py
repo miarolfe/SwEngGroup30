@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from config.database import collection_name as user_collection, collection_disease as disease_collection
 app = FastAPI()
 
-app.include_router(user_api_router)
+# app.include_router(user_api_router)
 app.include_router(premium_calculator_router)
 
 app.include_router(quoteRequestRouter)
