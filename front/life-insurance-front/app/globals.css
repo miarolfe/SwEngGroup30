@@ -139,4 +139,40 @@ title {
   font-weight: bold;
 }
 
+.team-member {
+  background-color: white;
+  padding: 10px;
+  border: 5px black solid;
+  border-radius: 0.5rem;
+}
 
+.team-image {
+  border: 5px black solid;
+  border-radius: 0.5rem;
+  margin: auto;
+}
+
+.team-member-image {
+  border: 5px black solid;
+  border-radius: 0.5rem;
+}
+
+.team-member-info {
+  padding: 10px;
+}
+
+.team-member-name {
+  font-weight: bold;
+}
+
+.team-page{
+  padding-left: 30%;
+  padding-right: 30%;
+}
+
+.team-page-heading {
+  background-color: white;
+  padding: 10px;
+  border: 5px black solid;
+  border-radius: 0.5rem;
+}
