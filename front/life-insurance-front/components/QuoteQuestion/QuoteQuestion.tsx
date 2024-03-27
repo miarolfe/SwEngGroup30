@@ -48,18 +48,30 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
           label={input.label}
           placeholder={input.textPlaceholder}
           value={props.data[input.stateName]}
-          // onChange={(e) =>
-          //   props.setData((prev) => ({
-          //     ...prev,
-          //     [input.stateName]: e.target.value,
-          //   }))
-          // }
+          onChange={(e) =>
+            props.setData((prev) => ({
+              ...prev,
+              [input.stateName]: e.target.value,
+            }))
+          }
         />
       );
 
     // Dropdown
     if ("dropdownOptions" in input)
-      return <Dropdown options={input.dropdownOptions} label={input.label} />;
+      return (
+        <Dropdown
+          options={input.dropdownOptions}
+          label={input.label}
+          value={props.data[input.stateName]}
+          onChange={(e) => {
+            props.setData((prev) => ({
+              ...prev,
+              [input.stateName]: e,
+            }));
+          }}
+        />
+      );
 
     // Radio
     if ("radioOptions" in input) return <div>Radio</div>;

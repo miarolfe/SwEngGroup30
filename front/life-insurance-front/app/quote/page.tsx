@@ -72,10 +72,19 @@ const QuotePage = () => {
         }
       });
     });
-  });
+  }, []);
 
-  const handleIncrement = () => {
-    if (curr === qData.length - 1) return;
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
+  const handleIncrement = (states: typeof data) => {
+    let x = false;
+    qData[curr].inputs.map((item) => {
+      console.log(item.stateName, states[item.stateName]);
+      if (!states[item.stateName]) x = true;
+    });
+    if (curr === qData.length - 1 || x) return;
     setCurr((prev) => prev + 1);
   };
 
@@ -94,7 +103,7 @@ const QuotePage = () => {
         <QuoteBlock position={idx} key={idx} current={curr}>
           <QuoteQuestion
             question={item.question}
-            onClickNext={handleIncrement}
+            onClickNext={() => handleIncrement(data)}
             onClickBack={handleDecrement}
             onClickSubmit={handleSubmit}
             data={data}
@@ -113,7 +122,7 @@ const QuotePage = () => {
           <Quote />
         </div>
       );
-  }, [currentStep, curr]);
+  }, [currentStep, curr, data]);
 
   return (
     <div className="h-screen overflow-x-hidden grad-bg w-full test persp">

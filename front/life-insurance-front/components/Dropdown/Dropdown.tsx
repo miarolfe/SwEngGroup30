@@ -9,6 +9,8 @@ import {
 
 type DropdownType = {
   label: String;
+  value: string;
+  onChange: (value: string) => void;
   options: String[];
 };
 
@@ -20,7 +22,7 @@ const Dropdown = (props: DropdownType) => {
       >
         {props.label}
       </label>
-      <Select.Root>
+      <Select.Root value={props.value} onValueChange={props.onChange}>
         <Select.Trigger
           className="flex p-2 items-center h-14 w-full glass rounded-md border text-white"
           aria-label="Food"
