@@ -2,13 +2,14 @@ import Head from "next/head";
 import Header from "../components/Header";
 import '../app/globals.css'
 import UserType from "../components/UserAuthentication/UserType";
+import Footer from "../components/Footer";
 
 const UserPage = () => {
 
     return (
-        <div>
+        <div className="main-bg min-h-screen h-full">
             <Head>
-                <title>
+                <title >
                     Login/Register
                 </title>
             </Head>
@@ -20,12 +21,11 @@ const UserPage = () => {
                     <h2 className="text-4xl">
                         Login/Register
                     </h2>
-                    <p>
-                        leads to login page for client or employee
-                    </p>
+                    <br/>
                     <UserType />
                 </section>
             </main>
+            <Footer/>
         </div>
     );
 }
