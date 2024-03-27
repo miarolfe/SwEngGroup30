@@ -42,6 +42,7 @@ const UserNavPage = () => {
         <div>
             <main>
                 <div class="main-bg min-h-screen p-8 rounded-lg shadow-md">
+
                     <h2 class="text-center text-2xl font-bold text-gray-800 mb-4">Your medical records</h2>
                     <div class="flex justify-center space-x-4">
                         <Link href="/quote">

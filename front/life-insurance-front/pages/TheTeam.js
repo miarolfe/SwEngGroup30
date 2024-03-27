@@ -39,6 +39,7 @@ const TheTeam = () => {
                                     <p>Karolina Raczynska - Team Lead</p>
                                     <br />
                                     <p>Front end leader: worked on AWS login applications </p>
+
                                 </div>
                             </div>
 
@@ -64,6 +65,7 @@ const TheTeam = () => {
                             <img src="/Headshots/Ben.png" alt="Ben" width={150} height={150} className="mx-5 mb-5"></img>
                                 <div>
                                 <p>Ben Byrne - Developer</p>
+
                                     <br />
                                     <p>Worked mainly team and login pages.</p>
                                 </div>
@@ -76,6 +78,7 @@ const TheTeam = () => {
                                     <br />
                                     <p>Worked on page layout and styling </p>
                                     <p>such as our team and login page. </p>
+
                                 </div>
                             </div>
                         </section>
@@ -101,6 +104,7 @@ const TheTeam = () => {
                                         <p>Worked on authentification, </p>
                                     </div>
                                     <img src="/empty-profile.jpg" alt="Jake" width={150} height={150} className="mx-5 mb-5" />
+
                                 </div>
 
                                 <div className="flex ">
@@ -110,6 +114,7 @@ const TheTeam = () => {
                                         <p>She does things</p>
                                     </div>
                                     <img src="/Headshots/Mia.jpeg" alt="Mia" width={150} height={150} className="mx-5 mb-5"></img>
+
                                 </div>
 
                                 <div className="flex ">
@@ -141,6 +146,7 @@ const TheTeam = () => {
                             </section>
                     </div>
                     
+
                 </section>
             
                 <Footer/>
