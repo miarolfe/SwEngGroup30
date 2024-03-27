@@ -13,7 +13,7 @@ RUN npm install
 COPY life-insurance-front/ .
 
 # Expose the port that the app will run on
-EXPOSE 3000
+EXPOSE 443
 
 # Build the Next.js application
 RUN npm run build
