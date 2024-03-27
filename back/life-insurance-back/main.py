@@ -11,7 +11,7 @@ app.include_router(user_api_router)
 app.include_router(premium_calculator_router)
 
 app.include_router(quoteRequestRouter)
-=======
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Adjust to your needs, "" allows all origins
