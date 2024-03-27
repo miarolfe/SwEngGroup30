@@ -1,7 +1,5 @@
 {
   "dependencies": {
-    "@aws-amplify/cli": "^12.10.1",
-    "@heroicons/react": "^2.1.1",
-    "@radix-ui/react-select": "^2.0.0"
+    "@aws-amplify/cli": "^12.10.1"
   }
 }
