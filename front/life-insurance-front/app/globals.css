@@ -11,6 +11,12 @@
     background: linear-gradient(270deg, rgb(31, 119, 185) 0%, rgb(118, 83, 182));
   }
 
+.header-bg {
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.623) 0%, rgb(255, 255, 255) );
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px; /* Added space below the header */
+}
+
 
   .grad-bg {
     background: linear-gradient(270deg, rgba(51,61,215,1) 0%, rgb(72, 69, 130) 100%);

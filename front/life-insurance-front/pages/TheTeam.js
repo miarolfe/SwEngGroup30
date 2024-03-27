@@ -148,8 +148,9 @@ const TheTeam = () => {
                     
 
                 </section>
-            
+                <div className="bottom-0">
                 <Footer/>
+                </div>
         </div>
     );
 }

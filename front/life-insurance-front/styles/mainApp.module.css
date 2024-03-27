@@ -8,7 +8,7 @@
 
 /* Header styling */
 .header {
-    background-color: white;
+    background: linear-gradient(270deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.76)));
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin-bottom: 20px; /* Added space below the header */
 }
