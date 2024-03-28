@@ -109,6 +109,37 @@
     cursor: pointer;
   }
 
+  .chat-open {
+    animation: chat-open 0.4s forwards;
+    animation-timing-function: cubic-bezier(0.295, 0.880, 0.415, 0.960);
+  }
+
+  .chat-close {
+    animation: chat-close 0.4s forwards;
+    animation-timing-function: cubic-bezier(0.295, 0.880, 0.415, 0.960);
+  }
+  
+  @keyframes chat-open {
+    0% {
+      height: 0px;
+      opacity: 0;
+    }
+    100% {
+      height: 36rem;
+      opacity: 1;
+    }
+  }
+
+  @keyframes chat-close {
+    0% {
+      height: 36rem;
+      opacity: 1;
+    }
+    100% {
+      height: 0px;
+      opacity: 0;
+    }
+  }
 }
 
 @layer utilities {
