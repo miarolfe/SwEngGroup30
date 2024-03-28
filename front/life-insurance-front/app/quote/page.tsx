@@ -74,10 +74,6 @@ const QuotePage = () => {
     });
   }, []);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   const handleIncrement = (states: typeof data) => {
     let x = false;
     qData[curr].inputs.map((item) => {
