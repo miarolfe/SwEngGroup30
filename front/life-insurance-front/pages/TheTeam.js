@@ -19,13 +19,13 @@ const TheTeam = () => {
             <div className="py-2"/>
 
             <section className="text-center team-page grid grid-cols-1 gap-4">
-                <div class="team-page-heading">
+                <div className="team-page-heading">
                     <h2 className="text-4xl">
                         <b>The Team</b>
                     </h2>
                 </div>
                 
-                <img src="team.jpg" class="team-image"></img>
+                <img src="team.jpg" className="team-image"></img>
 
                 <div className="flex-row">
                     <div alt="backend profiles" className="team-member-list content-center grid grid-cols-1 

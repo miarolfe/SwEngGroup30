@@ -41,12 +41,12 @@ const UserNavPage = () => {
     return (
         <div>
             <main>
-                <div class="main-bg min-h-screen p-8 rounded-lg shadow-md">
+                <div className="main-bg min-h-screen p-8 rounded-lg shadow-md">
 
-                    <h2 class="text-center text-2xl font-bold text-gray-800 mb-4">Your medical records</h2>
-                    <div class="flex justify-center space-x-4">
+                    <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">Your medical records</h2>
+                    <div className="flex justify-center space-x-4">
                         <Link href="/quote">
-                            <button class="focus:shadow-outline h-20 w-48 rounded-lg bg-indigo-700 text-xl text-white
+                            <button className="focus:shadow-outline h-20 w-48 rounded-lg bg-indigo-700 text-xl text-white
                         transition-colors duration-150 hover:bg-indigo-800">
                                 Go to questionnaire</button>
                         </Link>
