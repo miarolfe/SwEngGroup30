@@ -33,7 +33,7 @@ const LoginUnderwriter = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col justify-center items-center">
+        <div className="main-bg min-h-screen flex flex-col justify-center items-center">
             <form onSubmit={handleLogin} className="w-80">
                 <div className="mb-4">
                     <div className={styles.loginLogo}>

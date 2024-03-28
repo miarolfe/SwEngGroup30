@@ -1,5 +1,7 @@
 from services import riskCalculationService
-
+from services.userQuoteListService import addQuoteToList
+from services.quoteRequestService import insertQuoteRequestToDB, getCurrentDateAndTime
+from bson import ObjectId
 ENTRY_LEVEL_INSURED_AMOUNT = 300000
 HIGH_LEVEL_INSURED_AMOUNT = 500000
 PREMIUM_LEVEL_INSURED_AMOUNT = 700000
@@ -15,6 +17,23 @@ def calculatePremium(user : dict) -> dict:
     if (riskScore/100) > 85:
         return{
             "message" : "Sorry, we are unable to calculate premium for you. Please consult with our underwriters"
+        }
+    
+def calculatePremium(user : dict, userId : str) -> dict:
+    riskScore : float = riskCalculationService.getRiskScoreFromUserHealthCondition(user)
+    if riskScore >= 80:
+        print("Too risky\n")
+        data = {}
+        data["userId"] = ObjectId(userId)
+        data["medicalRecord"] = user
+        data["timestamp"] = getCurrentDateAndTime()
+        print(f"Quote Request: {data}\n")
+        insertQuoteRequestToDB(data)
+        return {
+        "entryLevelRecommendation" : {},
+        "highLevelRecommendation" : {},
+        "premiumLevelRecommendation" : {},
+        "comment" : "Sorry, we are unable to provide you with a quotation.\nYour quotation request is sent to our underwriter.\nOnce our underwriter has processed your request. The result will appear in your quote history.\n "
         }
     
     entryLevelCost = calculateEntryLevelPremium(riskScore)
@@ -44,11 +63,16 @@ def calculatePremium(user : dict) -> dict:
         "maxYearInsured" : NUMBER_OF_YEAR_INSURED,
         "comment" : premiumLevelComment
     }
-    return {
+    rec = {
         "entryLevelRecommendation" : entryLevelRecommendation,
         "highLevelRecommendation" : highLevelRecommendation,
-        "premiumLevelRecommendation" : premiumLevelRecommendation
+        "premiumLevelRecommendation" : premiumLevelRecommendation,
+        "comment" : comment
     }
+
+    addQuoteToList(rec, userId)
+
+    return rec
 
 
 def calculateEntryLevelPremium(riskScore : float) -> float:

@@ -7,16 +7,17 @@ import {faGoogle, faTwitter, faFacebook} from '@fortawesome/free-brands-svg-icon
 import {signIn} from "next-auth/react";
 
 const LoginClient = () => {
+    const router = useRouter();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const router = useRouter();
+
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
         try {
             const res = await signIn("credentials", {
-                email: username, 
+                email: username,
                 password,
                 redirect: false
             });
@@ -26,7 +27,7 @@ const LoginClient = () => {
                 return
             }
 
-            router.push ('/quote')
+            await router.push('/UserNavPage')
             console.log("hurray");
 
         } catch (error) {
@@ -54,7 +55,7 @@ const LoginClient = () => {
 
     const handleRegister = async (e) => {
         try {
-            const resUserExists = await fetch("api/userExists", {
+            const resUserExists = await fetch("/api/userExists", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -68,7 +69,7 @@ const LoginClient = () => {
                 return;
             }
 
-            const res = await fetch("api/register", {
+            const res = await fetch("/api/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -88,7 +89,7 @@ const LoginClient = () => {
     }
 
     return (
-        <div className="min-h-screen flex flex-col justify-center items-center">
+        <div className="main-bg min-h-screen flex flex-col justify-center items-center">
             <form onSubmit={handleLogin} className="w-80">
                 <div className="mb-4">
                     <label htmlFor="username" className="block mb-2">Username:</label>
@@ -127,7 +128,7 @@ const LoginClient = () => {
                 </button>
             </div>
             <div className="mt-4" onClick={handleRegister}>
-                <h4 className="text-blue-500 hover:underline">Register new account</h4>
+                <h4 className="text-blue-200 hover:underline">Register new account</h4>
                 {/*<span className="mx-2">|</span>*/}
                 {/*<a href="#" className="text-blue-500 hover:underline">Continue without account</a> */}
             </div>

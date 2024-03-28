@@ -1,4 +1,5 @@
 import LoginClient from './Login/loginClient';
+import Footer from "../components/Footer";
 
 
 
