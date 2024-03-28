@@ -5,10 +5,6 @@ const sample: Message[] = [
     message: "Hello Admin! What can I help you with today?",
     from: "chatbot",
   },
-  {
-    message: "How are you?",
-    from: "you",
-  },
 ];
 
 const UnderwriterPage = () => {

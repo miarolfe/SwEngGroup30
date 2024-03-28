@@ -19,7 +19,7 @@ const ChatbotMessage = ({ message }: { message: Message }) => {
 
   return (
     <div
-      className={`text-sm min-h-6 w-1/2 my-2 p-2 shadow rounded-md ${style}`}
+      className={`text-sm min-h-6 w-3/5 my-2 p-2 shadow rounded-md ${style}`}
     >
       {message.message}
     </div>
@@ -41,15 +41,17 @@ const Chatbot = ({ messages }: { messages: Message[] }) => {
     return "chat-close";
   }, [open]);
 
-  const handleSubmit = (value: string) => {
-    if (!value) return;
+  const handleSubmit = () => {
+    if (!val) return;
     setMsgs((prev) => [
       ...prev,
       {
-        message: value,
+        message: val,
         from: "you",
       },
     ]);
+
+    /* INSERT LOGIC TO SEND REQUEST TO BACKEND */
 
     setVal("");
   };
@@ -87,11 +89,13 @@ const Chatbot = ({ messages }: { messages: Message[] }) => {
           <input
             value={val}
             onChange={handleChange}
-            // onSubmit={handleSubmit}
+            onKeyDownCapture={(e) => {
+              if (e.key === "Enter") handleSubmit();
+            }}
             className="h-2/3 w-4/5 border border-white rounded-md px-4 bg-transparent outline-none text-white"
           ></input>
           <PaperAirplaneIcon
-            onClick={() => handleSubmit(val)}
+            onClick={() => handleSubmit()}
             className="w-8 text-white transition-all hover:text-slate-300 hover:cursor-pointer"
           />
         </div>
