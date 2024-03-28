@@ -1,36 +1,23 @@
 import Image from "next/image";
 import styles from '../styles/mainApp.module.css';
 import Link from "next/link";
+import HeaderButton from '../components/HeaderButton'
 
 const Header = () => {
     return (
-        <header className="header-bg">
-            <div className={styles.topRow}>
-                <div className={styles.logo}>
-                    <Link href="/">
-                        <Image src="/logo.jpeg" alt="Munich RE" width={150} height={100}/>
-                    </Link>
-                    <div className={styles.underlogo}>
-                        Munich Re Automation Solutions Ltd
-                    </div>
-                </div>
+        <header className="header-bg pt-2">
+            <div className="grid grid-cols-1 justify-items-center header-logo-div   ">
+                <Link href="/">
+                    <Image src="/logo.png" alt="Munich RE" width={250} height={150} />
+                </Link>
             </div>
-            <nav className={styles.nav}>
-                <ul className={styles.navList}>
-                    <li className={styles.navItem}>
-                        <Link href="/WhoWeAre">Who We Are</Link>
-                    </li>
-                    <li className={styles.navItem}>
-                        <Link href="/TheTeam">The Team</Link>
-                    </li>
-                    <li className={styles.navItem}>
-                        <Link href="/LifeInsurance">Life Insurance</Link>
-                    </li>
-                    <li className={styles.navItemRight}>
-                        <Link href="/UserPage">Login/Register</Link>
-                    </li>
-                </ul>
-            </nav>
+            <div className="grid grid-cols-5 pt-2 text-center">
+                <HeaderButton link="/WhoWeAre" label="About" />
+                <HeaderButton link="/TheTeam" label="The Team" />
+                <HeaderButton link="/" label="Home"></HeaderButton>
+                <HeaderButton link="/LifeInsurance" label="Insurance" />
+                <HeaderButton link="/UserPage" label="Login" />
+            </div>
         </header>
     );
 };
