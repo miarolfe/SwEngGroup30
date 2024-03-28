@@ -77,7 +77,7 @@ const TheTeam = () => {
                         <TeamMember
                             name="Kate Byrne"
                             position="Back-end Developer"
-                            imageSrc="/empty-profile.jpg"
+                            imageSrc="/Headshots/Kate.jpg"
                             bio="She does things"
                         />
 
