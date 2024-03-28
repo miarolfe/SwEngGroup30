@@ -15,8 +15,9 @@ const TheTeam = () => {
                     The Team
                 </title>
             </Head>
-            <br />
-            <br />
+
+            <div className="py-2"/>
+
             <section className="text-center team-page grid grid-cols-1 gap-4">
                 <div class="team-page-heading">
                     <h2 className="text-4xl">
@@ -25,12 +26,10 @@ const TheTeam = () => {
                 </div>
                 
                 <img src="team.jpg" class="team-image"></img>
-                {/* <p>
-                    here you'll find the development team who worked
-                    tirelessly over the last 12 weeks in creating this site
-                </p> */}
+
                 <div className="flex-row">
-                    <div alt="backend profiles" className="team-member-list content-center grid grid-cols-1 2xl:grid-cols-2 gap-4 inline-block float-center 
+                    <div alt="backend profiles" className="team-member-list content-center grid grid-cols-1 
+                    md:grid-cols-2 2xl:grid-cols-3 gap-4 inline-block float-center 
                                                             text-left ">
                         
                         <TeamMember
