@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { ChangeEvent, FormEvent, useMemo, useState } from "react";
 import {
   XMarkIcon,
   PaperAirplaneIcon,
@@ -28,16 +28,37 @@ const ChatbotMessage = ({ message }: { message: Message }) => {
 
 const Chatbot = ({ messages }: { messages: Message[] }) => {
   const [open, setOpen] = useState<boolean>(false);
+  const [msgs, setMsgs] = useState<Message[]>(messages);
+  const [val, setVal] = useState<string>("");
 
   const buttonStyle = useMemo(() => {
-    if (open) return "opacity-0 scale-50";
-    return "opacity-100 scale-100";
+    if (!open) return "button-open";
+    return "scale-50 opacity-0 translate-x-48 translate-y-48";
   }, [open]);
 
   const chatStyle = useMemo(() => {
     if (open) return "chat-open";
     return "chat-close";
   }, [open]);
+
+  const handleSubmit = (value: string) => {
+    if (!value) return;
+    setMsgs((prev) => [
+      ...prev,
+      {
+        message: value,
+        from: "you",
+      },
+    ]);
+
+    setVal("");
+  };
+
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (
+    e: ChangeEvent<HTMLInputElement>
+  ) => {
+    setVal(e.target.value);
+  };
 
   return (
     <>
@@ -58,13 +79,21 @@ const Chatbot = ({ messages }: { messages: Message[] }) => {
           />
         </div>
         <div className="overflow-scroll overflow-hidden p-2 grow">
-          {messages.map((item, i) => {
+          {msgs.map((item, i) => {
             return <ChatbotMessage message={item} />;
           })}
         </div>
         <div className="flex justify-between items-center h-16 w-full border-t-slate-400 border-t-2 px-2">
-          <input className="h-2/3 w-4/5 border border-white rounded-md px-4 bg-transparent outline-none text-white"></input>
-          <PaperAirplaneIcon className="w-8 text-white transition-all hover:text-slate-300 hover:cursor-pointer" />
+          <input
+            value={val}
+            onChange={handleChange}
+            // onSubmit={handleSubmit}
+            className="h-2/3 w-4/5 border border-white rounded-md px-4 bg-transparent outline-none text-white"
+          ></input>
+          <PaperAirplaneIcon
+            onClick={() => handleSubmit(val)}
+            className="w-8 text-white transition-all hover:text-slate-300 hover:cursor-pointer"
+          />
         </div>
       </div>
     </>

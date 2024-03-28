@@ -110,13 +110,34 @@
   }
 
   .chat-open {
+    opacity: 0;
     animation: chat-open 0.4s forwards;
     animation-timing-function: cubic-bezier(0.295, 0.880, 0.415, 0.960);
+    animation-delay: 0.1s;
   }
 
   .chat-close {
     animation: chat-close 0.4s forwards;
     animation-timing-function: cubic-bezier(0.295, 0.880, 0.415, 0.960);
+  }
+
+  .button-open {
+    opacity: 0;
+    transform: scale(0.5) translateX(12rem) translateY(12rem);
+    animation: button-open 0.4s forwards;
+    animation-timing-function: cubic-bezier(0.295, 0.880, 0.415, 0.960);
+    animation-delay: 0.4s;
+  }
+
+  @keyframes button-open {
+    0% {
+      transform: scale(0.5) translateX(12rem) translateY(12rem);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
   
   @keyframes chat-open {
