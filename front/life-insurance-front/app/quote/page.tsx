@@ -6,6 +6,22 @@ import Quote from "@/components/Quote/Quote";
 import qData from "./questions.json";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
 
+type DataFromQuestionnaire = {
+  patientName: string,
+  dateOfBirth: string,
+  sex: string,
+  occupation: string,
+  yearlyIncomeInEuro: number,
+  weightInKG: number,
+  heightInCM: number,
+  excerciseHoursPerWeek: number,
+  smokingHistory: number,
+  drinkingHistory: 0,
+  hereditaryConditions: string[],
+  healthConditions: string[]
+}
+  
+
 const QuoteBlock = ({
   position,
   current,
@@ -74,6 +90,23 @@ const QuotePage = () => {
     });
   }, []);
 
+  const generateQuotes = async () => {
+    const formattedData: DataFromQuestionnaire = {
+      patientName: data.fullName,
+      dateOfBirth: data.dob,
+      sex: data.sex,
+      occupation: data.occupation,
+      yearlyIncomeInEuro: parseFloat(data.income),
+      weightInKG: parseFloat(data.weight),
+      heightInCM: parseFloat(data.height),
+      excerciseHoursPerWeek: parseFloat(data.exerciseHours),
+      smokingHistory: 0,
+      drinkingHistory: 0,
+      hereditaryConditions: [data.hereditaryConditions],
+      healthConditions: [data.hereditaryConditions]
+    }
+  }
+
   const handleIncrement = (states: typeof data) => {
     let x = false;
     qData[curr].inputs.map((item) => {
@@ -90,6 +123,7 @@ const QuotePage = () => {
   };
 
   const handleSubmit = () => {
+    generateQuotes();
     setCurrentStep(2);
   };
 
