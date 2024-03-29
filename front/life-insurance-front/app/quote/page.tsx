@@ -5,6 +5,9 @@ import QuoteQuestion from "@/components/QuoteQuestion/QuoteQuestion";
 import Quote from "@/components/Quote/Quote";
 import qData from "./questions.json";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
+import { useSession } from "next-auth/react";
+import { connectMongoDB } from "@/lib/mongodb";
+import User from "@/models/user";
 
 type DataFromQuestionnaire = {
   patientName: string,
@@ -79,6 +82,7 @@ const QuotePage = () => {
   const [curr, setCurr] = useState<number>(0);
   const [data, setData] = useState<{ [stateName: string]: string }>({});
   const [currentStep, setCurrentStep] = useState<number>(1);
+  const {data: session} = useSession();
 
   useEffect(() => {
     qData.map((item): void => {
@@ -105,6 +109,10 @@ const QuotePage = () => {
       hereditaryConditions: [data.hereditaryConditions],
       healthConditions: [data.hereditaryConditions]
     }
+
+    // await connectMongoDB();
+    // const id = await User.findOne({email: session?.user?.email});
+    console.log(session?.user?.id);
   }
 
   const handleIncrement = (states: typeof data) => {
