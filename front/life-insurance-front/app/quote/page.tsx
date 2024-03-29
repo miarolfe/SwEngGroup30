@@ -63,9 +63,22 @@ const QuoteBlock = ({
 };
 
 const QuotePage = () => {
+  const placeholderQuote: QuoteDetails = {
+    premium: 1000,
+    amountInsured: 300000,
+    maxYearInsured: 50
+  };
+
+  const placeHolderReturn: ReturnedQuotes = {
+    entryLevelRecommendation: placeholderQuote,
+    highLevelRecommendation: placeholderQuote,
+    premiumLevelRecommendation: placeholderQuote
+  };
+
   const [curr, setCurr] = useState<number>(0);
   const [data, setData] = useState<{ [stateName: string]: string }>({});
   const [currentStep, setCurrentStep] = useState<number>(1);
+  const [returnedQuotes, setReturnedQuotes] = useState<ReturnedQuotes>(placeHolderReturn);
   const {data: session} = useSession();
 
   useEffect(() => {
@@ -82,7 +95,7 @@ const QuotePage = () => {
     const herConditions: string[] = [data.hereditaryConditions];
     const currConditions: string[] = [data.healthConditions];
     
-    const res = await fetch(`http://0.0.0.0:8000/api/premium/${session?.user?.id}`, {
+    await fetch(`http://0.0.0.0:8000/api/premium/${session?.user?.id}`, {
       method: "POST",
       mode: "cors",
       headers: {
@@ -103,9 +116,7 @@ const QuotePage = () => {
         hereditaryConditions: herConditions,
         healthConditions: currConditions
       })
-    });
-    
-    console.log(res);
+    }).then(data => data.json()).then(data => {setReturnedQuotes(data); console.log(returnedQuotes)});
   }
 
   const handleIncrement = (states: typeof data) => {
@@ -125,8 +136,8 @@ const QuotePage = () => {
     setCurr((prev) => prev - 1);
   };
 
-  const handleSubmit = () => {
-    generateQuotes();
+  const handleSubmit = async () => {
+    await generateQuotes();
     setCurrentStep(2);
   };
 
@@ -152,7 +163,7 @@ const QuotePage = () => {
     if (currentStep === 2)
       return (
         <div className="cover-quote-page">
-          <Quote />
+          <Quote {...returnedQuotes} />
         </div>
       );
   }, [currentStep, curr, data]);
