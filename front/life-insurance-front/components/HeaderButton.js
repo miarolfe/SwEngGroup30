@@ -1,11 +1,25 @@
-import Head from "next/head";
+import { useEffect, useState } from 'react';
 
 const HeaderButton = ({ link, label }) => {
-    return (
-      <a className="header-button block p-1 bg-white border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" href={link}>
-        <b>{label}</b>
-      </a>
-    );
-  };
-  
-  export default HeaderButton;
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+    setIsActive(currentPath === link);
+  }, [link]);
+
+  return (
+    <a
+      href={link}
+      className={`text-4xl header-button block text-center px-2 pt-7 pb-5 border border-gray-200 shadow-md ${
+        isActive
+          ? 'bg-gray-100'
+          : 'bg-white text-black hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700'
+      }`}
+    >
+      <b>{label}</b>
+    </a>
+  );
+};
+
+export default HeaderButton;

@@ -1,16 +1,15 @@
 import Head from "next/head";
-import Header from "../components/Header";
+import Header from "../../components/Header";
 import '../app/globals.css'
-import UserType from "../components/UserAuthentication/UserType";
-import Footer from "../components/Footer";
+import Footer from "../../components/Footer";
 
-const UserPage = () => {
+const LifeInsurance = () => {
 
     return (
         <div className="main-bg min-h-screen h-full">
             <Head>
-                <title >
-                    Login/Register
+                <title>
+                    Life Insurance
                 </title>
             </Head>
             <Header />
@@ -19,14 +18,15 @@ const UserPage = () => {
                     <br/>
                     <br/>
                     <h2 className="text-4xl">
-                        Login/Register
+                        Life Insurance
                     </h2>
-                    <br/>
-                    <UserType />
+                    <p>
+                        leads to questionaire page maybe
+                    </p>
                 </section>
             </main>
             <Footer/>
         </div>
     );
 }
-export default UserPage;
+export default LifeInsurance;

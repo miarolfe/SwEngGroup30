@@ -1,5 +1,5 @@
-import LoginClient from './Login/loginClient';
-import Footer from "../components/Footer";
+import LoginClient from '../../pages/Login/loginClient';
+import Footer from "../../components/Footer";
 
 
 
