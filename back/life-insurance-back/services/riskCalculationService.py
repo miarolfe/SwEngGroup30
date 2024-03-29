@@ -108,7 +108,7 @@ def calculateRiskScoreFromMedicalHistory(user : dict, diseaseDict) -> int:
             riskScore = riskScore + score
         except KeyError:
             # unknown disease -> increment score by 3
-            score = score + 3
+            riskScore = riskScore + 3
     return riskScore
 
 

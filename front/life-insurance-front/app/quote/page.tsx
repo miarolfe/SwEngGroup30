@@ -9,22 +9,6 @@ import { useSession } from "next-auth/react";
 import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/user";
 
-type DataFromQuestionnaire = {
-  patientName: string,
-  dateOfBirth: string,
-  sex: string,
-  occupation: string,
-  yearlyIncomeInEuro: number,
-  weightInKG: number,
-  heightInCM: number,
-  excerciseHoursPerWeek: number,
-  smokingHistory: number,
-  drinkingHistory: 0,
-  hereditaryConditions: string[],
-  healthConditions: string[]
-}
-  
-
 const QuoteBlock = ({
   position,
   current,
@@ -95,24 +79,33 @@ const QuotePage = () => {
   }, []);
 
   const generateQuotes = async () => {
-    const formattedData: DataFromQuestionnaire = {
-      patientName: data.fullName,
-      dateOfBirth: data.dob,
-      sex: data.sex,
-      occupation: data.occupation,
-      yearlyIncomeInEuro: parseFloat(data.income),
-      weightInKG: parseFloat(data.weight),
-      heightInCM: parseFloat(data.height),
-      excerciseHoursPerWeek: parseFloat(data.exerciseHours),
-      smokingHistory: 0,
-      drinkingHistory: 0,
-      hereditaryConditions: [data.hereditaryConditions],
-      healthConditions: [data.hereditaryConditions]
-    }
-
-    // await connectMongoDB();
-    // const id = await User.findOne({email: session?.user?.email});
-    console.log(session?.user?.id);
+    const herConditions: string[] = [data.hereditaryConditions];
+    const currConditions: string[] = [data.healthConditions];
+    
+    const res = await fetch(`http://0.0.0.0:8000/api/premium/${session?.user?.id}`, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        patientName: data.fullName,
+        dateOfBirth: data.dob,
+        sex: data.sex,
+        occupation: data.occupation,
+        yearlyIncomeInEuro: parseFloat(data.income),
+        residenceCountry: "Ireland",
+        weightInKG: parseFloat(data.weight),
+        heightInCM: parseFloat(data.height),
+        exerciseHourPerWeek: parseFloat(data.exerciseHours),
+        smokingHistory: 0,
+        drinkingHistory: 0,
+        hereditaryConditions: herConditions,
+        healthConditions: currConditions
+      })
+    });
+    
+    console.log(res);
   }
 
   const handleIncrement = (states: typeof data) => {
@@ -123,6 +116,8 @@ const QuotePage = () => {
     });
     if (curr === qData.length - 1 || x) return;
     setCurr((prev) => prev + 1);
+    console.log(session?.user?.id);
+
   };
 
   const handleDecrement = () => {

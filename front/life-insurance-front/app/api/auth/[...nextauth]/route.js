@@ -43,7 +43,8 @@ const authOptions = {
         async session({session, token, user}) {
             session.user.email = token.email;
             await connectMongoDB();
-            session.user.id = await User.findOne({email: token.email}).select("_id");
+            const sessionUser = await User.findOne({email: token.email});
+            session.user.id = sessionUser._id.toString();
             return session;
         }
     }
