@@ -1,4 +1,6 @@
-const Footer = () => {
+import React from 'react';
+
+const Footer: React.FC = () => {
     return (
         <div className='flex w-full h-30 bg-white'>
             <img src="/emblem.jpg" alt="emblem" width={50} className="flex-column justify-left my-5 ml-5 mb-5" />
@@ -11,4 +13,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

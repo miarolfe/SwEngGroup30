@@ -1,12 +1,11 @@
 import Head from "next/head";
-import '../globals.css'
 import UserType from "../../components/UserAuthentication/UserType";
 
-const UserPage = () => {
+const UserPage: React.FC = () => {
   return (
     <div>
       <Head>
-        <title >
+        <title>
           Login/Register
         </title>
       </Head>
@@ -16,7 +15,7 @@ const UserPage = () => {
         </section>
       </div>
     </div>
-
   );
 }
+
 export default UserPage;

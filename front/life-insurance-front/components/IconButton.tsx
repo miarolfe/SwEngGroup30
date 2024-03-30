@@ -1,7 +1,13 @@
+"use client"
 import { useEffect, useState } from 'react';
 
-const IconButton = ({ link, imgSrc }) => {
-  const [isActive, setIsActive] = useState(false);
+interface IconButtonProps {
+  link: string;
+  imgSrc: string;
+}
+
+const IconButton: React.FC<IconButtonProps> = ({ link, imgSrc }) => {
+  const [isActive, setIsActive] = useState<boolean>(false);
 
   useEffect(() => {
     const currentPath = window.location.pathname;
@@ -16,7 +22,7 @@ const IconButton = ({ link, imgSrc }) => {
           ? 'bg-gray-100'
           : 'bg-white hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700'
       }`}
-      >
+    >
       <img src={imgSrc} width={40} height={40} />
     </a>
   );

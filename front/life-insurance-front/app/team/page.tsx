@@ -1,9 +1,7 @@
 import Head from "next/head";
-import '../globals.css'
-import Layout from "../../components/Layout";
 import TeamMember from "../../components/TeamMember";
 
-const TheTeam = () => {
+const TheTeam: React.FC = () => {
   return (
       <div className="main-bg">
         <Head>
@@ -13,9 +11,9 @@ const TheTeam = () => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <section className="text-center team-page grid grid-cols-1 gap-4 flex-grow">
+        <section className={`text-center team-page grid grid-cols-1 gap-4 flex-grow`}>
           <div className="flex-row">
-            <div alt="backend profiles" className="team-member-list content-center grid grid-cols-1 
+            <div className="team-member-list content-center grid grid-cols-1 
                     md:grid-cols-2 2xl:grid-cols-3 gap-4 inline-block float-center 
                                                             text-left ">
 
@@ -97,9 +95,6 @@ const TheTeam = () => {
               />
             </div>
           </div>
-
-          {/* <img src="team.jpeg" class="team-image"></img> */}
-
         </section>
       </div>
   );

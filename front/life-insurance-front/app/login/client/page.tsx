@@ -1,17 +1,14 @@
-"use client";
-import {useState} from "react";
-import {useRouter} from "next/navigation";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faGoogle, faTwitter, faFacebook} from '@fortawesome/free-brands-svg-icons';
-import {signIn} from "next-auth/react";
+"use client"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
-const LoginClient = () => {
+const LoginClient: React.FC = () => {
     const router = useRouter();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
 
-
-    const handleLogin = async (e) => {
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         try {
@@ -21,48 +18,30 @@ const LoginClient = () => {
                 redirect: false
             });
 
-            if (res.error) {
+            if (!res || res.error) {
                 console.log("Invalid Crentials");
-                return
+                return;
             }
 
-            await router.push('/UserNavPage')
+            await router.push('/UserNavPage');
             console.log("hurray");
 
         } catch (error) {
             console.log(error);
         }
-
-        // const response = await fetch('/api/login', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({ username, password }),
-        // });
-        // if (response.ok) {
-        //     const data = await response.json();
-        //     onLogin(data);
-
-
-        //     router.push ('/question-page')
-        // }
-        // else {
-        //     console.error ('Login failed');
-        // }
     };
 
-    const handleRegister = async (e) => {
+    const handleRegister = async (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         try {
             const resUserExists = await fetch("/api/userExists", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({email: username})
+                body: JSON.stringify({ email: username })
             });
 
-            const {user} = await resUserExists.json();
+            const { user } = await resUserExists.json();
             if (user) {
                 console.log("User Exists");
                 return;
@@ -83,9 +62,9 @@ const LoginClient = () => {
                 console.log("Worked");
             }
         } catch (error) {
-
+            console.log(error);
         }
-    }
+    };
 
     return (
         <div className="main-bg flex flex-col justify-center items-center">
@@ -112,26 +91,11 @@ const LoginClient = () => {
                 </div>
                 <button type="submit" className="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">Login</button>
             </form>
-            <div className="mt-8 flex space-x-4">
-                <button className="bg-blue-700 text-white px-4 py-2 rounded-md flex items-center justify-center space-x-2">
-                    <FontAwesomeIcon icon={faFacebook} />
-                    <span>Facebook</span>
-                </button>
-                <button className="bg-red-600 text-white px-4 py-2 rounded-md flex items-center justify-center space-x-2">
-                    <FontAwesomeIcon icon={faGoogle} />
-                    <span>Google</span>
-                </button>
-                <button className="bg-blue-400 text-white px-4 py-2 rounded-md flex items-center justify-center space-x-2">
-                    <FontAwesomeIcon icon={faTwitter} />
-                    <span>Twitter</span>
-                </button>
-            </div>
             <div className="mt-4" onClick={handleRegister}>
                 <h4 className="text-blue-200 hover:underline">Register new account</h4>
             </div>
         </div>
     );
-
 };
 
 export default LoginClient;

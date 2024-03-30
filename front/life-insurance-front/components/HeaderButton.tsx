@@ -1,6 +1,12 @@
+"use client"
 import { useEffect, useState } from 'react';
 
-const HeaderButton = ({ link, label }) => {
+interface HeaderButtonProps {
+  link: string;
+  label: string;
+}
+
+const HeaderButton: React.FC<HeaderButtonProps> = ({ link, label }) => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
