@@ -1,11 +1,10 @@
 import Head from "next/head";
 import '../globals.css'
 import UserType from "../../components/UserAuthentication/UserType";
-import Layout from "../../components/Layout";
 
 const UserPage = () => {
   return (
-    <Layout>
+    <div>
       <Head>
         <title >
           Login/Register
@@ -16,7 +15,7 @@ const UserPage = () => {
           <UserType />
         </section>
       </div>
-    </Layout>
+    </div>
 
   );
 }

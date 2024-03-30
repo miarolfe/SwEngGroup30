@@ -1,7 +1,6 @@
 'use client'
 import { useState } from "react";
 import Image from "next/image";
-import Layout from "../../../components/Layout";
 
 const LoginUnderwriter = () => {
   const [username, setUsername] = useState('');
@@ -29,7 +28,6 @@ const LoginUnderwriter = () => {
   };
 
   return (
-    <Layout>
       <div className="main-bg flex flex-col justify-center items-center">
         <form onSubmit={handleLogin} className="w-80">
           <div className="mb-4">
@@ -58,7 +56,6 @@ const LoginUnderwriter = () => {
           <button type="submit" className="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">Login</button>
         </form>
       </div>
-    </Layout>
   );
 
 };

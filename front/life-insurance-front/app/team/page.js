@@ -5,7 +5,6 @@ import TeamMember from "../../components/TeamMember";
 
 const TheTeam = () => {
   return (
-    <Layout>
       <div className="main-bg">
         <Head>
           <title>
@@ -103,7 +102,6 @@ const TheTeam = () => {
 
         </section>
       </div>
-    </Layout>
   );
 }
 export default TheTeam;

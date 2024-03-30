@@ -4,7 +4,6 @@ import {useRouter} from "next/navigation";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGoogle, faTwitter, faFacebook} from '@fortawesome/free-brands-svg-icons';
 import {signIn} from "next-auth/react";
-import Layout from "../../../components/Layout";
 
 const LoginClient = () => {
     const router = useRouter();
@@ -89,7 +88,6 @@ const LoginClient = () => {
     }
 
     return (
-      <Layout>
         <div className="main-bg flex flex-col justify-center items-center">
             <form onSubmit={handleLogin} className="w-80">
                 <div className="mb-4">
@@ -132,7 +130,6 @@ const LoginClient = () => {
                 <h4 className="text-blue-200 hover:underline">Register new account</h4>
             </div>
         </div>
-      </Layout>
     );
 
 };
