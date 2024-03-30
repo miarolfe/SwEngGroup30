@@ -11,17 +11,10 @@ const TheTeam = () => {
           <title>
             The Team
           </title>
+          <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <div className="py-2" />
-
         <section className="text-center team-page grid grid-cols-1 gap-4 flex-grow">
-          {/* <div class="team-page-heading">
-                    <h2 className="text-4xl">
-                        <b>The Team</b>
-                    </h2>
-                </div> */}
-
           <div className="flex-row">
             <div alt="backend profiles" className="team-member-list content-center grid grid-cols-1 
                     md:grid-cols-2 2xl:grid-cols-3 gap-4 inline-block float-center 

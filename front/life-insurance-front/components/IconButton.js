@@ -11,13 +11,13 @@ const IconButton = ({ link, imgSrc }) => {
   return (
     <a
       href={link}
-      className={`flex px-2 pt-2 pb-5 border border-gray-200 shadow-md justify-center items-center ${
+      className={`flex px-2 py-3 border border-gray-200 shadow-md justify-center items-center ${
         isActive
           ? 'bg-gray-100'
           : 'bg-white hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700'
       }`}
       >
-      <img src={imgSrc} width={200} height={100} />
+      <img src={imgSrc} width={40} height={40} />
     </a>
   );
 };

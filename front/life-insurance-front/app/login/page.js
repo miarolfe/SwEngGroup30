@@ -1,34 +1,23 @@
-import LoginClient from '../../pages/Login/loginClient';
-import Footer from "../../components/Footer";
+import Head from "next/head";
+import '../globals.css'
+import UserType from "../../components/UserAuthentication/UserType";
+import Layout from "../../components/Layout";
 
+const UserPage = () => {
+  return (
+    <Layout>
+      <Head>
+        <title >
+          Login/Register
+        </title>
+      </Head>
+      <div className="main-bg">
+        <section className="text-center">
+          <UserType />
+        </section>
+      </div>
+    </Layout>
 
-
-const Login = () => {
-    const handleLogin = (username, password) => {
-        fetch('../app/api/userExists', {
-            // fetch content from existing users
-
-
-
-
-
-        //     if (isStaff(username, password)){
-
-        //     }
-        //     else if (isClient(username, password)){
-
-        // }
-        //     else {
-
-        //     }
-        })
-
-    }
-    return (
-        <div>
-            <LoginClient onLogin={handleLogin} />
-        </div>
-    );
-};
-
-export default Login;
+  );
+}
+export default UserPage;
