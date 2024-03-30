@@ -10,10 +10,11 @@ frontend:
         - cp -r ./front/life-insurance-front/* .
         - npm install
         - npm run build
+        - cd .next
         - ls -a
   artifacts:
     # Base directory for compiled assets
-    baseDirectory: .next
+    baseDirectory: out
     files:
       # Files to be uploaded to S3
       - '**/*'
