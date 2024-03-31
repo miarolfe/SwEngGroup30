@@ -1,0 +1,27 @@
+{
+  "artifacts": {
+    "baseDirectory": "frontend",
+    "files": [
+      "**/*"
+    ]
+  },
+  "frontend": {
+    "phases": {
+      "build": {
+        "commands": [
+          "find . -mindepth 1 ! -regex '^./front\\(/.*\\)?' ! -name 'amplify.yml' -delete",
+          "ls -a -r",
+          "cp -r ./front/life-insurance-front/* .",
+          "npm install",
+          "npm run build",
+          "ls -a -R"
+        ]
+      }
+    }
+  },
+  "cache": {
+    "paths": [
+      "./front/life-insurance-front/node_modules/**/*"
+    ]
+  }
+}
