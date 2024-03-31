@@ -14,7 +14,7 @@ frontend:
         - ls -a
   artifacts:
     # Base directory for compiled assets
-    baseDirectory: 
+    baseDirectory: .
     files:
       # Files to be uploaded to S3
       - '**/*'
