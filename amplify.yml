@@ -1,0 +1,44 @@
+version: 1
+frontend:
+  phases:
+    # Build configuration
+    build:
+      commands:
+        # Execute build commands for Next.js
+        - find . -mindepth 1 ! -regex '^./front\(/.*\)?' -delete
+        - ls -a -r
+        - cp -r ./front/life-insurance-front/* .
+        - npm install
+        - npm run build
+        - cd .next
+        - ls -a
+  artifacts:
+    # Base directory for compiled assets
+    baseDirectory: out
+    files:
+      # Files to be uploaded to S3
+      - '**/*'
+  cache:
+    # Caching configuration
+    paths:
+      # Directories to cache between builds
+      - ./front/life-insurance-front/node_modules/**/*
+
+backend:
+  phases:
+    # Build configuration for backend resources
+    build:
+      commands:
+        # Execute backend build commands if any
+        - echo "No build commands for backend"
+  artifacts:
+    # Backend artifacts directory
+    baseDirectory: dist
+    files:
+      # Files to be uploaded
+      - '**/*'
+  cache:
+    # Backend caching configuration
+    paths:
+      # Directories to cache between builds
+      - node_modules/**/*
