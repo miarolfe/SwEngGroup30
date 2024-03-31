@@ -13,7 +13,7 @@ frontend:
         - ls -a
     # Base directory for compiled assets
   artifacts:
-    baseDirectory: .
+    baseDirectory: .next
     files:
       # Files to be uploaded to S3
       - '**/*'
