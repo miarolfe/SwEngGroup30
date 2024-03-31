@@ -10,6 +10,7 @@ frontend:
         - cp -r ./front/life-insurance-front/* .
         - npm install
         - npm run build
+        - ls -a
     # Base directory for compiled assets
   artifacts:
     baseDirectory: .
