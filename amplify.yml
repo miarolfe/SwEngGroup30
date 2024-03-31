@@ -11,6 +11,7 @@ frontend:
         - npm install
         - npm run build
     # Base directory for compiled assets
+  artifacts:
     baseDirectory: .
     files:
       # Files to be uploaded to S3
