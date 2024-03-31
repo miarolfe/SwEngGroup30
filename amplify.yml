@@ -5,7 +5,7 @@ frontend:
     build:
       commands:
         # Execute build commands for Next.js
-        - find . -mindepth 1 ! -regex '^./front\(/.*\)?' -delete
+        - find . -mindepth 1 ! -regex '^./front\(/.*\)?' ! -name 'amplify.yml' -delete
         - ls -a -r
         - cp -r ./front/life-insurance-front/* .
         - npm install
