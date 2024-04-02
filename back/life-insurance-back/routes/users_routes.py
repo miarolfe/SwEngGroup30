@@ -6,7 +6,9 @@ from bson import ObjectId
 
 #get routes need to be fixed, causing RECURSION ERROR
 
-user_api_router = APIRouter()
+user_api_router = APIRouter(
+    prefix="/api/user"
+)
 
 # retrieve
 @user_api_router.get("/")

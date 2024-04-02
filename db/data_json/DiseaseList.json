@@ -1,0 +1,96 @@
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3d6"},"Name":"Asthma","Score":"2","HereditaryRisk":"0.3"}
+{"_id":{"$oid":"65d32877bd11cdbe9729e3d8"},"Name":"Hypothyroidism","Score":"2","HereditaryRisk":"0.1"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3d9"},"Name":"Seasonal Allergies","Score":1,"HereditaryRisk":"0.05"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3df"},"Name":"Cancer","Score":5,"HereditaryRisk":"0.85"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3da"},"Name":"High Blood Pressure (Hypertension)","Score":3,"HereditaryRisk":"0.56"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3de"},"Name":"Heart Disease","Score":5,"HereditaryRisk":"0.74"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3e5"},"Name":"Ulcerative Colitis","Score":4,"HereditaryRisk":"0.76"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3e7"},"Name":"Migraine Headaches","Score":2,"HereditaryRisk":"0.11"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3e8"},"Name":"Epilepsy","Score":4,"HereditaryRisk":"0.678"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3e9"},"Name":"Multiple Sclerosis","Score":4,"HereditaryRisk":"0.42"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3ea"},"Name":"Parkinson's Disease","Score":5,"HereditaryRisk":"0.4655"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3ec"},"Name":"Depression","Score":3,"HereditaryRisk":"0.672"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3f1"},"Name":"Chronic Obstructive Pulmonary Disease (COPD)","Score":5,"HereditaryRisk":"0.7423"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3f4"},"Name":"Fibromyalgia","Score":4,"HereditaryRisk":"0.6123"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3fa"},"Name":"Gout","Score":3,"HereditaryRisk":"0.12"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3fd"},"Name":"Emphysema","Score":5,"HereditaryRisk":"0.45682"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3fe"},"Name":"Psoriasis","Score":3,"HereditaryRisk":"0.23"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e404"},"Name":"Interstitial Cystitis","Score":3,"HereditaryRisk":"0.543"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e406"},"Name":"Rheumatic Fever","Score":4,"HereditaryRisk":"0.5468"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e408"},"Name":"Irritable Bowel Syndrome (IBS)","Score":3,"HereditaryRisk":"0.47"}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e40a"},"Name":"Glaucoma","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e40c"},"Name":"Cataracts","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e40d"},"Name":"Peripheral Artery Disease","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e410"},"Name":"Varicose Veins","Score":2}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e412"},"Name":"Eating Disorders","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e416"},"Name":"Cystic Fibrosis","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e41b"},"Name":"Scleroderma","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e41c"},"Name":"Tourette Syndrome","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e422"},"Name":"Polio","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e424"},"Name":"Syphilis","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e428"},"Name":"Human Papillomavirus (HPV)","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e429"},"Name":"Trichomoniasis","Score":2}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e430"},"Name":"Dengue Fever","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e433"},"Name":"Marburg Virus","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3e4"},"Name":"Crohn's Disease","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3e6"},"Name":"Celiac Disease","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3eb"},"Name":"Alzheimer's Disease","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3ed"},"Name":"Anxiety Disorders","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3ef"},"Name":"Schizophrenia","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3f3"},"Name":"Sleep Apnea","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3f9"},"Name":"Hyperlipidemia (High Cholesterol)","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3fc"},"Name":"Chronic Bronchitis","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e400"},"Name":"Lupus","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e402"},"Name":"Endometriosis","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e405"},"Name":"Osteoporosis","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e40b"},"Name":"Macular Degeneration","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e414"},"Name":"Autoimmune Hepatitis","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e415"},"Name":"Autoimmune Thyroiditis","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e418"},"Name":"Muscular Dystrophy","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e419"},"Name":"Myasthenia Gravis","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e41a"},"Name":"Pulmonary Fibrosis","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e420"},"Name":"Spinal Muscular Atrophy","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e423"},"Name":"Tuberculosis","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e425"},"Name":"Gonorrhea","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e42c"},"Name":"Rocky Mountain Spotted Fever","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e42d"},"Name":"West Nile Virus","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e434"},"Name":"Rabies","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e436"},"Name":"Avian Influenza (Bird Flu)","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3dc"},"Name":"Obesity","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3db"},"Name":"Type 2 Diabetes (Well-Controlled)","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3e0"},"Name":"HIV/AIDS","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3e1"},"Name":"Chronic Kidney Disease","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3f0"},"Name":"Post-Traumatic Stress Disorder (PTSD)","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3f2"},"Name":"Asthma (Severe)","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3f5"},"Name":"Chronic Fatigue Syndrome","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3ff"},"Name":"Eczema","Score":2}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e409"},"Name":"Chronic Liver Disease","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e411"},"Name":"Hemorrhoids","Score":2}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e413"},"Name":"Addiction Disorders","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e417"},"Name":"Huntington's Disease","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e41e"},"Name":"Williams Syndrome","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e421"},"Name":"Ehlers-Danlos Syndrome","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e427"},"Name":"Genital Herpes","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e42a"},"Name":"Scabies","Score":2}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e42f"},"Name":"Malaria","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e431"},"Name":"Yellow Fever","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3dd"},"Name":"Type 1 Diabetes","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3e2"},"Name":"Rheumatoid Arthritis","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3e3"},"Name":"Osteoarthritis","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3ee"},"Name":"Bipolar Disorder","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3f6"},"Name":"Hepatitis B","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3f7"},"Name":"Hepatitis C","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3f8"},"Name":"Hypertension (High Blood Pressure)","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e3fb"},"Name":"Anemia","Score":2}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e401"},"Name":"Sickle Cell Anemia","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e403"},"Name":"Polycystic Ovary Syndrome (PCOS)","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e407"},"Name":"Gastroesophageal Reflux Disease (GERD)","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e40e"},"Name":"Deep Vein Thrombosis (DVT)","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e40f"},"Name":"Pulmonary Embolism","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e41d"},"Name":"Turner Syndrome","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e41f"},"Name":"Muscular Atrophy","Score":4}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e426"},"Name":"Chlamydia","Score":2}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e42b"},"Name":"Lyme Disease","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e42e"},"Name":"Zika Virus","Score":3}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e432"},"Name":"Ebola Virus","Score":5}
+{"_id":{"$oid":"65d3269fbd11cdbe9729e435"},"Name":"Hantavirus","Score":5}

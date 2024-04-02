@@ -1,0 +1,376 @@
+{
+    "_id": {
+        "$oid": "65e7090a64855762e0f7c880"
+    },
+    "email": "jamckenn1@tcd.ie",
+    "password": "$2a$10$./F8zF3NaINPVKJzqRlYhO2fdue2a/2SbGG/CKHX3ouHTWpcvDH7O",
+    "employeeStatus": false,
+    "createdAt": {
+        "$date": "2024-03-05T11:59:06.971Z"
+    },
+    "updatedAt": {
+        "$date": "2024-03-05T11:59:06.971Z"
+    },
+    "__v": 0,
+    "quoteHistory": [
+        {
+            "entryLevelRecommendation": {
+                "premium": "string",
+                "amountInsured": 0.0,
+                "yearInsured": 0.0,
+                "comment": "string"
+            },
+            "highLevelRecommendation": {
+                "premium": "string",
+                "amountInsured": 0.0,
+                "yearInsured": 0.0,
+                "comment": "string"
+            },
+            "premiumLevelRecommendation": {
+                "premium": "string",
+                "amountInsured": 0.0,
+                "yearInsured": 0.0,
+                "comment": "string"
+            },
+            "comment": "string",
+            "timestamp": "2024-03-27 14:04"
+        },
+        {
+            "entryLevelRecommendation": {
+                "premium": "result from underwriter",
+                "amountInsured": 0,
+                "yearInsured": 0,
+                "comment": "string"
+            },
+            "highLevelRecommendation": {
+                "premium": "string",
+                "amountInsured": 0,
+                "yearInsured": 0,
+                "comment": "string"
+            },
+            "premiumLevelRecommendation": {
+                "premium": "string",
+                "amountInsured": 0,
+                "yearInsured": 0,
+                "comment": "string"
+            },
+            "comment": "string",
+            "timestamp": "string"
+        },
+        {
+            "entryLevelRecommendation": {
+                "premium": "result from underwriter 2",
+                "amountInsured": 0,
+                "yearInsured": 0,
+                "comment": "string"
+            },
+            "highLevelRecommendation": {
+                "premium": "string",
+                "amountInsured": 0,
+                "yearInsured": 0,
+                "comment": "string"
+            },
+            "premiumLevelRecommendation": {
+                "premium": "string",
+                "amountInsured": 0,
+                "yearInsured": 0,
+                "comment": "string"
+            },
+            "comment": "string",
+            "timestamp": "string"
+        },
+        {
+            "entryLevelRecommendation": {
+                "premium": 23.916666666666664,
+                "amountInsured": 300000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "highLevelRecommendation": {
+                "premium": 27.25,
+                "amountInsured": 500000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "premiumLevelRecommendation": {
+                "premium": 30.583333333333336,
+                "amountInsured": 700000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "comment": "This is an example of comment message"
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "65e70a9ff2e195480961afac"
+    },
+    "email": "jamckenn@tcd.ie",
+    "password": "$2a$10$lJPrMjIyexyJptcN99eGc.3Zjoopch7C2ABu5YSEPEeoiLNI9j0xm",
+    "employeeStatus": false,
+    "createdAt": {
+        "$date": "2024-03-05T12:05:51.566Z"
+    },
+    "updatedAt": {
+        "$date": "2024-03-05T12:05:51.566Z"
+    },
+    "__v": 0,
+    "quoteHistory": [
+        {
+            "entryLevelRecommendation": {
+                "premium": 25.183333333333334,
+                "amountInsured": 300000,
+                "maxYearInsured": 49,
+                "comment": "This is an example of comment message"
+            },
+            "highLevelRecommendation": {
+                "premium": 28.516666666666666,
+                "amountInsured": 500000,
+                "maxYearInsured": 49,
+                "comment": "This is an example of comment message"
+            },
+            "premiumLevelRecommendation": {
+                "premium": 31.85,
+                "amountInsured": 700000,
+                "maxYearInsured": 49,
+                "comment": "This is an example of comment message"
+            },
+            "comment": "This is an example of comment message"
+        },
+        {
+            "entryLevelRecommendation": {
+                "premium": 25.245833333333334,
+                "amountInsured": 300000,
+                "maxYearInsured": 49,
+                "comment": "This is an example of comment message"
+            },
+            "highLevelRecommendation": {
+                "premium": 28.579166666666666,
+                "amountInsured": 500000,
+                "maxYearInsured": 49,
+                "comment": "This is an example of comment message"
+            },
+            "premiumLevelRecommendation": {
+                "premium": 31.9125,
+                "amountInsured": 700000,
+                "maxYearInsured": 49,
+                "comment": "This is an example of comment message"
+            },
+            "comment": "This is an example of comment message"
+        },
+        {
+            "entryLevelRecommendation": {
+                "premium": 25.225,
+                "amountInsured": 300000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "highLevelRecommendation": {
+                "premium": 28.558333333333334,
+                "amountInsured": 500000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "premiumLevelRecommendation": {
+                "premium": 31.891666666666666,
+                "amountInsured": 700000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "comment": "This is an example of comment message"
+        },
+        {
+            "entryLevelRecommendation": {
+                "premium": 25.225,
+                "amountInsured": 300000,
+                "maxYearInsured": 49,
+                "comment": "This is an example of comment message"
+            },
+            "highLevelRecommendation": {
+                "premium": 28.558333333333334,
+                "amountInsured": 500000,
+                "maxYearInsured": 49,
+                "comment": "This is an example of comment message"
+            },
+            "premiumLevelRecommendation": {
+                "premium": 31.891666666666666,
+                "amountInsured": 700000,
+                "maxYearInsured": 49,
+                "comment": "This is an example of comment message"
+            },
+            "comment": "This is an example of comment message"
+        },
+        {
+            "entryLevelRecommendation": {
+                "premium": 25.225,
+                "amountInsured": 300000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "highLevelRecommendation": {
+                "premium": 28.558333333333334,
+                "amountInsured": 500000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "premiumLevelRecommendation": {
+                "premium": 31.891666666666666,
+                "amountInsured": 700000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "comment": "This is an example of comment message"
+        },
+        {
+            "entryLevelRecommendation": {
+                "premium": 25.204166666666666,
+                "amountInsured": 300000,
+                "maxYearInsured": 51,
+                "comment": "This is an example of comment message"
+            },
+            "highLevelRecommendation": {
+                "premium": 28.5375,
+                "amountInsured": 500000,
+                "maxYearInsured": 51,
+                "comment": "This is an example of comment message"
+            },
+            "premiumLevelRecommendation": {
+                "premium": 31.870833333333334,
+                "amountInsured": 700000,
+                "maxYearInsured": 51,
+                "comment": "This is an example of comment message"
+            },
+            "comment": "This is an example of comment message"
+        },
+        {
+            "entryLevelRecommendation": {
+                "premium": 25.225,
+                "amountInsured": 300000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "highLevelRecommendation": {
+                "premium": 28.558333333333334,
+                "amountInsured": 500000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "premiumLevelRecommendation": {
+                "premium": 31.891666666666666,
+                "amountInsured": 700000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "comment": "This is an example of comment message"
+        },
+        {
+            "entryLevelRecommendation": {
+                "premium": 25.225,
+                "amountInsured": 300000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "highLevelRecommendation": {
+                "premium": 28.558333333333334,
+                "amountInsured": 500000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "premiumLevelRecommendation": {
+                "premium": 31.891666666666666,
+                "amountInsured": 700000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "comment": "This is an example of comment message"
+        },
+        {
+            "entryLevelRecommendation": {
+                "premium": 25.433333333333334,
+                "amountInsured": 300000,
+                "maxYearInsured": 14,
+                "comment": "This is an example of comment message"
+            },
+            "highLevelRecommendation": {
+                "premium": 28.766666666666666,
+                "amountInsured": 500000,
+                "maxYearInsured": 14,
+                "comment": "This is an example of comment message"
+            },
+            "premiumLevelRecommendation": {
+                "premium": 32.1,
+                "amountInsured": 700000,
+                "maxYearInsured": 14,
+                "comment": "This is an example of comment message"
+            },
+            "comment": "This is an example of comment message"
+        },
+        {
+            "entryLevelRecommendation": {
+                "premium": 25.225,
+                "amountInsured": 300000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "highLevelRecommendation": {
+                "premium": 28.558333333333334,
+                "amountInsured": 500000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "premiumLevelRecommendation": {
+                "premium": 31.891666666666666,
+                "amountInsured": 700000,
+                "maxYearInsured": 50,
+                "comment": "This is an example of comment message"
+            },
+            "comment": "This is an example of comment message"
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "65e70ce27273cc2e06003dd5"
+    },
+    "email": "jamcken3n@tcd.ie",
+    "password": "$2a$10$9xKnftdGp1V/md1lumb0dOq8I7HCvEBpUcxsr3DAgk9X7vRFsWLlq",
+    "employeeStatus": false,
+    "createdAt": {
+        "$date": "2024-03-05T12:15:30.698Z"
+    },
+    "updatedAt": {
+        "$date": "2024-03-05T12:15:30.698Z"
+    },
+    "__v": 0
+}
+{
+    "_id": {
+        "$oid": "6601877db80c22c2a4b4179a"
+    },
+    "email": "admin@tcd.ie",
+    "password": "$2a$10$GjhqeERXlrMs3N7M8CSmgegCJ4s2IJTKSAA2gEX7BFKlorwO9zeba",
+    "employeeStatus": false,
+    "createdAt": {
+        "$date": "2024-03-25T14:17:33.153Z"
+    },
+    "updatedAt": {
+        "$date": "2024-03-25T14:17:33.153Z"
+    },
+    "__v": 0
+}
+{
+    "_id": {
+        "$oid": "660190609c27b69fc26f4f5e"
+    },
+    "email": "jamckenn25@tcd.ie",
+    "password": "$2a$10$yucwg2DrPqhQbaH9z233EuIEbrxsw5h1kRkoJNFYVWOfxabRd7idu",
+    "employeeStatus": false,
+    "createdAt": {
+        "$date": "2024-03-25T14:55:28.69Z"
+    },
+    "updatedAt": {
+        "$date": "2024-03-25T14:55:28.69Z"
+    },
+    "__v": 0
+}
