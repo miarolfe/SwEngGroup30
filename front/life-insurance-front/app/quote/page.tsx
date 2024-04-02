@@ -5,6 +5,9 @@ import QuoteQuestion from "@/components/QuoteQuestion/QuoteQuestion";
 import Quote from "@/components/Quote/Quote";
 import qData from "./questions.json";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
+import { useSession } from "next-auth/react";
+import { connectMongoDB } from "@/lib/mongodb";
+import User from "@/models/user";
 
 const QuoteBlock = ({
   position,
@@ -60,9 +63,23 @@ const QuoteBlock = ({
 };
 
 const QuotePage = () => {
+  const placeholderQuote: QuoteDetails = {
+    premium: 1000,
+    amountInsured: 300000,
+    maxYearInsured: 50
+  };
+
+  const placeHolderReturn: ReturnedQuotes = {
+    entryLevelRecommendation: placeholderQuote,
+    highLevelRecommendation: placeholderQuote,
+    premiumLevelRecommendation: placeholderQuote
+  };
+
   const [curr, setCurr] = useState<number>(0);
   const [data, setData] = useState<{ [stateName: string]: string }>({});
   const [currentStep, setCurrentStep] = useState<number>(1);
+  const [returnedQuotes, setReturnedQuotes] = useState<ReturnedQuotes>(placeHolderReturn);
+  const {data: session} = useSession();
 
   useEffect(() => {
     qData.map((item): void => {
@@ -72,11 +89,46 @@ const QuotePage = () => {
         }
       });
     });
-  });
+  }, []);
 
-  const handleIncrement = () => {
-    if (curr === qData.length - 1) return;
+  const generateQuotes = async () => {
+    const herConditions: string[] = [data.hereditaryConditions];
+    const currConditions: string[] = [data.healthConditions];
+    
+    await fetch(`http://0.0.0.0:8000/api/premium/${session?.user?.id}`, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        patientName: data.fullName,
+        dateOfBirth: data.dob,
+        sex: data.sex,
+        occupation: data.occupation,
+        yearlyIncomeInEuro: parseFloat(data.income),
+        residenceCountry: "Ireland",
+        weightInKG: parseFloat(data.weight),
+        heightInCM: parseFloat(data.height),
+        exerciseHourPerWeek: parseFloat(data.exerciseHours),
+        smokingHistory: 0,
+        drinkingHistory: 0,
+        hereditaryConditions: herConditions,
+        healthConditions: currConditions
+      })
+    }).then(data => data.json()).then(data => {setReturnedQuotes(data); console.log(returnedQuotes)});
+  }
+
+  const handleIncrement = (states: typeof data) => {
+    let x = false;
+    qData[curr].inputs.map((item) => {
+      console.log(item.stateName, states[item.stateName]);
+      if (!states[item.stateName]) x = true;
+    });
+    if (curr === qData.length - 1 || x) return;
     setCurr((prev) => prev + 1);
+    console.log(session?.user?.id);
+
   };
 
   const handleDecrement = () => {
@@ -84,7 +136,8 @@ const QuotePage = () => {
     setCurr((prev) => prev - 1);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    await generateQuotes();
     setCurrentStep(2);
   };
 
@@ -94,7 +147,7 @@ const QuotePage = () => {
         <QuoteBlock position={idx} key={idx} current={curr}>
           <QuoteQuestion
             question={item.question}
-            onClickNext={handleIncrement}
+            onClickNext={() => handleIncrement(data)}
             onClickBack={handleDecrement}
             onClickSubmit={handleSubmit}
             data={data}
@@ -110,10 +163,10 @@ const QuotePage = () => {
     if (currentStep === 2)
       return (
         <div className="cover-quote-page">
-          <Quote />
+          <Quote {...returnedQuotes} />
         </div>
       );
-  }, [currentStep, curr]);
+  }, [currentStep, curr, data]);
 
   return (
     <div className="h-screen overflow-x-hidden grad-bg w-full test persp">

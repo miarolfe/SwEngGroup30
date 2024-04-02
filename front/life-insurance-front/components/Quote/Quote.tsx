@@ -53,7 +53,7 @@ type CurrentQuoteType = {
   maxYearInsured: number;
 };
 
-const Quote = () => {
+const Quote = (quotes: ReturnedQuotes) => {
   const [selected, setSelected] = useState<
     | "entryLevelRecommendation"
     | "highLevelRecommendation"
@@ -61,7 +61,7 @@ const Quote = () => {
   >("premiumLevelRecommendation");
   const [countFrom, setCountFrom] = useState<number>(0);
   const [currentQuote, setCurrentQuote] = useState<CurrentQuoteType>(
-    placeholderData["premiumLevelRecommendation"]
+    quotes["premiumLevelRecommendation"]
   );
 
   const doneInitialRender = useRef<boolean>(false);
@@ -70,7 +70,7 @@ const Quote = () => {
     // console.log("testing");
     // if (!doneInitialRender.current) doneInitialRender.current = true;
     setCountFrom(currentQuote["premium"]);
-    setCurrentQuote(placeholderData[selected]);
+    setCurrentQuote(quotes[selected]);
   }, [selected]);
 
   const translateBy = useMemo(() => {
