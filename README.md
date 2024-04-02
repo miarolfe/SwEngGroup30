@@ -1,4 +1,4 @@
-# SwEng Group 30
+# Software Engineering Project: Group 30
 
 ## Setup
 Make sure you have [Docker](https://www.docker.com/) installed. Set your working directory to the root of the repository and run the following command:
