@@ -7,14 +7,12 @@
     background-color: #175788;
   }
 
-  .main-bg {
+  /* .main-bg {
     background: linear-gradient(270deg, rgb(31, 119, 185) 0%, rgb(118, 83, 182));
-  }
+  } */
 
 .header-bg {
-    background: linear-gradient(270deg, rgba(255, 255, 255, 0.623) 0%, rgb(255, 255, 255) );
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 20px; /* Added space below the header */
+    background: white;
 }
 
 
@@ -139,4 +137,40 @@ title {
   font-weight: bold;
 }
 
+/* .team-member {
+  background-color: white;
+  padding: 10px;
+  border: 5px black solid;
+  border-radius: 0.5rem;
+} */
 
+.team-image {
+  border: 5px black solid;
+  border-radius: 0.5rem;
+  margin: auto;
+}
+
+.team-member-info {
+  padding: 10px;
+}
+
+.team-member-name {
+  font-weight: bold;
+}
+
+.team-page{
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.team-page-heading {
+  background-color: white;
+  padding: 10px;
+  border: 5px white solid;
+  border-radius: 0.5rem;
+}
+
+.header-logo-div {
+  padding: 10px;
+  color: #3333FF;
+}
