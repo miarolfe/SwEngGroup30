@@ -1,0 +1,28 @@
+{
+    "_id": {
+        "$oid": "66046a33513bbc6af5db1c18"
+    },
+    "userId": {
+        "$oid": "65e7090a64855762e0f7c880"
+    },
+    "medicalRecord": {
+        "patientName": "65e7090a64855762e0f7c880",
+        "age": 24,
+        "sex": "string",
+        "hereditaryConditions": [
+            "string"
+        ],
+        "healthConditions": [
+            "cancer"
+        ],
+        "drinkingHistory": 0,
+        "smokingHistory": 0,
+        "exerciseHourPerWeek": 0,
+        "occupation": "string",
+        "yearlyIncomeInEuro": 0.0,
+        "residenceCountry": "string",
+        "weightInKG": 0.0,
+        "heightInCM": 0.0
+    },
+    "timestamp": "2024-03-27 18:49"
+}

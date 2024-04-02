@@ -4,7 +4,10 @@ from schemas.users_schema import users_serialiser
 from pydantic import BaseModel
 from services.premiumCalculationService import calculatePremium
 from services.riskCalculationService import calculateAgeFromDOB
-premium_calculator_router = APIRouter()
+
+premium_calculator_router = APIRouter(
+    prefix="/api/premium"
+)
 
 @premium_calculator_router.get("/")
 def helloWorld():
@@ -12,7 +15,7 @@ def helloWorld():
 
 
 
-@premium_calculator_router.get("/api/premium/{userId}/{userSocialMediaName}")
+@premium_calculator_router.get("/{userId}/{userSocialMediaName}")
 async def getPremiumForUser(userId : str, userSocialMediaName : str):
     users = users_serialiser(user_collection.find())
     return calculatePremium(users[0], userId)
@@ -36,7 +39,7 @@ class MedicalHistory(BaseModel):
 
 
 
-@premium_calculator_router.post("/api/premium/{userId}")
+@premium_calculator_router.post("/{userId}")
 async def getPremiumForUser(userId : str, user : MedicalHistory):
 
     print(f"req.body = {user}\n")
