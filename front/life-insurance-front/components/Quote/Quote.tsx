@@ -140,7 +140,7 @@ const Quote = (quotes: ReturnedQuotes) => {
             )}
           </CountUp>
           {/* Details table */}
-          <table className="text-xl border-white overflow-hidden border-separate border-spacing-0">
+          {quotes.entryLevelRecommendation.premium !== -1000 ? <table className="text-xl border-white overflow-hidden border-separate border-spacing-0">
             <tr className="">
               <td className="rounded-tl-md border-l-2 border-t-2 border-b-2 pl-2">
                 Annual cost
@@ -165,7 +165,7 @@ const Quote = (quotes: ReturnedQuotes) => {
                 {currentQuote.maxYearInsured} years
               </td>
             </tr>
-          </table>
+          </table> : <h1>Apologies, we are unable to automatically give you a quote, an underwriter will manually review your details</h1>}
         </div>
         {/* </div> */}
       </div>

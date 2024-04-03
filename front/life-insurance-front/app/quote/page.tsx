@@ -64,7 +64,7 @@ const QuoteBlock = ({
 
 const QuotePage = () => {
   const placeholderQuote: QuoteDetails = {
-    premium: 1000,
+    premium: -1000,
     amountInsured: 300000,
     maxYearInsured: 50,
   };
@@ -95,9 +95,6 @@ const QuotePage = () => {
   }, []);
 
   const generateQuotes = async () => {
-    const herConditions: string[] = [data.hereditaryConditions as string];
-    const currConditions: string[] = [data.healthConditions as string];
-
     await fetch(`http://0.0.0.0:8000/api/premium/${session?.user?.id}`, {
       method: "POST",
       mode: "cors",
@@ -116,15 +113,20 @@ const QuotePage = () => {
         exerciseHourPerWeek: parseFloat(data.exerciseHours as string),
         smokingHistory: 0,
         drinkingHistory: 0,
-        hereditaryConditions: herConditions,
-        healthConditions: currConditions,
+        hereditaryConditions: data.hereditaryConditions,
+        healthConditions: data.healthConditions,
       }),
     })
       .then((data) => data.json())
       .then((data) => {
-        setReturnedQuotes(data);
-        console.log(returnedQuotes);
-      });
+        console.log(typeof data);
+        if (typeof data == "string") {
+          setReturnedQuotes(placeHolderReturn)
+        } else {
+          setReturnedQuotes(data);
+        }
+      }
+    );
   };
 
   const handleIncrement = (states: typeof data) => {
