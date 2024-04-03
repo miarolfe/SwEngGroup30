@@ -9,6 +9,12 @@
         "required": true
       },
       {
+        "dropdownMultipleOptions": ["1", "2", "3"],
+        "label": "Dropdown Multiple Select",
+        "stateName": "test",
+        "required": true
+      },
+      {
         "dropdownOptions": ["Male", "Female", "Other"],
         "label": "Sex",
         "stateName": "sex",
