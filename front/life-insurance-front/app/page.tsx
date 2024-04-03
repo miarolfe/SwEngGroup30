@@ -1,4 +1,17 @@
 import Head from 'next/head';
+import Header from '../components/Header';
+import { Amplify } from 'aws-amplify';
+//import config from '../aws-exports';
+
+Amplify.configure({
+    Auth: {
+        Cognito: {
+            userPoolClientId: '557612919820',
+            userPoolId: 'eu-west-2_K0AH1uos7'
+
+        }
+    }
+});
 
 const Index: React.FC = () => {
   return (
