@@ -71,7 +71,7 @@ const Chatbot = ({ messages }: { messages: Message[] }) => {
         <ChatBubbleBottomCenterTextIcon className="w-6 text-white" />
       </button>
       <div
-        className={`${chatStyle} flex flex-col glass w-1/3 h-[36rem] fixed bottom-6 right-6 rounded-md overflow-hidden`}
+        className={`${chatStyle} flex flex-col glass-more-opaque w-1/3 h-[36rem] fixed bottom-6 right-6 rounded-md overflow-hidden`}
       >
         <div className="flex px-2 justify-between items-center w-full h-10 glass">
           <p className="text-slate-800">Chatbot</p>
@@ -82,7 +82,7 @@ const Chatbot = ({ messages }: { messages: Message[] }) => {
         </div>
         <div className="overflow-scroll overflow-hidden p-2 grow">
           {msgs.map((item, i) => {
-            return <ChatbotMessage message={item} />;
+            return <ChatbotMessage key={i} message={item} />;
           })}
         </div>
         <div className="flex justify-between items-center h-16 w-full border-t-slate-400 border-t-2 px-2">

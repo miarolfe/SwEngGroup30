@@ -58,6 +58,13 @@
     /* border: 1px solid rgba(255, 255, 255, 0.19); */
   }
 
+  .glass-more-opaque {
+    background: rgba(255, 255, 255, 0.27);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(90px);
+    -webkit-backdrop-filter: blur(90px);
+  }
+
   .glass-light {
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.8);
@@ -119,6 +126,7 @@
   .chat-close {
     animation: chat-close 0.4s forwards;
     animation-timing-function: cubic-bezier(0.295, 0.880, 0.415, 0.960);
+    
   }
 
   .button-open {
