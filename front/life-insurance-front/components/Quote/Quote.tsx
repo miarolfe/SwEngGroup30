@@ -82,7 +82,7 @@ const Quote = (quotes: ReturnedQuotes) => {
   return (
     <div className="h-full flex flex-col justify-center items-center">
       <div className="w-5/6 h-5/6 flex rounded-md overflow-hidden">
-        <div className="flex flex-col justify-around items-center">
+      {quotes.entryLevelRecommendation.premium !== -1000 ? <div className="flex flex-col justify-around items-center">
           <QuoteAddonBlock
             name="Premium"
             start
@@ -100,7 +100,7 @@ const Quote = (quotes: ReturnedQuotes) => {
             selected={selected === "entryLevelRecommendation"}
             onClick={() => setSelected("entryLevelRecommendation")}
           />
-        </div>
+        </div> : <></>}
         {/* Quote on right */}
         <div className="grow flex flex-col text-6xl glass-noshadow text-white px-4 py-2">
           {/* <div className="w-5/6 h-5/6 flex flex-col justify-center items-center text-6xl text-white rounded-md"> */}
@@ -113,7 +113,7 @@ const Quote = (quotes: ReturnedQuotes) => {
             }}
           >
             <p className="mr-6 font-bold">Recommendation</p>
-            <div
+            {quotes.entryLevelRecommendation.premium !== -1000 ? <div
               className="flex flex-col text-white"
               style={{
                 transition: "0.5s all ease-in-out",
@@ -123,9 +123,9 @@ const Quote = (quotes: ReturnedQuotes) => {
               <p>Premium</p>
               <p>High</p>
               <p>Entry</p>
-            </div>
+            </div> : <></>}
           </div>
-          <CountUp
+          {quotes.entryLevelRecommendation.premium !== -1000 ? <CountUp
             start={countFrom}
             end={currentQuote.premium}
             duration={0.65}
@@ -138,7 +138,7 @@ const Quote = (quotes: ReturnedQuotes) => {
                 <span ref={countUpRef} />
               </div>
             )}
-          </CountUp>
+          </CountUp> : <></>}
           {/* Details table */}
           {quotes.entryLevelRecommendation.premium !== -1000 ? <table className="text-xl border-white overflow-hidden border-separate border-spacing-0">
             <tr className="">
@@ -165,7 +165,7 @@ const Quote = (quotes: ReturnedQuotes) => {
                 {currentQuote.maxYearInsured} years
               </td>
             </tr>
-          </table> : <h1>Apologies, we are unable to automatically give you a quote, an underwriter will manually review your details</h1>}
+          </table> : <p className="mr-1">Apologies, we are unable to automatically give you a quote, an underwriter will manually review your details</p>}
         </div>
         {/* </div> */}
       </div>

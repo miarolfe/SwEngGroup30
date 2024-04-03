@@ -6,7 +6,6 @@ import Quote from "@/components/Quote/Quote";
 import qData from "./questions.json";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
 import { useSession } from "next-auth/react";
-import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/user";
 
 const QuoteBlock = ({
@@ -137,7 +136,6 @@ const QuotePage = () => {
     });
     if (curr === qData.length - 1 || x) return;
     setCurr((prev) => prev + 1);
-    console.log(session?.user?.id);
   };
 
   const handleDecrement = () => {
