@@ -83,7 +83,7 @@
     "question": "Hereditary Conditions",
     "inputs": [
       {
-        "dropdownOptions": ["Disease 1", "Disease 2"],
+        "dropdownMultipleOptions": ["Disease 1", "Disease 2"],
         "label": "Please list any hereditary conditions in your family. This includes conditions you don't currently have.",
         "stateName": "hereditaryConditions",
         "required": true
@@ -94,7 +94,7 @@
     "question": "Health Conditions",
     "inputs": [
       {
-        "dropdownOptions": ["Disease 1", "Disease 2"],
+        "dropdownMultipleOptions": ["Disease 1", "Disease 2"],
         "label": "Please list any health conditions YOU have.",
         "stateName": "healthConditions",
         "required": true

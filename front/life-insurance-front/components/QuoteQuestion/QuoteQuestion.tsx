@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 
 import Dropdown from "../Dropdown/Dropdown";
+import DropdownMultiple from "../Dropdown/DropdownMultiple";
 import LargeButton from "../LargeButton";
 import SingleLineTextBox from "../SingleLineTextBox";
 
@@ -19,7 +20,12 @@ type Dropdown = {
   dropdownOptions: string[];
 };
 
-type Inputs = (TextBox | Radio | Dropdown) & {
+type DropdownMultiple = {
+  label: string;
+  dropdownMultipleOptions: string[];
+};
+
+type Inputs = (TextBox | Radio | Dropdown | DropdownMultiple) & {
   stateName: string;
   required?: boolean;
 };
@@ -29,9 +35,9 @@ type Props = {
   questionNo: number;
   newComps: Inputs[];
   length: number;
-  data: { [stateName: string]: string };
+  data: { [stateName: string]: string | string[] };
   setData: React.Dispatch<
-    React.SetStateAction<{ [stateName: string]: string }>
+    React.SetStateAction<{ [stateName: string]: string | string[] }>
   >;
   onClickBack?: VoidFunction;
   onClickNext?: VoidFunction;
@@ -47,7 +53,7 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
         <SingleLineTextBox
           label={input.label}
           placeholder={input.textPlaceholder}
-          value={props.data[input.stateName]}
+          value={props.data[input.stateName] as string}
           onChange={(e) =>
             props.setData((prev) => ({
               ...prev,
@@ -63,12 +69,47 @@ const QuoteQuestion = ({ active = false, ...props }: Props) => {
         <Dropdown
           options={input.dropdownOptions}
           label={input.label}
-          value={props.data[input.stateName]}
+          value={props.data[input.stateName] as string}
           onChange={(e) => {
             props.setData((prev) => ({
               ...prev,
               [input.stateName]: e,
             }));
+          }}
+        />
+      );
+
+    if ("dropdownMultipleOptions" in input)
+      return (
+        <DropdownMultiple
+          options={input.dropdownMultipleOptions}
+          label={input.label}
+          value={props.data[input.stateName] as string[]}
+          onChange={(e) => {
+            if (props.data[input.stateName] === "") {
+              props.setData((prev) => ({
+                ...prev,
+                [input.stateName]: [e],
+              }));
+            } else if (
+              !!props.data[input.stateName] &&
+              props.data[input.stateName].includes(e)
+            ) {
+              const arr: string[] = props.data[input.stateName] as string[];
+              arr.splice(arr.indexOf(e), 1);
+              props.setData((prev) => ({
+                ...prev,
+                [input.stateName]: [...arr],
+              }));
+            } else {
+              props.setData((prev) => ({
+                ...prev,
+                [input.stateName]: [
+                  ...(props.data[input.stateName] as string[]),
+                  e,
+                ],
+              }));
+            }
           }}
         />
       );

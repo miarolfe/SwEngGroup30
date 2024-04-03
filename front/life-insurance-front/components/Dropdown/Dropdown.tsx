@@ -1,5 +1,5 @@
 "use client";
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import * as Select from "@radix-ui/react-select";
 import {
   ChevronDownIcon,
@@ -8,10 +8,10 @@ import {
 } from "@heroicons/react/20/solid";
 
 type DropdownType = {
-  label: String;
+  label: string;
   value: string;
   onChange: (value: string) => void;
-  options: String[];
+  options: string[];
 };
 
 const Dropdown = (props: DropdownType) => {
@@ -23,20 +23,17 @@ const Dropdown = (props: DropdownType) => {
         {props.label}
       </label>
       <Select.Root value={props.value} onValueChange={props.onChange}>
-        <Select.Trigger
-          className="flex p-2 items-center h-14 w-full glass rounded-md border text-white"
-          aria-label="Food"
-        >
+        <Select.Trigger className="flex p-2 items-center h-14 w-full glass rounded-md border text-white">
           <div className="grow flex">
             <Select.Value placeholder="Select an option" />
           </div>
-          <Select.Icon className="SelectIcon">
+          <Select.Icon>
             <ChevronDownIcon className="h-8 w-8 text-white" />
           </Select.Icon>
         </Select.Trigger>
         <Select.Portal>
           <Select.Content className="bg-white rounded-md shadow-2xl">
-            <Select.ScrollUpButton className="SelectScrollButton">
+            <Select.ScrollUpButton>
               <ChevronUpIcon className="h-8 w-8 text-white" />
             </Select.ScrollUpButton>
             <Select.Viewport className="p-2">

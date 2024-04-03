@@ -14,13 +14,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <div className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow py-5">
           <AuthProvider>{children}</AuthProvider>
         </main>
         <Footer />
-      </div>
+      </body>
     </html>
   );
 }

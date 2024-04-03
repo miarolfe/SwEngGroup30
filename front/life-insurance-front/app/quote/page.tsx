@@ -66,20 +66,23 @@ const QuotePage = () => {
   const placeholderQuote: QuoteDetails = {
     premium: 1000,
     amountInsured: 300000,
-    maxYearInsured: 50
+    maxYearInsured: 50,
   };
 
   const placeHolderReturn: ReturnedQuotes = {
     entryLevelRecommendation: placeholderQuote,
     highLevelRecommendation: placeholderQuote,
-    premiumLevelRecommendation: placeholderQuote
+    premiumLevelRecommendation: placeholderQuote,
   };
 
   const [curr, setCurr] = useState<number>(0);
-  const [data, setData] = useState<{ [stateName: string]: string }>({});
+  const [data, setData] = useState<{ [stateName: string]: string | string[] }>(
+    {}
+  );
   const [currentStep, setCurrentStep] = useState<number>(1);
-  const [returnedQuotes, setReturnedQuotes] = useState<ReturnedQuotes>(placeHolderReturn);
-  const {data: session} = useSession();
+  const [returnedQuotes, setReturnedQuotes] =
+    useState<ReturnedQuotes>(placeHolderReturn);
+  const { data: session } = useSession();
 
   useEffect(() => {
     qData.map((item): void => {
@@ -92,32 +95,37 @@ const QuotePage = () => {
   }, []);
 
   const generateQuotes = async () => {
-    const herConditions: string[] = [data.hereditaryConditions];
-    const currConditions: string[] = [data.healthConditions];
-    
+    const herConditions: string[] = [data.hereditaryConditions as string];
+    const currConditions: string[] = [data.healthConditions as string];
+
     await fetch(`http://0.0.0.0:8000/api/premium/${session?.user?.id}`, {
       method: "POST",
       mode: "cors",
       headers: {
-          "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         patientName: data.fullName,
         dateOfBirth: data.dob,
         sex: data.sex,
         occupation: data.occupation,
-        yearlyIncomeInEuro: parseFloat(data.income),
+        yearlyIncomeInEuro: parseFloat(data.income as string),
         residenceCountry: "Ireland",
-        weightInKG: parseFloat(data.weight),
-        heightInCM: parseFloat(data.height),
-        exerciseHourPerWeek: parseFloat(data.exerciseHours),
+        weightInKG: parseFloat(data.weight as string),
+        heightInCM: parseFloat(data.height as string),
+        exerciseHourPerWeek: parseFloat(data.exerciseHours as string),
         smokingHistory: 0,
         drinkingHistory: 0,
         hereditaryConditions: herConditions,
-        healthConditions: currConditions
-      })
-    }).then(data => data.json()).then(data => {setReturnedQuotes(data); console.log(returnedQuotes)});
-  }
+        healthConditions: currConditions,
+      }),
+    })
+      .then((data) => data.json())
+      .then((data) => {
+        setReturnedQuotes(data);
+        console.log(returnedQuotes);
+      });
+  };
 
   const handleIncrement = (states: typeof data) => {
     let x = false;
@@ -128,7 +136,6 @@ const QuotePage = () => {
     if (curr === qData.length - 1 || x) return;
     setCurr((prev) => prev + 1);
     console.log(session?.user?.id);
-
   };
 
   const handleDecrement = () => {
