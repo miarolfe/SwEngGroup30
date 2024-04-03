@@ -23,7 +23,9 @@ const DropdownMultiple = (props: DropdownType) => {
       <DropdownMenu.Root>
         <DropdownMenu.Trigger className="flex p-2 items-center h-14 w-full glass rounded-md border text-white">
           <div className="grow flex">
-            <p>Hello</p>
+            {!!props.value
+              ? props.value.join(", ")
+              : "Select any options that apply"}
           </div>
         </DropdownMenu.Trigger>
 
@@ -44,12 +46,6 @@ const DropdownMultiple = (props: DropdownType) => {
                   </DropdownMenu.ItemIndicator>
                 </DropdownMenu.CheckboxItem>
               ))}
-              {/* <DropdownMenu.CheckboxItem className={itemStyle}>
-                New Window
-              </DropdownMenu.CheckboxItem>
-              <DropdownMenu.CheckboxItem className={itemStyle}>
-                New Private Window
-              </DropdownMenu.CheckboxItem> */}
             </div>
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
@@ -58,20 +54,4 @@ const DropdownMultiple = (props: DropdownType) => {
   );
 };
 
-// const SelectItem = React.forwardRef<null, Select.SelectItemProps>(
-//   (props, ref) => {
-//     return (
-//       <Select.Item
-//         className="flex flex-row text-violet-700 items-center p-1 rounded-sm hover:bg-violet-700 hover:outline-none hover:cursor-pointer hover:text-white"
-//         {...props}
-//         ref={ref}
-//       >
-//         <Select.ItemText>{props.children}</Select.ItemText>
-//         <Select.ItemIndicator className="pl-4">
-//           <CheckIcon className="h-4 w-4" />
-//         </Select.ItemIndicator>
-//       </Select.Item>
-//     );
-//   }
-// );
 export default DropdownMultiple;
