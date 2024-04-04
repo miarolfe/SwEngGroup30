@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import UnderWriterQuoteCard from "@/components/UnderwriterQuoteCard";
 const UnderwriterPage = () => {
     const [quoteData, setQuoteData] = useState([]);
 
@@ -14,7 +15,7 @@ const UnderwriterPage = () => {
 
     return (
         <div>
-            {quoteData.map(quote => <h1>{quote.medicalRecord.patientName}</h1>)}
+            {quoteData.map(quote => <UnderWriterQuoteCard quote={quote}>{quote.medicalRecord.patientName}</UnderWriterQuoteCard>)}
         </div>
     );
 }
