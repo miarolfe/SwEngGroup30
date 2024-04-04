@@ -15,8 +15,8 @@
         "required": true
       },
       {
-        "textPlaceholder": "25/03/2024",
-        "label": "Date of birth (DD/MM/YYYY)",
+        "textPlaceholder": "2024-03-25",
+        "label": "Date of birth (YYYY-MM-DD)",
         "stateName": "dob",
         "required": true
       }
