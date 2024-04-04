@@ -165,7 +165,7 @@ const Quote = (quotes: ReturnedQuotes) => {
                 {currentQuote.maxYearInsured} years
               </td>
             </tr>
-          </table> : <p className="mr-1">Apologies, we are unable to automatically give you a quote, an underwriter will manually review your details</p>}
+          </table> : <p className="mr-6 text-xl">Apologies, we are unable to automatically give you a quote, an underwriter will manually review your details</p>}
         </div>
         {/* </div> */}
       </div>
