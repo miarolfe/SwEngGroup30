@@ -119,7 +119,7 @@ const QuotePage = () => {
       .then((data) => data.json())
       .then((data) => {
         console.log(typeof data);
-        if (typeof data == "string") {
+        if (typeof data == "string" || Object.keys(data.premiumLevelRecommendation).length === 0) {
           setReturnedQuotes(placeHolderReturn)
         } else {
           setReturnedQuotes(data);
