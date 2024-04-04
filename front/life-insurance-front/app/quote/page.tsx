@@ -6,7 +6,6 @@ import Quote from "@/components/Quote/Quote";
 import qData from "./questions.json";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
 import { useSession } from "next-auth/react";
-import User from "@/models/user";
 
 const QuoteBlock = ({
   position,
@@ -110,8 +109,8 @@ const QuotePage = () => {
         weightInKG: parseFloat(data.weight as string),
         heightInCM: parseFloat(data.height as string),
         exerciseHourPerWeek: parseFloat(data.exerciseHours as string),
-        smokingHistory: 0,
-        drinkingHistory: 0,
+        smokingHistory: parseFloat(data.smokedBefore as string),
+        drinkingHistory: parseFloat(data.smokedBefore as string),
         hereditaryConditions: data.hereditaryConditions,
         healthConditions: data.healthConditions,
       }),

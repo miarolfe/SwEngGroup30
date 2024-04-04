@@ -66,14 +66,14 @@
     "question": "Harmful Substances",
     "inputs": [
       {
-        "dropdownOptions": ["Yes", "No"],
-        "label": "Have you ever smoked?",
+        "textPlaceholder": "Years",
+        "label": "How many years have you smoked for, if any?",
         "stateName": "smokedBefore",
         "required": true
       },
       {
-        "dropdownOptions": ["Yes", "No"],
-        "label": "Have you ever drank alcohol?",
+        "textPlaceholder": "Drinks",
+        "label": "How many alcoholic beverages do you consume a week, if any?",
         "stateName": "alcohol before",
         "required": true
       }
