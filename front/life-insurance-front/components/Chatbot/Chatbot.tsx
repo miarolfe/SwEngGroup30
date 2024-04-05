@@ -1,14 +1,29 @@
 "use client";
-import { ChangeEvent, FormEvent, useMemo, useState } from "react";
+import { ChangeEvent, useMemo, useState } from "react";
 import {
   XMarkIcon,
   PaperAirplaneIcon,
   ChatBubbleBottomCenterTextIcon,
 } from "@heroicons/react/20/solid";
+import { lexClient } from "@/libs/lexClient";
+import { RecognizeTextCommand } from "@aws-sdk/client-lex-runtime-v2";
+import Skeleton from "react-loading-skeleton";
+
+import "react-loading-skeleton/dist/skeleton.css";
 
 export type Message = {
   message: String;
   from: "you" | "chatbot"; // Only accept these
+};
+
+const ChatbotMessagePlaceholder = () => {
+  return (
+    <div
+      className={`text-sm min-h-6 w-3/5 my-2 p-2 shadow rounded-md bg-white rounded-bl-none`}
+    >
+      <Skeleton />
+    </div>
+  );
 };
 
 const ChatbotMessage = ({ message }: { message: Message }) => {
@@ -26,10 +41,34 @@ const ChatbotMessage = ({ message }: { message: Message }) => {
   );
 };
 
+function generateUUID() {
+  // Public Domain/MIT
+  var d = new Date().getTime(); //Timestamp
+  var d2 =
+    (typeof performance !== "undefined" &&
+      performance.now &&
+      performance.now() * 1000) ||
+    0; //Time in microseconds since page-load or 0 if unsupported
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    var r = Math.random() * 16; //random number between 0 and 16
+    if (d > 0) {
+      //Use timestamp until depleted
+      r = (d + r) % 16 | 0;
+      d = Math.floor(d / 16);
+    } else {
+      //Use microseconds since page-load if supported
+      r = (d2 + r) % 16 | 0;
+      d2 = Math.floor(d2 / 16);
+    }
+    return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
+  });
+}
+
 const Chatbot = ({ messages }: { messages: Message[] }) => {
   const [open, setOpen] = useState<boolean>(false);
   const [msgs, setMsgs] = useState<Message[]>(messages);
   const [val, setVal] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const buttonStyle = useMemo(() => {
     if (!open) return "button-open";
@@ -37,12 +76,13 @@ const Chatbot = ({ messages }: { messages: Message[] }) => {
   }, [open]);
 
   const chatStyle = useMemo(() => {
-    if (open) return "chat-open";
-    return "chat-close";
+    if (open) return "opacity-1 translate-y-0";
+    return "opacity-0 translate-y-[50rem]";
   }, [open]);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!val) return;
+    setLoading(true);
     setMsgs((prev) => [
       ...prev,
       {
@@ -51,9 +91,32 @@ const Chatbot = ({ messages }: { messages: Message[] }) => {
       },
     ]);
 
-    /* INSERT LOGIC TO SEND REQUEST TO BACKEND */
+    const lexParams = {
+      botId: "GXOPRO5WI7",
+      botAliasId: "DVPAVAVRW9",
+      text: val,
+      localeId: "en_US", // required
+      sessionId: generateUUID(), // required
+    };
 
     setVal("");
+    try {
+      const data = await lexClient.send(new RecognizeTextCommand(lexParams));
+      if (!!data.messages) {
+        setMsgs((prev) => [
+          ...prev,
+          {
+            message: !!data.messages
+              ? (data.messages[0].content as string)
+              : "",
+            from: "chatbot",
+          },
+        ]);
+      }
+    } catch (err) {
+      console.log("Error responding to message. ", err);
+    }
+    setLoading(false);
   };
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (
@@ -71,7 +134,7 @@ const Chatbot = ({ messages }: { messages: Message[] }) => {
         <ChatBubbleBottomCenterTextIcon className="w-6 text-white" />
       </button>
       <div
-        className={`${chatStyle} flex flex-col glass-more-opaque w-1/3 h-[36rem] fixed bottom-6 right-6 rounded-md overflow-hidden`}
+        className={`${chatStyle} flex transition-chatbot flex-col glass-more-opaque w-1/3 h-[36rem] fixed bottom-6 right-6 rounded-md overflow-hidden`}
       >
         <div className="flex px-2 justify-between items-center w-full h-10 glass">
           <p className="text-slate-800">Chatbot</p>
@@ -80,12 +143,13 @@ const Chatbot = ({ messages }: { messages: Message[] }) => {
             className="w-6 h-full transition-all text-slate-800 hover:text-white hover:cursor-pointer"
           />
         </div>
-        <div className="overflow-scroll overflow-hidden p-2 grow">
+        <div className="overflow-scroll  p-2 grow">
           {msgs.map((item, i) => {
             return <ChatbotMessage key={i} message={item} />;
           })}
+          {loading && <ChatbotMessagePlaceholder />}
         </div>
-        <div className="flex justify-between items-center h-16 w-full border-t-slate-400 border-t-2 px-2">
+        <div className="flex justify-between items-center h-16 w-full border-t-white border-t px-2">
           <input
             value={val}
             onChange={handleChange}
