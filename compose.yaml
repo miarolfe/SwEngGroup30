@@ -7,10 +7,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
-#  back:
-#    build:
-#      context: ./back
-#      dockerfile: Dockerfile
-#    ports:
-#      - "8000:8000"
-#    command: uvicorn main:app --host 0.0.0.0 --port 8000
+ back:
+   build:
+     context: ./back
+     dockerfile: Dockerfile
+   ports:
+     - "8000:8000"
+   command: uvicorn main:app --host 0.0.0.0 --port 8000
