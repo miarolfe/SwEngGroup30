@@ -51,6 +51,15 @@ class MedicalHistory(BaseModel):
 
 @premium_calculator_router.post("/{userId}")
 async def getPremiumForUser(userId : str, user : MedicalHistory, authId : str = Header(None)):
+    userSearch = {}
+    try:
+        userSearch = authUserCollection.find_one({"_id": ObjectId(authId)})
+    except:
+        raise HTTPException(status_code=401, detail="User not Logged in")
+    
+    if not userSearch:
+        raise HTTPException(status_code=401, detail="User not Logged in")
+
     print(f"req.body = {user}\n")
     userDictionary : dict = {}
     userDictionary["patientName"] = user.patientName
