@@ -112,6 +112,15 @@ const Chatbot = ({ messages }: { messages: Message[] }) => {
             from: "chatbot",
           },
         ]);
+      } else {
+        setMsgs((prev) => [
+          ...prev,
+          {
+            message:
+              "Apologies, I didn't understand you. What would you like me to do?",
+            from: "chatbot",
+          },
+        ]);
       }
     } catch (err) {
       console.log("Error responding to message. ", err);
