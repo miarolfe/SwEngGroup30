@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     const [accountButton, setAccountButton] = useState("Login");
     const [accountLink, setAccountLink] = useState("/login");
     
-    useEffect( () => {
+    useEffect(() => {
         if (!session) {
             setAccountButton("Login");
             setAccountLink("/login");
