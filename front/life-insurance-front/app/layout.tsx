@@ -15,11 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ height: "100%" }}>
       <body className="grad-bg flex flex-col min-h-screen h-full">
-        <AuthProvider>
-          <Header />
-          <main className="grow py-5">{children}</main>
-          <Footer />
-        </AuthProvider>
+        <Header />
+        <main className="grow h-full">
+          <AuthProvider>{children}</AuthProvider>
+        </main>
+        <Footer />
       </body>
     </html>
   );
