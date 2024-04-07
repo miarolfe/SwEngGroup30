@@ -2,7 +2,9 @@ from fastapi import APIRouter
 from services.quoteRequestService import insertQuoteRequestToDB, deleteQuoteRequestFromDatabase, getAllQuoteRequestsFromDB
 from pydantic import BaseModel
 from routes.premium_routes import MedicalHistory
-quoteRequestRouter = APIRouter()
+quoteRequestRouter = APIRouter(
+    prefix="/api/quoteRequest"
+)
 
 class QuoteQuest(BaseModel):
     userId : str
@@ -18,12 +20,12 @@ class QuoteQuest(BaseModel):
 #     # quoteRequest["medicalRecord"] = data.medicalRecord
 #     insertQuoteRequestToDB(data)
 
-@quoteRequestRouter.delete("/api/quoteRequest/{userId}")
+@quoteRequestRouter.delete("/{userId}")
 async def deleteQuoteRequest(userId : str, quote : dict) -> None:
     # print(f"quoteRequestId = {userId}\n")
     deleteQuoteRequestFromDatabase(userId, quote)
 
-@quoteRequestRouter.get("/api/quoteRequest/get")
+@quoteRequestRouter.get("/get")
 async def getAllQuoteRequests() -> None:
     data = getAllQuoteRequestsFromDB()
     return data

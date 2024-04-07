@@ -1,0 +1,246 @@
+{
+    "_id": {
+        "$oid": "65ca2a1f478712443e9a4150"
+    },
+    "patientName": "Reece",
+    "dateOfBirth": "2003-05-01",
+    "sex": "Male",
+    "occupation": "Software Engineer",
+    "yearlyIncomeInEuro": 100000,
+    "residenceCountry": "Ireland",
+    "weightInKG": 70.0,
+    "heightInCM": 182.0,
+    "exerciseHourPerWeek": 20,
+    "smokingHistory": 0,
+    "drinkingHistory": 0,
+    "hereditaryConditions": [
+        "asthma"
+    ],
+    "healthConditions": [
+        "asthma"
+    ]
+}
+{
+    "_id": {
+        "$oid": "65ca2a4b478712443e9a4151"
+    },
+    "patientName": "Reece",
+    "dateOfBirth": "2003-05-01",
+    "sex": "Male",
+    "occupation": "Software Engineer",
+    "yearlyIncomeInEuro": 100000,
+    "residenceCountry": "Ireland",
+    "weightInKG": 70.0,
+    "heightInCM": 182.0,
+    "exerciseHourPerWeek": 20,
+    "smokingHistory": 0,
+    "drinkingHistory": 0,
+    "hereditaryConditions": [
+        "asthma"
+    ],
+    "healthConditions": [
+        "asthma"
+    ]
+}
+{
+    "_id": {
+        "$oid": "65ca354704a013d403e4da8c"
+    },
+    "patientName": "string",
+    "dateOfBirth": "string",
+    "sex": "string",
+    "occupation": "string",
+    "yearlyIncomeInEuro": 0,
+    "residenceCountry": "string",
+    "weightInKG": 0.0,
+    "heightInCM": 0.0,
+    "exerciseHourPerWeek": 0,
+    "smokingHistory": 0,
+    "drinkingHistory": 0,
+    "hereditaryConditions": [
+        "string"
+    ],
+    "healthConditions": [
+        "string"
+    ]
+}
+{
+    "_id": {
+        "$oid": "65cb6c307dcea0ca8d75e9b8"
+    },
+    "patientName": "john",
+    "dateOfBirth": "string",
+    "sex": "male",
+    "occupation": "string",
+    "yearlyIncomeInEuro": 0,
+    "residenceCountry": "string",
+    "weightInKG": 87.0,
+    "heightInCM": 0.0,
+    "exerciseHourPerWeek": 0,
+    "smokingHistory": 0,
+    "drinkingHistory": 0,
+    "hereditaryConditions": [
+        "string"
+    ],
+    "healthConditions": [
+        "string"
+    ]
+}
+{
+    "_id": {
+        "$oid": "65cb6e5a21d2312a5ddcb3b9"
+    },
+    "patientName": "Nuoxi",
+    "dateOfBirth": "string",
+    "sex": "string",
+    "occupation": "string",
+    "yearlyIncomeInEuro": 0,
+    "residenceCountry": "string",
+    "weightInKG": 0.0,
+    "heightInCM": 0.0,
+    "exerciseHourPerWeek": 0,
+    "smokingHistory": 0,
+    "drinkingHistory": 0,
+    "hereditaryConditions": [
+        "string"
+    ],
+    "healthConditions": [
+        "string"
+    ]
+}
+{
+    "_id": {
+        "$oid": "65cb7f0861a653daed6cb3ca"
+    },
+    "patientName": "John Doe",
+    "dateOfBirth": "string",
+    "sex": "string",
+    "occupation": "string",
+    "yearlyIncomeInEuro": 0,
+    "residenceCountry": "string",
+    "weightInKG": 0.0,
+    "heightInCM": 0.0,
+    "exerciseHourPerWeek": 0,
+    "smokingHistory": 0,
+    "drinkingHistory": 0,
+    "hereditaryConditions": [
+        "string"
+    ],
+    "healthConditions": [
+        "string"
+    ]
+}
+{
+    "_id": {
+        "$oid": "65ccbf436171ce27a5c134e1"
+    },
+    "patientName": "string",
+    "dateOfBirth": "string",
+    "sex": "string",
+    "occupation": "string",
+    "yearlyIncomeInEuro": 0,
+    "residenceCountry": "string",
+    "weightInKG": 0.0,
+    "heightInCM": 0.0,
+    "exerciseHourPerWeek": 0,
+    "smokingHistory": 0,
+    "drinkingHistory": 0,
+    "hereditaryConditions": [
+        "string"
+    ],
+    "healthConditions": [
+        "string"
+    ]
+}
+{
+    "_id": {
+        "$oid": "65ccbf666171ce27a5c134e2"
+    },
+    "patientName": "test",
+    "dateOfBirth": "string",
+    "sex": "string",
+    "occupation": "string",
+    "yearlyIncomeInEuro": 0,
+    "residenceCountry": "string",
+    "weightInKG": 0.0,
+    "heightInCM": 0.0,
+    "exerciseHourPerWeek": 0,
+    "smokingHistory": 0,
+    "drinkingHistory": 0,
+    "hereditaryConditions": [
+        "string"
+    ],
+    "healthConditions": [
+        "string"
+    ]
+}
+{
+    "_id": {
+        "$oid": "65ccc07eab5614ab58c8dc2c"
+    },
+    "patientName": "Clark Kent",
+    "dateOfBirth": "1900-02-29",
+    "sex": "Male",
+    "occupation": "Journalist",
+    "yearlyIncomeInEuro": 100000,
+    "residenceCountry": "USA",
+    "weightInKG": 102.0,
+    "heightInCM": 190.0,
+    "exerciseHourPerWeek": 30,
+    "smokingHistory": 0,
+    "drinkingHistory": 0,
+    "hereditaryConditions": [
+        "string"
+    ],
+    "healthConditions": [
+        "string"
+    ]
+}
+{
+    "_id": {
+        "$oid": "65f1fcb9018ef80428018ae8"
+    },
+    "patientName": "John Elden",
+    "dateOfBirth": "string",
+    "sex": "string",
+    "occupation": "string",
+    "yearlyIncomeInEuro": 0,
+    "residenceCountry": "string",
+    "weightInKG": 0.0,
+    "heightInCM": 0.0,
+    "exerciseHourPerWeek": 0,
+    "smokingHistory": 0,
+    "drinkingHistory": 0,
+    "hereditaryConditions": [
+        "Cancer"
+    ],
+    "healthConditions": [
+        "Alzheimer's Disease"
+    ]
+}
+{
+    "_id": {
+        "$oid": "65f202400b982f030d0f5ed9"
+    },
+    "patientName": "Larry",
+    "dateOfBirth": "string",
+    "sex": "string",
+    "occupation": "string",
+    "yearlyIncomeInEuro": 0,
+    "residenceCountry": "string",
+    "weightInKG": 0.0,
+    "heightInCM": 0.0,
+    "exerciseHourPerWeek": 0,
+    "smokingHistory": 0,
+    "drinkingHistory": 0,
+    "hereditaryConditions": [
+        "Asthma",
+        "Seasonal Allergies",
+        "Migraine Headaches",
+        "Varicose Veins",
+        "Trichomoniasis"
+    ],
+    "healthConditions": [
+        "Scabies"
+    ]
+}

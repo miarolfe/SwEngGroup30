@@ -1,0 +1,805 @@
+{
+    "_id": {
+        "$oid": "660220285ebdc95034145d30"
+    },
+    "customerId": "61177b527e8c630ff0d1ebff",
+    "customerName": "John Doe",
+    "pastPolicies": [
+        {
+            "policyType": "Term Life Insurance",
+            "coverageAmount": 500000,
+            "premiumAmount": 100,
+            "startDate": "1/1/2022",
+            "endDate": "1/1/2023"
+        },
+        {
+            "policyType": "Whole Life Insurance",
+            "coverageAmount": 1000000,
+            "premiumAmount": 200,
+            "startDate": "1/1/2020",
+            "endDate": "1/1/2030"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "2/15/2022",
+            "contactMethod": "Phone",
+            "contactReason": "Policy inquiry",
+            "outcome": "Information provided",
+            "notes": "Customer was interested in additional coverage options."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "28/2/2022",
+            "transactionType": "Payment",
+            "amount": 100,
+            "method": "Credit Card",
+            "invoiceNumber": "INV12345"
+        }
+    ],
+    "claimsHistory": [
+        {
+            "claimDate": "1/3/2023",
+            "claimType": "Death Benefit",
+            "claimStatus": "Approved",
+            "claimAmount": 500000
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "660220677b525551e891e0a2"
+    },
+    "customerId": "61177b527e8c630ff0d1ebff",
+    "customerName": "John Doe",
+    "pastPolicies": [
+        {
+            "policyType": "Term Life Insurance",
+            "coverageAmount": 500000,
+            "premiumAmount": 100,
+            "startDate": "1/1/2022",
+            "endDate": "1/1/2023"
+        },
+        {
+            "policyType": "Whole Life Insurance",
+            "coverageAmount": 1000000,
+            "premiumAmount": 200,
+            "startDate": "1/1/2020",
+            "endDate": "1/1/2030"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "2/15/2022",
+            "contactMethod": "Phone",
+            "contactReason": "Policy inquiry",
+            "outcome": "Information provided",
+            "notes": "Customer was interested in additional coverage options."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "28/2/2022",
+            "transactionType": "Payment",
+            "amount": 100,
+            "method": "Credit Card",
+            "invoiceNumber": "INV12345"
+        }
+    ],
+    "claimsHistory": [
+        {
+            "claimDate": "1/3/2023",
+            "claimType": "Death Benefit",
+            "claimStatus": "Approved",
+            "claimAmount": 500000
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "660221a6e75284a6b1355f50"
+    },
+    "customerId": "61177b527e8c630ff0d1ec00",
+    "customerName": "Alice Smith",
+    "pastPolicies": [
+        {
+            "policyType": "Health Insurance",
+            "coverageAmount": 100000,
+            "premiumAmount": 150,
+            "startDate": "5/1/2020",
+            "endDate": "5/1/2021"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "8/20/2021",
+            "contactMethod": "Email",
+            "contactReason": "Claim inquiry",
+            "outcome": "Claim processed",
+            "notes": "Customer received reimbursement for medical expenses."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "8/25/2021",
+            "transactionType": "Refund",
+            "amount": 150,
+            "method": "Bank Transfer",
+            "invoiceNumber": "INV98765"
+        }
+    ],
+    "claimsHistory": [
+        {
+            "claimDate": "8/15/2021",
+            "claimType": "Medical Expense",
+            "claimStatus": "Approved",
+            "claimAmount": 500
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "660221a6e75284a6b1355f51"
+    },
+    "customerId": "61177b527e8c630ff0d1ec01",
+    "customerName": "Bob Johnson",
+    "pastPolicies": [
+        {
+            "policyType": "Auto Insurance",
+            "coverageAmount": 25000,
+            "premiumAmount": 200,
+            "startDate": "10/1/2019",
+            "endDate": "10/1/2020"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "12/10/2020",
+            "contactMethod": "Email",
+            "contactReason": "Policy renewal",
+            "outcome": "Policy renewed",
+            "notes": "Customer opted for extended coverage."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "12/15/2020",
+            "transactionType": "Payment",
+            "amount": 200,
+            "method": "Credit Card",
+            "invoiceNumber": "INV54321"
+        }
+    ],
+    "claimsHistory": [
+        {
+            "claimDate": "11/20/2020",
+            "claimType": "Accident Damage",
+            "claimStatus": "Pending",
+            "claimAmount": 1000
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "660221a6e75284a6b1355f52"
+    },
+    "customerId": "61177b527e8c630ff0d1ec02",
+    "customerName": "Jane Smith",
+    "pastPolicies": [
+        {
+            "policyType": "Travel Insurance",
+            "coverageAmount": 20000,
+            "premiumAmount": 100,
+            "startDate": "3/1/2021",
+            "endDate": "3/1/2022"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "5/5/2021",
+            "contactMethod": "Phone",
+            "contactReason": "Policy update",
+            "outcome": "Information provided",
+            "notes": "Customer needed to update travel itinerary."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "5/10/2021",
+            "transactionType": "Payment",
+            "amount": 100,
+            "method": "Debit Card",
+            "invoiceNumber": "INV67890"
+        }
+    ],
+    "claimsHistory": [
+        {
+            "claimDate": "4/1/2021",
+            "claimType": "Trip Cancellation",
+            "claimStatus": "Denied",
+            "claimAmount": 0
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "660221fb1f2e4f974ef30bb3"
+    },
+    "customerId": "61177b527e8c630ff0d1ec00",
+    "customerName": "alice smith",
+    "pastPolicies": [
+        {
+            "policyType": "Health Insurance",
+            "coverageAmount": 100000,
+            "premiumAmount": 150,
+            "startDate": "5/1/2020",
+            "endDate": "5/1/2021"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "8/20/2021",
+            "contactMethod": "Email",
+            "contactReason": "Claim inquiry",
+            "outcome": "Claim processed",
+            "notes": "Customer received reimbursement for medical expenses."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "8/25/2021",
+            "transactionType": "Refund",
+            "amount": 150,
+            "method": "Bank Transfer",
+            "invoiceNumber": "INV98765"
+        }
+    ],
+    "claimsHistory": [
+        {
+            "claimDate": "8/15/2021",
+            "claimType": "Medical Expense",
+            "claimStatus": "Approved",
+            "claimAmount": 500
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "660221fb1f2e4f974ef30bb4"
+    },
+    "customerId": "61177b527e8c630ff0d1ec01",
+    "customerName": "bob johnson",
+    "pastPolicies": [
+        {
+            "policyType": "Auto Insurance",
+            "coverageAmount": 25000,
+            "premiumAmount": 200,
+            "startDate": "10/1/2019",
+            "endDate": "10/1/2020"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "12/10/2020",
+            "contactMethod": "Email",
+            "contactReason": "Policy renewal",
+            "outcome": "Policy renewed",
+            "notes": "Customer opted for extended coverage."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "12/15/2020",
+            "transactionType": "Payment",
+            "amount": 200,
+            "method": "Credit Card",
+            "invoiceNumber": "INV54321"
+        }
+    ],
+    "claimsHistory": [
+        {
+            "claimDate": "11/20/2020",
+            "claimType": "Accident Damage",
+            "claimStatus": "Pending",
+            "claimAmount": 1000
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "660221fb1f2e4f974ef30bb5"
+    },
+    "customerId": "61177b527e8c630ff0d1ec02",
+    "customerName": "jane smith",
+    "pastPolicies": [
+        {
+            "policyType": "Travel Insurance",
+            "coverageAmount": 20000,
+            "premiumAmount": 100,
+            "startDate": "3/1/2021",
+            "endDate": "3/1/2022"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "5/5/2021",
+            "contactMethod": "Phone",
+            "contactReason": "Policy update",
+            "outcome": "Information provided",
+            "notes": "Customer needed to update travel itinerary."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "5/10/2021",
+            "transactionType": "Payment",
+            "amount": 100,
+            "method": "Debit Card",
+            "invoiceNumber": "INV67890"
+        }
+    ],
+    "claimsHistory": [
+        {
+            "claimDate": "4/1/2021",
+            "claimType": "Trip Cancellation",
+            "claimStatus": "Denied",
+            "claimAmount": 0
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "6602225219349ad9f99ae310"
+    },
+    "customerId": "61177b527e8c630ff0d1ec03",
+    "customerName": "Emma Brown",
+    "pastPolicies": [
+        {
+            "policyType": "Home Insurance",
+            "coverageAmount": 300000,
+            "premiumAmount": 250,
+            "startDate": "6/1/2020",
+            "endDate": "6/1/2021"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "9/10/2021",
+            "contactMethod": "Phone",
+            "contactReason": "Policy renewal",
+            "outcome": "Policy renewed",
+            "notes": "Customer opted for increased coverage for valuable items."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "9/15/2021",
+            "transactionType": "Payment",
+            "amount": 250,
+            "method": "Bank Transfer",
+            "invoiceNumber": "INV13579"
+        }
+    ],
+    "claimsHistory": [
+        {
+            "claimDate": "7/20/2021",
+            "claimType": "Property Damage",
+            "claimStatus": "Approved",
+            "claimAmount": 1000
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "6602225219349ad9f99ae311"
+    },
+    "customerId": "61177b527e8c630ff0d1ec04",
+    "customerName": "Michael Johnson",
+    "pastPolicies": [
+        {
+            "policyType": "Renter's Insurance",
+            "coverageAmount": 50000,
+            "premiumAmount": 75,
+            "startDate": "8/1/2021",
+            "endDate": "8/1/2022"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "11/5/2021",
+            "contactMethod": "Email",
+            "contactReason": "Policy inquiry",
+            "outcome": "Information provided",
+            "notes": "Customer wanted to understand coverage for personal belongings."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "11/10/2021",
+            "transactionType": "Payment",
+            "amount": 75,
+            "method": "Credit Card",
+            "invoiceNumber": "INV24680"
+        }
+    ],
+    "claimsHistory": [
+        {
+            "claimDate": "9/25/2021",
+            "claimType": "Theft",
+            "claimStatus": "Denied",
+            "claimAmount": 0
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "6602225219349ad9f99ae312"
+    },
+    "customerId": "61177b527e8c630ff0d1ec05",
+    "customerName": "Sophia Wilson",
+    "pastPolicies": [
+        {
+            "policyType": "Pet Insurance",
+            "coverageAmount": 1000,
+            "premiumAmount": 50,
+            "startDate": "4/1/2021",
+            "endDate": "4/1/2022"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "7/10/2021",
+            "contactMethod": "Phone",
+            "contactReason": "Policy update",
+            "outcome": "Policy updated",
+            "notes": "Customer added new pet to the policy."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "7/15/2021",
+            "transactionType": "Payment",
+            "amount": 50,
+            "method": "Debit Card",
+            "invoiceNumber": "INV35791"
+        }
+    ],
+    "claimsHistory": []
+}
+{
+    "_id": {
+        "$oid": "660222961cbe031800247920"
+    },
+    "customerId": "61177b527e8c630ff0d1ec07",
+    "customerName": "William Martinez",
+    "pastPolicies": [
+        {
+            "policyType": "Vision Insurance",
+            "coverageAmount": 500,
+            "premiumAmount": 30,
+            "startDate": "3/1/2021",
+            "endDate": "3/1/2022"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "6/15/2021",
+            "contactMethod": "Phone",
+            "contactReason": "Claim inquiry",
+            "outcome": "Claim processed",
+            "notes": "Customer received reimbursement for vision expenses."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "6/20/2021",
+            "transactionType": "Refund",
+            "amount": 30,
+            "method": "Bank Transfer",
+            "invoiceNumber": "INV24681"
+        }
+    ],
+    "claimsHistory": [
+        {
+            "claimDate": "5/1/2021",
+            "claimType": "Eye Exam",
+            "claimStatus": "Approved",
+            "claimAmount": 100
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "660222961cbe031800247921"
+    },
+    "customerId": "61177b527e8c630ff0d1ec08",
+    "customerName": "Ethan Taylor",
+    "pastPolicies": [
+        {
+            "policyType": "Critical Illness Insurance",
+            "coverageAmount": 100000,
+            "premiumAmount": 80,
+            "startDate": "7/1/2020",
+            "endDate": "7/1/2021"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "10/10/2020",
+            "contactMethod": "Email",
+            "contactReason": "Policy update",
+            "outcome": "Policy updated",
+            "notes": "Customer added additional coverage for cancer treatment."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "10/15/2020",
+            "transactionType": "Payment",
+            "amount": 80,
+            "method": "Credit Card",
+            "invoiceNumber": "INV57913"
+        }
+    ],
+    "claimsHistory": []
+}
+{
+    "_id": {
+        "$oid": "660222961cbe031800247922"
+    },
+    "customerId": "61177b527e8c630ff0d1ec09",
+    "customerName": "Ava Garcia",
+    "pastPolicies": [
+        {
+            "policyType": "Disability Insurance",
+            "coverageAmount": 2000,
+            "premiumAmount": 150,
+            "startDate": "9/1/2020",
+            "endDate": "9/1/2021"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "12/20/2020",
+            "contactMethod": "Phone",
+            "contactReason": "Policy inquiry",
+            "outcome": "Information provided",
+            "notes": "Customer inquired about coverage for temporary disability."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "1/1/2021",
+            "transactionType": "Payment",
+            "amount": 150,
+            "method": "Bank Transfer",
+            "invoiceNumber": "INV80246"
+        }
+    ],
+    "claimsHistory": []
+}
+{
+    "_id": {
+        "$oid": "660222ceabc3e6e6cd1659b0"
+    },
+    "customerId": "61177b527e8c630ff0d1ec07",
+    "customerName": "william martinez",
+    "pastPolicies": [
+        {
+            "policyType": "Vision Insurance",
+            "coverageAmount": 500,
+            "premiumAmount": 30,
+            "startDate": "3/1/2021",
+            "endDate": "3/1/2022"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "6/15/2021",
+            "contactMethod": "Phone",
+            "contactReason": "Claim inquiry",
+            "outcome": "Claim processed",
+            "notes": "Customer received reimbursement for vision expenses."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "6/20/2021",
+            "transactionType": "Refund",
+            "amount": 30,
+            "method": "Bank Transfer",
+            "invoiceNumber": "INV24681"
+        }
+    ],
+    "claimsHistory": [
+        {
+            "claimDate": "5/1/2021",
+            "claimType": "Eye Exam",
+            "claimStatus": "Approved",
+            "claimAmount": 100
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "660222ceabc3e6e6cd1659b1"
+    },
+    "customerId": "61177b527e8c630ff0d1ec08",
+    "customerName": "ethan taylor",
+    "pastPolicies": [
+        {
+            "policyType": "Critical Illness Insurance",
+            "coverageAmount": 100000,
+            "premiumAmount": 80,
+            "startDate": "7/1/2020",
+            "endDate": "7/1/2021"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "10/10/2020",
+            "contactMethod": "Email",
+            "contactReason": "Policy update",
+            "outcome": "Policy updated",
+            "notes": "Customer added additional coverage for cancer treatment."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "10/15/2020",
+            "transactionType": "Payment",
+            "amount": 80,
+            "method": "Credit Card",
+            "invoiceNumber": "INV57913"
+        }
+    ],
+    "claimsHistory": []
+}
+{
+    "_id": {
+        "$oid": "660222ceabc3e6e6cd1659b2"
+    },
+    "customerId": "61177b527e8c630ff0d1ec09",
+    "customerName": "ava garcia",
+    "pastPolicies": [
+        {
+            "policyType": "Disability Insurance",
+            "coverageAmount": 2000,
+            "premiumAmount": 150,
+            "startDate": "9/1/2020",
+            "endDate": "9/1/2021"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "12/20/2020",
+            "contactMethod": "Phone",
+            "contactReason": "Policy inquiry",
+            "outcome": "Information provided",
+            "notes": "Customer inquired about coverage for temporary disability."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "1/1/2021",
+            "transactionType": "Payment",
+            "amount": 150,
+            "method": "Bank Transfer",
+            "invoiceNumber": "INV80246"
+        }
+    ],
+    "claimsHistory": []
+}
+{
+    "_id": {
+        "$oid": "66022313fc11690f8a8106ec"
+    },
+    "customerId": "61177b527e8c630ff0d1ec0d",
+    "customerName": "oliver smith",
+    "pastPolicies": [
+        {
+            "policyType": "Health Insurance",
+            "coverageAmount": 750000,
+            "premiumAmount": 200,
+            "startDate": "2/1/2021",
+            "endDate": "2/1/2022"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "5/10/2021",
+            "contactMethod": "Email",
+            "contactReason": "Claim inquiry",
+            "outcome": "Claim processed",
+            "notes": "Customer received reimbursement for medical expenses."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "5/15/2021",
+            "transactionType": "Refund",
+            "amount": 200,
+            "method": "Bank Transfer",
+            "invoiceNumber": "INV12346"
+        }
+    ],
+    "claimsHistory": [
+        {
+            "claimDate": "3/20/2021",
+            "claimType": "Hospitalization",
+            "claimStatus": "Approved",
+            "claimAmount": 5000
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "66022313fc11690f8a8106ed"
+    },
+    "customerId": "61177b527e8c630ff0d1ec0e",
+    "customerName": "sophia johnson",
+    "pastPolicies": [
+        {
+            "policyType": "Auto Insurance",
+            "coverageAmount": 30000,
+            "premiumAmount": 150,
+            "startDate": "7/1/2021",
+            "endDate": "7/1/2022"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "10/5/2021",
+            "contactMethod": "Phone",
+            "contactReason": "Policy renewal",
+            "outcome": "Policy renewed",
+            "notes": "Customer renewed auto insurance for another year."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "10/10/2021",
+            "transactionType": "Payment",
+            "amount": 150,
+            "method": "Credit Card",
+            "invoiceNumber": "INV24682"
+        }
+    ],
+    "claimsHistory": []
+}
+{
+    "_id": {
+        "$oid": "66022313fc11690f8a8106ee"
+    },
+    "customerId": "61177b527e8c630ff0d1ec0f",
+    "customerName": "emily martinez",
+    "pastPolicies": [
+        {
+            "policyType": "Life Insurance",
+            "coverageAmount": 1000000,
+            "premiumAmount": 300,
+            "startDate": "9/1/2020",
+            "endDate": "9/1/2021"
+        }
+    ],
+    "contactHistory": [
+        {
+            "contactDate": "12/10/2020",
+            "contactMethod": "Phone",
+            "contactReason": "Policy inquiry",
+            "outcome": "Information provided",
+            "notes": "Customer inquired about options for additional coverage."
+        }
+    ],
+    "transactionHistory": [
+        {
+            "transactionDate": "12/15/2020",
+            "transactionType": "Payment",
+            "amount": 300,
+            "method": "Bank Transfer",
+            "invoiceNumber": "INV35792"
+        }
+    ],
+    "claimsHistory": []
+}

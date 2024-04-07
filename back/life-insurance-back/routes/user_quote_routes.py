@@ -2,7 +2,9 @@ from services.userQuoteListService import addQuoteToList, getQuoteHistoryForAnUs
 from fastapi import APIRouter
 from models.quoteListItem import QuoteListItem, QuoteItem
 from services.quoteRequestService import getCurrentDateAndTime
-userQuoteListRouter = APIRouter()
+userQuoteListRouter = APIRouter(
+    prefix="/api/user/quotelist"
+)
 
 @userQuoteListRouter.get("/api/user/quotelist/{userId}")
 def getEntireQuoteHistory(userId : str):

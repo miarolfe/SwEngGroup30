@@ -1,0 +1,684 @@
+{
+    "_id": {
+        "$oid": "660304ad87fd33ea53b388f4"
+    },
+    "customerId": "61177b527e8c630ff0d1ec0d",
+    "customerName": "oliver smith",
+    "diseases": [
+        {
+            "diseaseName": "Diabetes",
+            "diagnosisDate": "3/25/2019",
+            "notes": "Type 2 diabetes diagnosed. Requires monitoring and medication."
+        }
+    ],
+    "diagnoses": [
+        {
+            "diagnosisDate": "3/25/2021",
+            "diagnosisName": "Hypertension",
+            "doctorName": "Dr. Johnson",
+            "notes": "Patient's blood pressure is consistently elevated."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Lisinopril",
+            "dosage": "10 mg",
+            "frequency": "Once daily",
+            "start_date": "3/25/2021",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Dr. Johnson",
+            "notes": "Prescribed to manage hypertension."
+        }
+    ],
+    "procedures": [
+        {
+            "procedureDate": "4/10/2021",
+            "procedureName": "Blood Pressure Monitoring",
+            "doctorName": "Nurse Smith",
+            "notes": "Routine check-up to monitor blood pressure levels."
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "66030515f66232fc866b3a3f"
+    },
+    "customerId": "61177b527e8c630ff0d1ec0e",
+    "customerName": "sophia johnson",
+    "diseases": [
+        {
+            "diseaseName": "Asthma",
+            "diagnosisDate": "7/5/2018",
+            "notes": "Diagnosed with asthma. Requires regular inhaler use and monitoring."
+        }
+    ],
+    "diagnoses": [
+        {
+            "diagnosisDate": "10/12/2020",
+            "diagnosisName": "Seasonal Allergies",
+            "doctorName": "Dr. Smith",
+            "notes": "Experiencing symptoms of seasonal allergies, prescribed antihistamines."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Albuterol Inhaler",
+            "dosage": "As needed",
+            "frequency": "As needed",
+            "start_date": "7/5/2018",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Dr. Smith",
+            "notes": "Prescribed for asthma symptoms."
+        }
+    ],
+    "procedures": [
+        {
+            "procedureDate": "3/10/2021",
+            "procedureName": "Allergy Testing",
+            "doctorName": "Dr. Jones",
+            "notes": "Conducted allergy testing to identify specific allergens."
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "66030515f66232fc866b3a40"
+    },
+    "customerId": "61177b527e8c630ff0d1ec0f",
+    "customerName": "emily martinez",
+    "diseases": [],
+    "diagnoses": [
+        {
+            "diagnosisDate": "4/20/2019",
+            "diagnosisName": "Migraine",
+            "doctorName": "Dr. Lee",
+            "notes": "Frequent migraines reported, prescribed medication for management."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Sumatriptan",
+            "dosage": "100 mg",
+            "frequency": "As needed",
+            "start_date": "4/20/2019",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Dr. Lee",
+            "notes": "Prescribed for acute migraine relief."
+        }
+    ],
+    "procedures": []
+}
+{
+    "_id": {
+        "$oid": "66030515f66232fc866b3a41"
+    },
+    "customerId": "61177b527e8c630ff0d1ec10",
+    "customerName": "william anderson",
+    "diseases": [
+        {
+            "diseaseName": "Type 1 Diabetes",
+            "diagnosisDate": "8/15/2015",
+            "notes": "Diagnosed with Type 1 diabetes. Requires insulin injections and monitoring."
+        }
+    ],
+    "diagnoses": [
+        {
+            "diagnosisDate": "6/5/2020",
+            "diagnosisName": "Diabetic Retinopathy",
+            "doctorName": "Dr. Patel",
+            "notes": "Signs of diabetic retinopathy observed, referred to ophthalmologist for further evaluation."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Insulin",
+            "dosage": "Varies",
+            "frequency": "Multiple times daily",
+            "start_date": "8/15/2015",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Primary Care Physician",
+            "notes": "Regular insulin injections to manage blood sugar levels."
+        }
+    ],
+    "procedures": [
+        {
+            "procedureDate": "9/20/2020",
+            "procedureName": "Retinal Imaging",
+            "doctorName": "Dr. Gupta",
+            "notes": "Performed retinal imaging to assess diabetic retinopathy."
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "660305523639713585040703"
+    },
+    "customerId": "61177b527e8c630ff0d1ec11",
+    "customerName": "emma williams",
+    "diseases": [],
+    "diagnoses": [
+        {
+            "diagnosisDate": "11/10/2020",
+            "diagnosisName": "Anemia",
+            "doctorName": "Dr. Garcia",
+            "notes": "Low hemoglobin levels detected, diagnosed with anemia."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Iron Supplements",
+            "dosage": "325 mg",
+            "frequency": "Once daily",
+            "start_date": "11/10/2020",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Dr. Garcia",
+            "notes": "Prescribed to address iron deficiency."
+        }
+    ],
+    "procedures": []
+}
+{
+    "_id": {
+        "$oid": "660305523639713585040704"
+    },
+    "customerId": "61177b527e8c630ff0d1ec12",
+    "customerName": "james brown",
+    "diseases": [
+        {
+            "diseaseName": "Osteoarthritis",
+            "diagnosisDate": "5/15/2019",
+            "notes": "Diagnosed with osteoarthritis. Experiencing joint pain and stiffness."
+        }
+    ],
+    "diagnoses": [],
+    "medications": [
+        {
+            "medicationName": "Ibuprofen",
+            "dosage": "200 mg",
+            "frequency": "As needed",
+            "start_date": "5/15/2019",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Primary Care Physician",
+            "notes": "Prescribed for pain relief."
+        }
+    ],
+    "procedures": [
+        {
+            "procedureDate": "7/10/2019",
+            "procedureName": "Physical Therapy Consultation",
+            "doctorName": "Physical Therapist",
+            "notes": "Referred for physical therapy to manage osteoarthritis symptoms."
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "660305523639713585040705"
+    },
+    "customerId": "61177b527e8c630ff0d1ec13",
+    "customerName": "ava jones",
+    "diseases": [],
+    "diagnoses": [
+        {
+            "diagnosisDate": "3/5/2020",
+            "diagnosisName": "Depression",
+            "doctorName": "Dr. Patel",
+            "notes": "Diagnosed with depression. Experiencing persistent low mood and loss of interest."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Sertraline",
+            "dosage": "50 mg",
+            "frequency": "Once daily",
+            "start_date": "3/5/2020",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Dr. Patel",
+            "notes": "Prescribed antidepressant medication."
+        }
+    ],
+    "procedures": [
+        {
+            "procedureDate": "4/10/2020",
+            "procedureName": "Therapy Session",
+            "doctorName": "Licensed Therapist",
+            "notes": "Started cognitive-behavioral therapy for depression management."
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "6603058c9f74bf82881d8a43"
+    },
+    "customerId": "61177b527e8c630ff0d1ec14",
+    "customerName": "noah miller",
+    "diseases": [],
+    "diagnoses": [
+        {
+            "diagnosisDate": "8/20/2020",
+            "diagnosisName": "Gastroesophageal Reflux Disease (GERD)",
+            "doctorName": "Dr. Ramirez",
+            "notes": "Diagnosed with GERD. Experiencing frequent heartburn and acid reflux."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Omeprazole",
+            "dosage": "20 mg",
+            "frequency": "Once daily",
+            "start_date": "8/20/2020",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Dr. Ramirez",
+            "notes": "Prescribed proton pump inhibitor for GERD management."
+        }
+    ],
+    "procedures": []
+}
+{
+    "_id": {
+        "$oid": "6603058c9f74bf82881d8a44"
+    },
+    "customerId": "61177b527e8c630ff0d1ec15",
+    "customerName": "mia adams",
+    "diseases": [],
+    "diagnoses": [
+        {
+            "diagnosisDate": "2/12/2019",
+            "diagnosisName": "Anxiety Disorder",
+            "doctorName": "Dr. Nguyen",
+            "notes": "Diagnosed with anxiety disorder. Experiencing persistent worry and anxiety."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Alprazolam",
+            "dosage": "0.25 mg",
+            "frequency": "As needed",
+            "start_date": "2/12/2019",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Dr. Nguyen",
+            "notes": "Prescribed as needed for anxiety relief."
+        }
+    ],
+    "procedures": [
+        {
+            "procedureDate": "3/5/2019",
+            "procedureName": "Therapy Session",
+            "doctorName": "Licensed Therapist",
+            "notes": "Started cognitive-behavioral therapy for anxiety management."
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "6603058c9f74bf82881d8a45"
+    },
+    "customerId": "61177b527e8c630ff0d1ec16",
+    "customerName": "logan wilson",
+    "diseases": [],
+    "diagnoses": [
+        {
+            "diagnosisDate": "6/15/2020",
+            "diagnosisName": "Sleep Apnea",
+            "doctorName": "Dr. Martinez",
+            "notes": "Diagnosed with sleep apnea. Experiencing interrupted breathing during sleep."
+        }
+    ],
+    "medications": [],
+    "procedures": [
+        {
+            "procedureDate": "7/20/2020",
+            "procedureName": "Sleep Study",
+            "doctorName": "Sleep Specialist",
+            "notes": "Underwent overnight sleep study to diagnose sleep apnea."
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "660305c846ec52be7a033836"
+    },
+    "customerId": "61177b527e8c630ff0d1ec17",
+    "customerName": "harper thompson",
+    "diseases": [
+        {
+            "diseaseName": "Hypothyroidism",
+            "diagnosisDate": "4/25/2018",
+            "notes": "Diagnosed with hypothyroidism. Requires thyroid hormone replacement."
+        }
+    ],
+    "diagnoses": [
+        {
+            "diagnosisDate": "9/10/2020",
+            "diagnosisName": "Vitamin D Deficiency",
+            "doctorName": "Dr. Patel",
+            "notes": "Low levels of vitamin D detected, diagnosed with vitamin D deficiency."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Levothyroxine",
+            "dosage": "50 mcg",
+            "frequency": "Once daily",
+            "start_date": "4/25/2018",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Endocrinologist",
+            "notes": "Prescribed for hypothyroidism management."
+        },
+        {
+            "medicationName": "Vitamin D Supplement",
+            "dosage": "1000 IU",
+            "frequency": "Once daily",
+            "start_date": "9/10/2020",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Dr. Patel",
+            "notes": "Prescribed to address vitamin D deficiency."
+        }
+    ],
+    "procedures": []
+}
+{
+    "_id": {
+        "$oid": "660305c846ec52be7a033837"
+    },
+    "customerId": "61177b527e8c630ff0d1ec18",
+    "customerName": "mia taylor",
+    "diseases": [],
+    "diagnoses": [
+        {
+            "diagnosisDate": "7/18/2020",
+            "diagnosisName": "High Blood Pressure",
+            "doctorName": "Dr. Garcia",
+            "notes": "Diagnosed with high blood pressure. Requires lifestyle modifications and medication."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Amlodipine",
+            "dosage": "5 mg",
+            "frequency": "Once daily",
+            "start_date": "7/18/2020",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Dr. Garcia",
+            "notes": "Prescribed for high blood pressure management."
+        }
+    ],
+    "procedures": []
+}
+{
+    "_id": {
+        "$oid": "660305c846ec52be7a033838"
+    },
+    "customerId": "61177b527e8c630ff0d1ec19",
+    "customerName": "noah jackson",
+    "diseases": [],
+    "diagnoses": [
+        {
+            "diagnosisDate": "3/5/2019",
+            "diagnosisName": "Type 2 Diabetes",
+            "doctorName": "Dr. Nguyen",
+            "notes": "Diagnosed with Type 2 diabetes. Requires dietary changes, exercise, and medication."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Metformin",
+            "dosage": "500 mg",
+            "frequency": "Twice daily",
+            "start_date": "3/5/2019",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Dr. Nguyen",
+            "notes": "Prescribed for Type 2 diabetes management."
+        }
+    ],
+    "procedures": []
+}
+{
+    "_id": {
+        "$oid": "660306005b600b985bc383cb"
+    },
+    "customerId": "61177b527e8c630ff0d1ec20",
+    "customerName": "ava wilson",
+    "diseases": [
+        {
+            "diseaseName": "Asthma",
+            "diagnosisDate": "10/10/2017",
+            "notes": "Diagnosed with asthma. Requires inhalers for symptom management."
+        }
+    ],
+    "diagnoses": [],
+    "medications": [
+        {
+            "medicationName": "Albuterol",
+            "dosage": "2 puffs",
+            "frequency": "As needed",
+            "start_date": "10/10/2017",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Primary Care Physician",
+            "notes": "Prescribed for asthma symptom relief."
+        }
+    ],
+    "procedures": []
+}
+{
+    "_id": {
+        "$oid": "660306005b600b985bc383cc"
+    },
+    "customerId": "61177b527e8c630ff0d1ec21",
+    "customerName": "oliver jones",
+    "diseases": [],
+    "diagnoses": [
+        {
+            "diagnosisDate": "6/5/2018",
+            "diagnosisName": "Migraine",
+            "doctorName": "Dr. Martinez",
+            "notes": "Diagnosed with migraine headaches. Experiencing severe headaches and visual disturbances."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Sumatriptan",
+            "dosage": "100 mg",
+            "frequency": "As needed",
+            "start_date": "6/5/2018",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Dr. Martinez",
+            "notes": "Prescribed for migraine relief."
+        }
+    ],
+    "procedures": []
+}
+{
+    "_id": {
+        "$oid": "660306005b600b985bc383cd"
+    },
+    "customerId": "61177b527e8c630ff0d1ec22",
+    "customerName": "harper anderson",
+    "diseases": [
+        {
+            "diseaseName": "Hyperthyroidism",
+            "diagnosisDate": "8/15/2019",
+            "notes": "Diagnosed with hyperthyroidism. Requires medication to regulate thyroid function."
+        }
+    ],
+    "diagnoses": [],
+    "medications": [
+        {
+            "medicationName": "Methimazole",
+            "dosage": "10 mg",
+            "frequency": "Once daily",
+            "start_date": "8/15/2019",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Endocrinologist",
+            "notes": "Prescribed for hyperthyroidism management."
+        }
+    ],
+    "procedures": []
+}
+{
+    "_id": {
+        "$oid": "66030677e95f66763b01b573"
+    },
+    "customerId": "61177b527e8c630ff0d1ec23",
+    "customerName": "mia smith",
+    "diseases": [],
+    "diagnoses": [
+        {
+            "diagnosisDate": "4/10/2020",
+            "diagnosisName": "Depression",
+            "doctorName": "Dr. Patel",
+            "notes": "Diagnosed with depression. Experiencing persistent sadness and loss of interest."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Sertraline",
+            "dosage": "50 mg",
+            "frequency": "Once daily",
+            "start_date": "4/10/2020",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Dr. Patel",
+            "notes": "Prescribed for depression management."
+        }
+    ],
+    "procedures": []
+}
+{
+    "_id": {
+        "$oid": "66030677e95f66763b01b574"
+    },
+    "customerId": "61177b527e8c630ff0d1ec24",
+    "customerName": "liam brown",
+    "diseases": [],
+    "diagnoses": [
+        {
+            "diagnosisDate": "9/25/2019",
+            "diagnosisName": "Type 1 Diabetes",
+            "doctorName": "Dr. Nguyen",
+            "notes": "Diagnosed with Type 1 diabetes. Requires insulin therapy for blood sugar control."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Insulin Lispro",
+            "dosage": "10 units",
+            "frequency": "Before meals",
+            "start_date": "9/25/2019",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Endocrinologist",
+            "notes": "Prescribed for Type 1 diabetes management."
+        }
+    ],
+    "procedures": []
+}
+{
+    "_id": {
+        "$oid": "66030677e95f66763b01b575"
+    },
+    "customerId": "61177b527e8c630ff0d1ec25",
+    "customerName": "ava jackson",
+    "diseases": [],
+    "diagnoses": [
+        {
+            "diagnosisDate": "12/8/2020",
+            "diagnosisName": "Osteoarthritis",
+            "doctorName": "Dr. Lee",
+            "notes": "Diagnosed with osteoarthritis. Experiencing joint pain and stiffness."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Ibuprofen",
+            "dosage": "200 mg",
+            "frequency": "As needed",
+            "start_date": "12/8/2020",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Dr. Lee",
+            "notes": "Prescribed for pain relief due to osteoarthritis."
+        }
+    ],
+    "procedures": []
+}
+{
+    "_id": {
+        "$oid": "660306c8c245d9b3d9a1082b"
+    },
+    "customerId": "61177b527e8c630ff0d1ec26",
+    "customerName": "oliver anderson",
+    "diseases": [
+        {
+            "diseaseName": "Anxiety Disorder",
+            "diagnosisDate": "5/20/2018",
+            "notes": "Diagnosed with anxiety disorder. Experiencing excessive worry and anxiety."
+        }
+    ],
+    "diagnoses": [],
+    "medications": [
+        {
+            "medicationName": "Escitalopram",
+            "dosage": "10 mg",
+            "frequency": "Once daily",
+            "start_date": "5/20/2018",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Psychiatrist",
+            "notes": "Prescribed for anxiety disorder management."
+        }
+    ],
+    "procedures": []
+}
+{
+    "_id": {
+        "$oid": "660306c8c245d9b3d9a1082c"
+    },
+    "customerId": "61177b527e8c630ff0d1ec27",
+    "customerName": "olivia white",
+    "diseases": [],
+    "diagnoses": [
+        {
+            "diagnosisDate": "8/12/2019",
+            "diagnosisName": "Rheumatoid Arthritis",
+            "doctorName": "Dr. Patel",
+            "notes": "Diagnosed with rheumatoid arthritis. Experiencing joint pain, swelling, and stiffness."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Methotrexate",
+            "dosage": "10 mg",
+            "frequency": "Once weekly",
+            "start_date": "8/12/2019",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Rheumatologist",
+            "notes": "Prescribed for rheumatoid arthritis management."
+        }
+    ],
+    "procedures": []
+}
+{
+    "_id": {
+        "$oid": "660306c8c245d9b3d9a1082d"
+    },
+    "customerId": "61177b527e8c630ff0d1ec28",
+    "customerName": "liam miller",
+    "diseases": [],
+    "diagnoses": [
+        {
+            "diagnosisDate": "10/5/2020",
+            "diagnosisName": "Atrial Fibrillation",
+            "doctorName": "Dr. Garcia",
+            "notes": "Diagnosed with atrial fibrillation. Experiencing irregular heartbeat and palpitations."
+        }
+    ],
+    "medications": [
+        {
+            "medicationName": "Apixaban",
+            "dosage": "5 mg",
+            "frequency": "Twice daily",
+            "start_date": "10/5/2020",
+            "end_date": "Ongoing",
+            "prescribingDoctor": "Cardiologist",
+            "notes": "Prescribed for atrial fibrillation management."
+        }
+    ],
+    "procedures": []
+}
