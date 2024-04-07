@@ -98,6 +98,7 @@ const QuotePage = () => {
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
+        "authId": `${session?.user?.id}`
       },
       body: JSON.stringify({
         patientName: data.fullName,

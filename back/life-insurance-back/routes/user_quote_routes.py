@@ -1,13 +1,26 @@
 from services.userQuoteListService import addQuoteToList, getQuoteHistoryForAnUser
-from fastapi import APIRouter
+from fastapi import APIRouter, Header, HTTPException
 from models.quoteListItem import QuoteListItem, QuoteItem
 from services.quoteRequestService import getCurrentDateAndTime
+from config.database import authUserCollection
+from schemas.users_schema import users_serialiser
+from bson import ObjectId
+
 userQuoteListRouter = APIRouter(
     prefix="/api/user/quotelist"
 )
 
 @userQuoteListRouter.get("/api/user/quotelist/{userId}")
-def getEntireQuoteHistory(userId : str):
+def getEntireQuoteHistory(userId : str, authId : str = Header(None)):
+    userSearch = {}
+    try:
+        userSearch = authUserCollection.find_one({"_id": ObjectId(authId)})
+    except:
+        raise HTTPException(status_code=401, detail="User not Logged in")
+    
+    if not userSearch:
+        raise HTTPException(status_code=401, detail="User not Logged in")
+    
     return getQuoteHistoryForAnUser(userId)
 
 def convertQuoteListItemToDict(quote : QuoteListItem) -> dict:
