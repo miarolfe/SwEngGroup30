@@ -10,6 +10,7 @@ export type ReturnType = {
   diagnoses: PropType[];
   policies: PropType[];
   transactions: PropType[];
+  claims: PropType[];
 };
 
 const initialiseResult = (): ReturnType => {
@@ -20,6 +21,7 @@ const initialiseResult = (): ReturnType => {
     medications: [],
     policies: [],
     transactions: [],
+    claims: [],
   };
 
   return tmp;
@@ -314,7 +316,7 @@ export const parseResponseHelper = (response: string) => {
     });
 
     // Amount
-    regex = /(?<=Amount: ).*(?=\n)/gm;
+    regex = /(?<=Transaction type: .*\n    Amount: ).*(?=\n)/gm;
     resArr = response.match(regex);
     resArr?.map((item, i) => {
       result.transactions[i].titles.push("Amount");
@@ -335,6 +337,49 @@ export const parseResponseHelper = (response: string) => {
     resArr?.map((item, i) => {
       result.transactions[i].titles.push("Invoice Number");
       result.transactions[i].values.push(item);
+    });
+  }
+
+  if (topics?.includes("Claims History")) {
+    let regex = /-Claim .-/gm;
+    let resArr = response.match(regex);
+
+    if (!!resArr && resArr.length > 0) {
+      resArr.forEach(() => {
+        result.claims.push(newEmptyProp());
+      });
+    }
+
+    // Claim Date
+    regex = /(?<=Claim date: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.claims[i].titles.push("Claim Date");
+      result.claims[i].values.push(item);
+    });
+
+    // Claim Type
+    regex = /(?<=Claim type: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.claims[i].titles.push("Claim Type");
+      result.claims[i].values.push(item);
+    });
+
+    // Claim Status
+    regex = /(?<=Claim status: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.claims[i].titles.push("Claim status");
+      result.claims[i].values.push(item);
+    });
+
+    // Amount
+    regex = /(?<=Claim status: .*\n    Amount: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.claims[i].titles.push("Amount");
+      result.claims[i].values.push(item);
     });
   }
 
