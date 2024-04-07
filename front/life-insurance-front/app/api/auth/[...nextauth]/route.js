@@ -37,7 +37,7 @@ const authOptions = {
     },
     secret: process.env.NEXTAUTH_SECRET,
     pages: {
-        signIn: "/Login/loginClient",
+        signIn: "/login/client",
     },
     callbacks: {
         async session({session, token, user}) {
