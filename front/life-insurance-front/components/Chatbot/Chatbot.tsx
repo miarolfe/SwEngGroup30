@@ -1,5 +1,5 @@
 "use client";
-import { ChangeEvent, useMemo, useState } from "react";
+import { ChangeEvent, useEffect, useMemo, useState } from "react";
 import {
   XMarkIcon,
   PaperAirplaneIcon,
@@ -9,10 +9,14 @@ import { lexClient } from "@/libs/lexClient";
 import { RecognizeTextCommand } from "@aws-sdk/client-lex-runtime-v2";
 import Skeleton from "react-loading-skeleton";
 
+import { type ReturnType, parseResponseHelper } from "./ParseResponse";
+
+import Modal from "./Modal";
+
 import "react-loading-skeleton/dist/skeleton.css";
 
 export type Message = {
-  message: String;
+  message: string;
   from: "you" | "chatbot"; // Only accept these
 };
 
@@ -27,10 +31,33 @@ const ChatbotMessagePlaceholder = () => {
 };
 
 const ChatbotMessage = ({ message }: { message: Message }) => {
+  const [noResponse, setNoResponse] = useState<boolean>(true);
+
+  useEffect(() => {
+    const res = parseResponseHelper(message.message);
+
+    for (var key in res) {
+      if (res[key as keyof ReturnType].length > 0) setNoResponse(false);
+    }
+  }, [message]);
+
   const style = useMemo(() => {
     if (message.from === "chatbot") return "bg-white rounded-bl-none";
     return "bg-violet-700 ml-auto text-white rounded-br-none";
   }, [message]);
+
+  if (message.from === "chatbot")
+    return (
+      <Modal tableItems={parseResponseHelper(message.message)}>
+        <button
+          className={`${
+            noResponse ? "text-left" : "text-center hover:bg-slate-300"
+          } transition-all text-sm min-h-6 w-3/5 my-2 p-2 shadow rounded-md ${style}`}
+        >
+          {noResponse ? message.message : "Click to view response"}
+        </button>
+      </Modal>
+    );
 
   return (
     <div
