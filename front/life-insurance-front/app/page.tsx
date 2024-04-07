@@ -17,13 +17,13 @@ Amplify.configure(awsconfig);
 
 const Index: React.FC = () => {
   return (
-    <div>
+    <div className="h-fit grow">
       <Head>
         <title>Munich Re Automation Solution Ltd</title>
       </Head>
-      <div className="">
+      <div className="h-full grow my-8">
         {/* Title */}
-        <div className="w-full py-2 flex flex-col items-center mb-4">
+        <div className="w-full py-2 flex flex-col items-center mb-12">
           <h1 className="text-6xl font-bold text-white mb-2">SwEng Group 30</h1>
           <h2 className="text-4xl font-semibold text-white">
             Using AI/ML to Aid Life Insurance Risk Assessment
@@ -32,15 +32,15 @@ const Index: React.FC = () => {
 
         {/* Chatbot */}
         <div className="w-full flex">
-          <div className="w-1/2 px-2 flex flex-col justify-center pl-8">
+          <div className="w-3/5 px-2 flex flex-col justify-center pl-8">
             <h3 className="text-3xl font-semibold text-white">AI Assistant</h3>
             <p className="text-white">
               We've created an AI powered chatbot assistant using Amazon Lex. It
               speeds up the review process for underwriters.
             </p>
           </div>
-          <div className="w-1/2 flex justify-center items-center">
-            <div className="w-1/2 h-96 rounded-md glass-more-opaque p-2">
+          <div className="w-2/5 flex justify-center items-center">
+            <div className="w-3/5 h-96 rounded-md glass-more-opaque p-2">
               <div className="text-left text-sm min-h-6 w-3/5 my-2 p-2 shadow rounded-md bg-white rounded-bl-none">
                 Hello, what can I do for you today?
               </div>
@@ -54,6 +54,21 @@ const Index: React.FC = () => {
                 View response
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Quote */}
+        <div className="w-full flex">
+          <div className="w-2/5 flex justify-center items-center">
+            <img src="/quote.png" className="shadow rounded-md w-4/5" />
+          </div>
+          <div className="w-3/5 px-2 flex flex-col justify-center pl-8">
+            <h3 className="text-3xl font-semibold text-white">
+              Easy-to-use Form
+            </h3>
+            <p className="text-white">
+              An clear and concise form for end-users to fill in
+            </p>
           </div>
         </div>
       </div>

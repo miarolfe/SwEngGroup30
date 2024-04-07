@@ -187,12 +187,12 @@ const Chatbot = ({ messages }: { messages: Message[] }) => {
     <>
       <button
         onClick={() => setOpen(true)}
-        className={`${buttonStyle} flex transition-all justify-center items-center glass h-20 w-20 rounded-full fixed bottom-6 right-6 hover:cursor-pointer hover:glass-darker`}
+        className={`${buttonStyle} z-20 flex transition-all justify-center items-center glass h-20 w-20 rounded-full fixed bottom-6 right-6 hover:cursor-pointer hover:glass-darker`}
       >
         <ChatBubbleBottomCenterTextIcon className="w-6 text-white" />
       </button>
       <div
-        className={`${chatStyle} flex transition-chatbot flex-col glass-more-opaque w-1/3 h-[36rem] fixed bottom-6 right-6 rounded-md overflow-hidden`}
+        className={`${chatStyle} z-20 flex transition-chatbot flex-col glass-more-opaque w-1/3 h-[36rem] fixed bottom-6 right-6 rounded-md overflow-hidden`}
       >
         <div className="flex px-2 justify-between items-center w-full h-10 glass">
           <p className="text-slate-800">Chatbot</p>

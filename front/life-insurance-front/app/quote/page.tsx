@@ -176,7 +176,7 @@ const QuotePage = () => {
   }, [currentStep, curr, data]);
 
   return (
-    <div className="h-screen overflow-x-hidden grad-bg w-full test persp">
+    <div className="h-full overflow-x-hidden grad-bg w-full test persp">
       <div className="progress-grid-child flex justify-around items-center">
         <ProgressBar
           number={1}
