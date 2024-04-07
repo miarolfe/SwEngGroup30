@@ -31,14 +31,18 @@ const ChatbotMessagePlaceholder = () => {
 };
 
 const ChatbotMessage = ({ message }: { message: Message }) => {
-  const [noResponse, setNoResponse] = useState<boolean>(true);
+  const [noResponse, setNoResponse] = useState<boolean | null>(null);
 
   useEffect(() => {
     const res = parseResponseHelper(message.message);
 
     for (var key in res) {
-      if (res[key as keyof ReturnType].length > 0) setNoResponse(false);
+      if (res[key as keyof ReturnType].length > 0) {
+        setNoResponse(false);
+        return;
+      }
     }
+    setNoResponse(true);
   }, [message]);
 
   const style = useMemo(() => {
@@ -46,7 +50,19 @@ const ChatbotMessage = ({ message }: { message: Message }) => {
     return "bg-violet-700 ml-auto text-white rounded-br-none";
   }, [message]);
 
-  if (message.from === "chatbot")
+  if (noResponse === null) return null;
+  if (message.from === "chatbot" && noResponse)
+    return (
+      <button
+        className={`${
+          noResponse ? "text-left" : "text-center hover:bg-slate-300"
+        } transition-all text-sm min-h-6 w-3/5 my-2 p-2 shadow rounded-md ${style}`}
+      >
+        {noResponse ? message.message : "Click to view response"}
+      </button>
+    );
+
+  if (message.from === "chatbot" && !noResponse)
     return (
       <Modal tableItems={parseResponseHelper(message.message)}>
         <button
@@ -58,7 +74,6 @@ const ChatbotMessage = ({ message }: { message: Message }) => {
         </button>
       </Modal>
     );
-
   return (
     <div
       className={`text-sm min-h-6 w-3/5 my-2 p-2 shadow rounded-md ${style}`}

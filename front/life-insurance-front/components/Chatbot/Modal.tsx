@@ -19,12 +19,15 @@ const Modal = ({
         tableItems[key as keyof ReturnType].length > 0
       ) {
         res.push(
-          <>
-            <div className="text-xl font-semibold mb-1" key={key}>
+          <div key={key + "modal"}>
+            <div className="text-xl font-semibold mb-1" key={key + "1"}>
               {key.charAt(0).toUpperCase() + key.slice(1)}
             </div>
-            <Table key={key} tableVals={tableItems[key as keyof ReturnType]} />
-          </>
+            <Table
+              key={key + "2"}
+              tableVals={tableItems[key as keyof ReturnType]}
+            />
+          </div>
         );
       }
     }

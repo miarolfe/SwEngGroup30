@@ -1,5 +1,3 @@
-const diseases = ["Disease name", "Diagnosis date", "Doctor name", "Notes"];
-
 export type PropType = {
   titles: string[];
   values: string[];
@@ -10,6 +8,7 @@ export type ReturnType = {
   medications: PropType[];
   procedures: PropType[];
   diagnoses: PropType[];
+  policies: PropType[];
 };
 
 const initialiseResult = (): ReturnType => {
@@ -18,6 +17,7 @@ const initialiseResult = (): ReturnType => {
     diseases: [],
     procedures: [],
     medications: [],
+    policies: [],
   };
 
   return tmp;
@@ -31,7 +31,7 @@ const newEmptyProp = (): PropType => {
 };
 
 export const parseResponseHelper = (response: string) => {
-  const topics = response.match(/(?<=\n).*(?=:)/gm);
+  const topics = response.match(/(?<=(\n)*).*(?=:)/gm);
   const result = initialiseResult();
   if (topics?.includes("Diseases")) {
     let regex = /-Disease .-/gm;
@@ -230,6 +230,58 @@ export const parseResponseHelper = (response: string) => {
     resArr?.map((item, i) => {
       result.procedures[i].titles.push("Notes");
       result.procedures[i].values.push(item);
+    });
+  }
+
+  if (topics?.includes("Past Policies")) {
+    let regex = /-Policy .-/gm;
+    let resArr = response.match(regex);
+
+    if (!!resArr && resArr.length > 0) {
+      resArr.forEach(() => {
+        result.policies.push(newEmptyProp());
+      });
+    }
+
+    // Procedure Name
+    regex = /(?<=Policy type: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.policies[i].titles.push("Policy Type");
+      result.policies[i].values.push(item);
+    });
+
+    // Procedure Date
+    regex = /(?<=Coverage amount: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.policies[i].titles.push("Coverage Amount");
+      result.policies[i].values.push(item);
+    });
+
+    // Doctor Name
+    regex = /(?<=Premium amount: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.policies[i].titles.push("Premium Amount");
+      result.policies[i].values.push(item);
+    });
+
+    // Notes
+    regex = /(?<=Premium amount: .*\n    Start date: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.policies[i].titles.push("Start Date");
+      result.policies[i].values.push(item);
+    });
+
+    // Notes
+    regex =
+      /(?<=Premium amount: .*\n    Start date: .*\n    End date: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.policies[i].titles.push("End Date");
+      result.policies[i].values.push(item);
     });
   }
 
