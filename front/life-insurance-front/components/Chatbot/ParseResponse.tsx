@@ -11,6 +11,7 @@ export type ReturnType = {
   policies: PropType[];
   transactions: PropType[];
   claims: PropType[];
+  contacts: PropType[];
 };
 
 const initialiseResult = (): ReturnType => {
@@ -22,6 +23,7 @@ const initialiseResult = (): ReturnType => {
     policies: [],
     transactions: [],
     claims: [],
+    contacts: [],
   };
 
   return tmp;
@@ -380,6 +382,57 @@ export const parseResponseHelper = (response: string) => {
     resArr?.map((item, i) => {
       result.claims[i].titles.push("Amount");
       result.claims[i].values.push(item);
+    });
+  }
+
+  if (topics?.includes("Contact History")) {
+    let regex = /-Contact Event .-/gm;
+    let resArr = response.match(regex);
+
+    if (!!resArr && resArr.length > 0) {
+      resArr.forEach(() => {
+        result.contacts.push(newEmptyProp());
+      });
+    }
+
+    // Contact Date
+    regex = /(?<=Contact date: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.contacts[i].titles.push("Contact Date");
+      result.contacts[i].values.push(item);
+    });
+
+    // Contact Method
+    regex = /(?<=Contact method: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.contacts[i].titles.push("Contact Method");
+      result.contacts[i].values.push(item);
+    });
+
+    // Contact Reason
+    regex = /(?<=Contact reason: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.contacts[i].titles.push("Contact Reason");
+      result.contacts[i].values.push(item);
+    });
+
+    // Outcome
+    regex = /(?<=Outcome: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.contacts[i].titles.push("Outcome");
+      result.contacts[i].values.push(item);
+    });
+
+    // Notes
+    regex = /(?<=Outcome: .*\n    Notes: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.contacts[i].titles.push("Notes");
+      result.contacts[i].values.push(item);
     });
   }
 
