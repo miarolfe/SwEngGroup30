@@ -53,26 +53,33 @@ const ChatbotMessage = ({ message }: { message: Message }) => {
   if (noResponse === null) return null;
   if (message.from === "chatbot" && noResponse)
     return (
-      <button
+      <div
         className={`${
           noResponse ? "text-left" : "text-center hover:bg-slate-300"
         } transition-all text-sm min-h-6 w-3/5 my-2 p-2 shadow rounded-md ${style}`}
       >
-        {noResponse ? message.message : "Click to view response"}
-      </button>
+        {message.message}
+      </div>
     );
 
   if (message.from === "chatbot" && !noResponse)
     return (
-      <Modal tableItems={parseResponseHelper(message.message)}>
-        <button
-          className={`${
-            noResponse ? "text-left" : "text-center hover:bg-slate-300"
-          } transition-all text-sm min-h-6 w-3/5 my-2 p-2 shadow rounded-md ${style}`}
+      <>
+        <div
+          className={`text-left transition-all text-sm min-h-6 w-3/5 my-2 p-2 shadow rounded-md ${style}`}
         >
-          {noResponse ? message.message : "Click to view response"}
-        </button>
-      </Modal>
+          Here you go!
+        </div>
+        <Modal tableItems={parseResponseHelper(message.message)}>
+          <button
+            className={`${
+              noResponse ? "text-left" : "text-center hover:bg-slate-300"
+            } transition-all text-sm min-h-6 w-3/5 my-2 p-2 shadow rounded-md bg-white`}
+          >
+            {noResponse ? message.message : "Click to view response"}
+          </button>
+        </Modal>
+      </>
     );
   return (
     <div

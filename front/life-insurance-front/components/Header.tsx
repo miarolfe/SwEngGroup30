@@ -4,7 +4,7 @@ import IconButton from "./IconButton";
 
 const Header: React.FC = () => {
   return (
-    <header className="flex items-center glass-slate h-20 w-full top-0 sticky text-white px-4">
+    <header className="flex items-center glass-slate h-24 w-full top-0 sticky text-white px-4">
       <div className="flex items-center justify-center h-full w-1/6 px-2">
         <a href="/">
           <img src="/munich_logo_name_white.png" width="100%" />
