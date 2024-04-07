@@ -11,17 +11,13 @@
     background: linear-gradient(270deg, rgb(31, 119, 185) 0%, rgb(118, 83, 182));
   } */
 
-.header-bg {
-    background: white;
-}
-
-
   .grad-bg {
     background: linear-gradient(270deg, rgba(51,61,215,1) 0%, rgb(72, 69, 130) 100%);
   }
 
   .grad-blue-text {
     background: linear-gradient(270deg, rgba(51,61,215,1) 0%, rgb(72, 69, 130) 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -56,6 +52,20 @@
     backdrop-filter: blur(12.9px);
     -webkit-backdrop-filter: blur(12.9px);
     /* border: 1px solid rgba(255, 255, 255, 0.19); */
+  }
+
+  .glass-slate {
+    background: rgba(34, 34, 34, 0.27);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.9px);
+    -webkit-backdrop-filter: blur(90px);
+  }
+
+  .glass-more-opaque {
+    background: rgba(255, 255, 255, 0.27);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(90px);
+    -webkit-backdrop-filter: blur(90px);
   }
 
   .glass-light {
@@ -109,6 +119,69 @@
     cursor: pointer;
   }
 
+  .chat-open {
+    /* opacity: 0; */
+    transform: translateY(50rem);
+    animation: chat-open 0.4s forwards;
+    animation-timing-function: cubic-bezier(0.295, 0.880, 0.415, 0.960);
+    animation-delay: 0.1s;
+  }
+
+  .chat-close {
+    animation: chat-close 0.4s forwards;
+    animation-timing-function: cubic-bezier(0.780, 0.005, 1.000, 0.380);
+  }
+
+  .button-open {
+    opacity: 0;
+    transform: scale(0.5) translateX(12rem) translateY(12rem);
+    animation: button-open 0.4s forwards;
+    animation-timing-function: cubic-bezier(0.295, 0.880, 0.415, 0.960);
+    animation-delay: 0.4s;
+  }
+
+  .transition-chatbot {
+    transition: all 0.4s;
+    transition-timing-function: cubic-bezier(0.295, 0.880, 0.415, 0.960);
+    transition-delay: 0.1s;
+  }
+
+  @keyframes button-open {
+    0% {
+      transform: scale(0.5) translateX(12rem) translateY(12rem);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes chat-open {
+    0% {
+      /* height: 0px; */
+      opacity: 0;
+      transform: translateY(50rem);
+    }
+    100% {
+      /* height: 36rem; */
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes chat-close {
+    0% {
+      /* height: 36rem; */
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      /* height: 0px; */
+      transform: translateY(50rem);
+      opacity: 0;
+    }
+  }
 }
 
 @layer utilities {
