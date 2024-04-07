@@ -9,6 +9,7 @@ export type ReturnType = {
   procedures: PropType[];
   diagnoses: PropType[];
   policies: PropType[];
+  transactions: PropType[];
 };
 
 const initialiseResult = (): ReturnType => {
@@ -18,6 +19,7 @@ const initialiseResult = (): ReturnType => {
     procedures: [],
     medications: [],
     policies: [],
+    transactions: [],
   };
 
   return tmp;
@@ -243,7 +245,7 @@ export const parseResponseHelper = (response: string) => {
       });
     }
 
-    // Procedure Name
+    // Policy Type
     regex = /(?<=Policy type: ).*(?=\n)/gm;
     resArr = response.match(regex);
     resArr?.map((item, i) => {
@@ -251,7 +253,7 @@ export const parseResponseHelper = (response: string) => {
       result.policies[i].values.push(item);
     });
 
-    // Procedure Date
+    // Coverage Amount
     regex = /(?<=Coverage amount: ).*(?=\n)/gm;
     resArr = response.match(regex);
     resArr?.map((item, i) => {
@@ -282,6 +284,57 @@ export const parseResponseHelper = (response: string) => {
     resArr?.map((item, i) => {
       result.policies[i].titles.push("End Date");
       result.policies[i].values.push(item);
+    });
+  }
+
+  if (topics?.includes("Transaction History")) {
+    let regex = /-Transaction .-/gm;
+    let resArr = response.match(regex);
+
+    if (!!resArr && resArr.length > 0) {
+      resArr.forEach(() => {
+        result.transactions.push(newEmptyProp());
+      });
+    }
+
+    // Transaction Date
+    regex = /(?<=Transaction date: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.transactions[i].titles.push("Transaction Date");
+      result.transactions[i].values.push(item);
+    });
+
+    // Transaction Type
+    regex = /(?<=Transaction type: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.transactions[i].titles.push("Transaction Type");
+      result.transactions[i].values.push(item);
+    });
+
+    // Amount
+    regex = /(?<=Amount: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.transactions[i].titles.push("Amount");
+      result.transactions[i].values.push(item);
+    });
+
+    // Method
+    regex = /(?<=Method: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.transactions[i].titles.push("Method");
+      result.transactions[i].values.push(item);
+    });
+
+    // Invoice Number
+    regex = /(?<=Invoice number: ).*(?=\n)/gm;
+    resArr = response.match(regex);
+    resArr?.map((item, i) => {
+      result.transactions[i].titles.push("Invoice Number");
+      result.transactions[i].values.push(item);
     });
   }
 
