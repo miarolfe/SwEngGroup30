@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import Modal from "@/components/Modal/Modal";
+import UnderwriterQuoteCard from "./UnderwriterQuoteCard";
 const UnderwriterQuoteList = () => {
     const [quoteData, setQuoteData] = useState([]);
 
@@ -12,7 +14,7 @@ const UnderwriterQuoteList = () => {
 
     return (
         <div>
-            {quoteData.map(quote => <h1>{quote.medicalRecord.patientName}</h1>)}
+            {quoteData.map(quote => <Modal triggerEl={quote.medicalRecord.patientName}><UnderwriterQuoteCard quote={quote}/></Modal>)}
         </div>
     );
 }
