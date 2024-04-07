@@ -82,7 +82,7 @@ const Quote = (quotes: ReturnedQuotes) => {
   return (
     <div className="h-full flex flex-col justify-center items-center">
       <div className="w-5/6 h-5/6 flex rounded-md overflow-hidden">
-        <div className="flex flex-col justify-around items-center">
+      {quotes.entryLevelRecommendation.premium !== -1000 ? <div className="flex flex-col justify-around items-center">
           <QuoteAddonBlock
             name="Premium"
             start
@@ -100,7 +100,7 @@ const Quote = (quotes: ReturnedQuotes) => {
             selected={selected === "entryLevelRecommendation"}
             onClick={() => setSelected("entryLevelRecommendation")}
           />
-        </div>
+        </div> : <></>}
         {/* Quote on right */}
         <div className="grow flex flex-col text-6xl glass-noshadow text-white px-4 py-2">
           {/* <div className="w-5/6 h-5/6 flex flex-col justify-center items-center text-6xl text-white rounded-md"> */}
@@ -113,7 +113,7 @@ const Quote = (quotes: ReturnedQuotes) => {
             }}
           >
             <p className="mr-6 font-bold">Recommendation</p>
-            <div
+            {quotes.entryLevelRecommendation.premium !== -1000 ? <div
               className="flex flex-col text-white"
               style={{
                 transition: "0.5s all ease-in-out",
@@ -123,9 +123,9 @@ const Quote = (quotes: ReturnedQuotes) => {
               <p>Premium</p>
               <p>High</p>
               <p>Entry</p>
-            </div>
+            </div> : <></>}
           </div>
-          <CountUp
+          {quotes.entryLevelRecommendation.premium !== -1000 ? <CountUp
             start={countFrom}
             end={currentQuote.premium}
             duration={0.65}
@@ -138,9 +138,9 @@ const Quote = (quotes: ReturnedQuotes) => {
                 <span ref={countUpRef} />
               </div>
             )}
-          </CountUp>
+          </CountUp> : <></>}
           {/* Details table */}
-          <table className="text-xl border-white overflow-hidden border-separate border-spacing-0">
+          {quotes.entryLevelRecommendation.premium !== -1000 ? <table className="text-xl border-white overflow-hidden border-separate border-spacing-0">
             <tr className="">
               <td className="rounded-tl-md border-l-2 border-t-2 border-b-2 pl-2">
                 Annual cost
@@ -165,7 +165,7 @@ const Quote = (quotes: ReturnedQuotes) => {
                 {currentQuote.maxYearInsured} years
               </td>
             </tr>
-          </table>
+          </table> : <p className="mr-6 text-xl">Apologies, we are unable to automatically give you a quote, an underwriter will manually review your details</p>}
         </div>
         {/* </div> */}
       </div>

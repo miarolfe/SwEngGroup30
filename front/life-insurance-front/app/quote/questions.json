@@ -15,8 +15,8 @@
         "required": true
       },
       {
-        "textPlaceholder": "25/03/2024",
-        "label": "Date of birth (DD/MM/YYYY)",
+        "textPlaceholder": "2024-03-25",
+        "label": "Date of birth (YYYY-MM-DD)",
         "stateName": "dob",
         "required": true
       }
@@ -66,14 +66,14 @@
     "question": "Harmful Substances",
     "inputs": [
       {
-        "dropdownOptions": ["Yes", "No"],
-        "label": "Have you ever smoked?",
+        "textPlaceholder": "Years",
+        "label": "How many years have you smoked for, if any?",
         "stateName": "smokedBefore",
         "required": true
       },
       {
-        "dropdownOptions": ["Yes", "No"],
-        "label": "Have you ever drank alcohol?",
+        "textPlaceholder": "Drinks",
+        "label": "How many alcoholic beverages do you consume a week, if any?",
         "stateName": "alcohol before",
         "required": true
       }
@@ -83,7 +83,7 @@
     "question": "Hereditary Conditions",
     "inputs": [
       {
-        "dropdownMultipleOptions": ["Disease 1", "Disease 2"],
+        "dropdownMultipleOptions": ["None", "Asthma", "Hypothyroidism", "Seasonal Allergies", "Cancer", "High Blood Pressure (Hypertension)", "Heart Disease", "Ulcerative Colitis", "Migraine Headaches", "Epilepsy", "Multiple Sclerosis", "Parkinson's Disease", "Chronic Obstructive Pulmonary Disease (COPD)", "Fibromyalgia", "Gout", "Emphysema", "Interstitial Cystitis", "Rheumatic Fever", "Irritable Bowel Syndrome (IBS)"],
         "label": "Please list any hereditary conditions in your family. This includes conditions you don't currently have.",
         "stateName": "hereditaryConditions",
         "required": true
@@ -94,7 +94,7 @@
     "question": "Health Conditions",
     "inputs": [
       {
-        "dropdownMultipleOptions": ["Disease 1", "Disease 2"],
+        "dropdownMultipleOptions": ["None", "Asthma", "Hypothyroidism", "Seasonal Allergies", "Cancer", "High Blood Pressure (Hypertension)", "Heart Disease", "Ulcerative Colitis", "Migraine Headaches", "Epilepsy", "Multiple Sclerosis", "Parkinson's Disease", "Depression", "Chronic Obstructive Pulmonary Disease (COPD)", "Fibromyalgia", "Gout", "Emphysema", "Interstitial Cystitis", "Rheumatic Fever", "Irritable Bowel Syndrome (IBS)"],
         "label": "Please list any health conditions YOU have.",
         "stateName": "healthConditions",
         "required": true
