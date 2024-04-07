@@ -6,8 +6,9 @@ import { signOut, useSession } from 'next-auth/react';
 
 const Header: React.FC = () => {
     const {data: session} = useSession();
-    const [accountButton, setAccountButton] = useState("Login");
+    const [accountButton, setAccountButton] = useState("");
     const [accountLink, setAccountLink] = useState("/login");
+    const [homeLink, setHomeLink] = useState("/");
     
     useEffect(() => {
         if (!session) {
@@ -16,6 +17,7 @@ const Header: React.FC = () => {
         } else {
             setAccountButton("Logout");
             setAccountLink("/");
+            setHomeLink("/UserNavPage")
         }
         console.log(session);
     }, [session]);
@@ -34,7 +36,7 @@ const Header: React.FC = () => {
         <header className="header-bg top-0 sticky">
             <div className="grid grid-cols-3 text-center">
                 <HeaderButton link="/team" label="The Team" />
-                <IconButton link="/" imgSrc="/logo.png" />
+                <IconButton link={homeLink} imgSrc="/logo.png" />
                 {session ? <div onClick={handleSignOut}><HeaderButton link={accountLink} label={accountButton} /></div> : <HeaderButton link={accountLink} label={accountButton} />}
             </div>
         </header>
