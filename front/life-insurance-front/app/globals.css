@@ -11,17 +11,13 @@
     background: linear-gradient(270deg, rgb(31, 119, 185) 0%, rgb(118, 83, 182));
   } */
 
-.header-bg {
-    background: white;
-}
-
-
   .grad-bg {
     background: linear-gradient(270deg, rgba(51,61,215,1) 0%, rgb(72, 69, 130) 100%);
   }
 
   .grad-blue-text {
     background: linear-gradient(270deg, rgba(51,61,215,1) 0%, rgb(72, 69, 130) 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

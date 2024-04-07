@@ -1,17 +1,27 @@
-import React from 'react';
-import HeaderButton from './HeaderButton';
-import IconButton from './IconButton';
+import React from "react";
+import HeaderButton from "./HeaderButton";
+import IconButton from "./IconButton";
 
 const Header: React.FC = () => {
-    return (
-        <header className="header-bg top-0 sticky">
-            <div className="grid grid-cols-3 text-center">
-                <HeaderButton link="/team" label="The Team" />
-                <IconButton link="/" imgSrc="/logo.png" />
-                <HeaderButton link="/login" label="Login" />
-            </div>
-        </header>
-    );
+  return (
+    <header className="flex items-center glass-slate h-20 w-full top-0 sticky text-white px-4">
+      <div className="flex items-center justify-center h-full w-1/6 px-2">
+        <a href="/">
+          <img src="/munich_logo_name_white.png" width="100%" />
+        </a>
+      </div>
+      <div className="grow flex justify-around text-xl">
+        <a href="/team">The Team</a>
+        <a>About this project</a>
+      </div>
+      <a
+        href="/login"
+        className="border-[1px] border-white py-2 px-6 rounded-md transition-all hover:bg-white hover:text-violet-700"
+      >
+        Login
+      </a>
+    </header>
+  );
 };
 
 export default Header;
