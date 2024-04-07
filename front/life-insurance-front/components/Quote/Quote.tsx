@@ -65,6 +65,7 @@ const Quote = (quotes: ReturnedQuotes) => {
   );
 
   const doneInitialRender = useRef<boolean>(false);
+  useEffect(() => {console.log(quotes), []})
 
   useEffect(() => {
     // console.log("testing");
