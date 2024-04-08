@@ -45,6 +45,7 @@ const authOptions = {
             await connectMongoDB();
             const sessionUser = await User.findOne({email: token.email});
             session.user.id = sessionUser._id.toString();
+            session.user.employeeStatus = sessionUser.employeeStatus;
             return session;
         }
     }
