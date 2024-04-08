@@ -72,10 +72,8 @@ const UserNavPage = () => {
 
   async function login() {
     const res = await getFacebookLoginStatus();
-
-    if (res === null) {
+    if (res.authResponse === null) {
       fbLogin().then(async (response) => {
-        console.log(response);
         // @ts-ignore
         if (response.status === "connected") {
           // @ts-ignore
@@ -104,6 +102,7 @@ const UserNavPage = () => {
         }
       });
     } else {
+      console.log('AHHH')
       await fbUser();
       router.push("/quote");
     }

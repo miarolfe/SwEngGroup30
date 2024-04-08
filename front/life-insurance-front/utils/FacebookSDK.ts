@@ -57,11 +57,10 @@ export const fbLogout = () => {
 export const fbUser = () => {
   return new Promise((resolve, reject) => {
     window.FB.api('/me', {fields: ['first_name', 'last_name', 'birthday', 'gender']}, function(response) {
-      localStorage.setItem("faFirstName", response.first_name);
-      localStorage.setItem("faLastName", response.last_name);
-      localStorage.setItem("faBirthday", response.birthday);
-      localStorage.setItem("faGender", response.gender);
-      console.log(response);
+      if (!!response.first_name) localStorage.setItem("faFirstName", response.first_name);
+      if (!!response.last_name) localStorage.setItem("faLastName", response.last_name);
+      if (!!response.birthday) localStorage.setItem("faBirthday", response.birthday);
+      if (!!response.gender) localStorage.setItem("faGender", response.gender);
       resolve(response);
     })
   })

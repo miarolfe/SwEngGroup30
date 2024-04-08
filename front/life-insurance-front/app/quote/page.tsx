@@ -83,6 +83,17 @@ const QuotePage = () => {
     useState<ReturnedQuotes>(placeHolderReturn);
   const { data: session } = useSession();
 
+  // Uncomment this and comment other useEffect to disable social media scraping
+  // useEffect(() => {
+  //   qData.map((item): void => {
+  //     item.inputs.map((question) => {
+  //       if (!data.hasOwnProperty(question.stateName)) {
+  //         setData((prev) => ({ ...prev, [question.stateName]: "" }));
+  //       }
+  //     }
+  //   })
+  // }, []);
+
   useEffect(() => {
     qData.map((item): void => {
       item.inputs.map((question) => {
