@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
   getFacebookLoginStatus,
   initFacebookSdk,
@@ -16,6 +17,7 @@ import {
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import Script from "next/script";
+import UserQuoteList from "@/components/UserQuoteList";
 
 const UserNavPage = () => {
   const [showSocialMediaForm, setShowSocialMediaForm] = useState(false);
@@ -120,6 +122,8 @@ const UserNavPage = () => {
       />
       <div className="flex flex-col p-2 h-full">
         <h1 className="text-white text-6xl font-semibold mb-2">Hello, User!</h1>
+          <h2 class="text-center text-2xl font-bold text-gray-800 mb-4">Your medical records</h2>
+          <UserQuoteList />
         <div className="glass w-full h-fit rounded-md p-2">
           <div className="h-36 w-full flex">
             <div className="w-1/2 rounded-md m-2">
