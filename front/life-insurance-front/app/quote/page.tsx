@@ -86,7 +86,48 @@ const QuotePage = () => {
     qData.map((item): void => {
       item.inputs.map((question) => {
         if (!data.hasOwnProperty(question.stateName)) {
-          setData((prev) => ({ ...prev, [question.stateName]: "" }));
+          switch (question.stateName) {
+            case "fullName": {
+              if (!!localStorage.getItem("faFirstName")) {
+                setData((prev) => ({
+                  ...prev,
+                  [question.stateName]:
+                    localStorage.getItem("faFirstName") +
+                    " " +
+                    localStorage.getItem("faLastName"),
+                }));
+                // localStorage.removeItem("faFirstName");
+                // localStorage.removeItem("faLastName");
+              } else setData((prev) => ({ ...prev, [question.stateName]: "" }));
+              break;
+            }
+            case "dob": {
+              if (!!localStorage.getItem("faBirthday")) {
+                setData((prev) => ({
+                  ...prev,
+                  [question.stateName]: localStorage.getItem(
+                    "faBirthday"
+                  ) as string,
+                }));
+                // localStorage.removeItem("faBirthday");
+              } else setData((prev) => ({ ...prev, [question.stateName]: "" }));
+              break;
+            }
+            case "sex": {
+              if (!!localStorage.getItem("faGender")) {
+                setData((prev) => ({
+                  ...prev,
+                  [question.stateName]: localStorage.getItem(
+                    "faGender"
+                  ) as string,
+                }));
+                // localStorage.removeItem("faGender");
+              } else setData((prev) => ({ ...prev, [question.stateName]: "" }));
+              break;
+            }
+            default:
+              setData((prev) => ({ ...prev, [question.stateName]: "" }));
+          }
         }
       });
     });
@@ -98,7 +139,7 @@ const QuotePage = () => {
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
-        "authId": `${session?.user?.id}`
+        authId: `${session?.user?.id}`,
       },
       body: JSON.stringify({
         patientName: data.fullName,
@@ -119,13 +160,15 @@ const QuotePage = () => {
       .then((data) => data.json())
       .then((data) => {
         console.log(typeof data);
-        if (typeof data == "string" || Object.keys(data.premiumLevelRecommendation).length === 0) {
-          setReturnedQuotes(placeHolderReturn)
+        if (
+          typeof data == "string" ||
+          Object.keys(data.premiumLevelRecommendation).length === 0
+        ) {
+          setReturnedQuotes(placeHolderReturn);
         } else {
           setReturnedQuotes(data);
         }
-      }
-    );
+      });
   };
 
   const handleIncrement = (states: typeof data) => {
