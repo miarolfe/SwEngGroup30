@@ -3,20 +3,35 @@ import AcceptRejectButton from '@/components/acceptRejectButton';
 // import UnderwriterQuoteList from '@components/UnderwriterQuoteList';
 
 interface Claim {
+    patientName: string;
+    age: number;
+    sex: string;
+    hereditaryConditions: string[];
+    healthConditions: string[];
+    drinkingHistory: number;
+    smokingHistory: number;
+    weeklyExcerciseHours: number;
+    occupation: string;
+    yearlyIncomeInEuro: number;
+    countryOfResidence: string;
+    weightInKG: number;
+    heightInCM: number;
+
     id: number;
-    description: string;
-    status: 'pending' | 'accepted' | 'rejected';
+    status: string;
 }
 
+    interface Props {
+        claims: Claim[];
+    }
+    
+    const UnderWriterQuoteList: React.FC<Props> = ({ claims }) => {
+        const [localClaims, setLocalClaims] = useState<Claim[]>([]);
+    
+        useEffect(() => {
+            setLocalClaims(claims);
+        }, [claims]);
 
-function UnderWriterQuoteList() {
-    const initialClaims = [
-        { id: 1, description: "Claim 1", status: "pending" },
-        { id: 2, description: "Claim 2", status: "pending" },
-        { id: 3, description: "Claim 3", status: "pending" }
-    ];
-
-    const [claims, setClaims] = useState(initialClaims);
 
 
     const handleAccept = (id: number) => {
@@ -26,7 +41,7 @@ function UnderWriterQuoteList() {
             }
             return claim;
         });
-        setClaims(updatedClaims);
+        setLocalClaims(updatedClaims);
     };
 
     const handleReject = (id: number) => {
@@ -36,8 +51,12 @@ function UnderWriterQuoteList() {
             }
             return claim;
         });
-        setClaims(updatedClaims);
+        setLocalClaims(updatedClaims);
     };
+
+    const displayData = (id: number) => {
+
+    }
 
     
 
@@ -46,7 +65,13 @@ function UnderWriterQuoteList() {
             <ul>
                 {claims.map(claim => (
                     <li key={claim.id} style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
-                        {claim.description} - {claim.status}
+                        {claim.status}
+                        <AcceptRejectButton
+                        text='{claim.patientName}'
+                        imageUrl=""
+                        backgroundColor="#189BCC"
+                        onClick={() => displayData(claim.id)}
+                        />
                         <AcceptRejectButton
                         text="Accept"
                         imageUrl="" // if check is to be implemented

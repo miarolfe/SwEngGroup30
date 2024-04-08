@@ -14,7 +14,8 @@ const UnderwriterQuoteList = () => {
 
     return (
         <div>
-            {quoteData.map(quote => <Modal triggerEl={quote.medicalRecord.patientName}><UnderwriterQuoteCard quote={quote}/></Modal>)}
+            {quoteData.map(quote => <Modal triggerEl={<button>{quote.medicalRecord.patientName}</button>}><UnderwriterQuoteCard quote={quote}/></Modal>)}
+            <p> test the inputted text is recognised</p>
         </div>
     );
 }
