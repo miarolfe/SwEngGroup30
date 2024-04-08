@@ -77,19 +77,99 @@ const QuotePage = () => {
   const [data, setData] = useState<{ [stateName: string]: string | string[] }>(
     {}
   );
+  const hasRun = useRef<boolean>(false);
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [returnedQuotes, setReturnedQuotes] =
     useState<ReturnedQuotes>(placeHolderReturn);
   const { data: session } = useSession();
 
+  // Uncomment this and comment other useEffect to disable social media scraping
+  // useEffect(() => {
+  //   qData.map((item): void => {
+  //     item.inputs.map((question) => {
+  //       if (!data.hasOwnProperty(question.stateName)) {
+  //         setData((prev) => ({ ...prev, [question.stateName]: "" }));
+  //       }
+  //     }
+  //   })
+  // }, []);
+
   useEffect(() => {
     qData.map((item): void => {
       item.inputs.map((question) => {
         if (!data.hasOwnProperty(question.stateName)) {
-          setData((prev) => ({ ...prev, [question.stateName]: "" }));
+          switch (question.stateName) {
+            case "fullName": {
+              if (
+                !!localStorage.getItem("faFirstName") &&
+                data[question.stateName] === undefined
+              ) {
+                setData((prev) => ({
+                  ...prev,
+                  [question.stateName]:
+                    localStorage.getItem("faFirstName") +
+                    " " +
+                    localStorage.getItem("faLastName"),
+                }));
+              } else setData((prev) => ({ ...prev, [question.stateName]: "" }));
+              break;
+            }
+            case "dob": {
+              if (
+                !!localStorage.getItem("faBirthday") &&
+                !data[question.stateName]
+              ) {
+                setData((prev) => ({
+                  ...prev,
+                  [question.stateName]: localStorage.getItem(
+                    "faBirthday"
+                  ) as string,
+                }));
+              } else setData((prev) => ({ ...prev, [question.stateName]: "" }));
+              break;
+            }
+            case "sex": {
+              if (
+                !!localStorage.getItem("faGender") &&
+                !data[question.stateName]
+              ) {
+                setData((prev) => ({
+                  ...prev,
+                  [question.stateName]: localStorage.getItem(
+                    "faGender"
+                  ) as string,
+                }));
+              } else setData((prev) => ({ ...prev, [question.stateName]: "" }));
+              break;
+            }
+            case "occupation": {
+              if (
+                !!localStorage.getItem("faGender") &&
+                !data[question.stateName]
+              ) {
+                setData((prev) => ({
+                  ...prev,
+                  [question.stateName]: "Student",
+                }));
+              } else setData((prev) => ({ ...prev, [question.stateName]: "" }));
+              break;
+            }
+            default:
+              setData((prev) => ({ ...prev, [question.stateName]: "" }));
+          }
         }
       });
     });
+
+    return () => {
+      if (hasRun.current) {
+        localStorage.removeItem("faFirstName");
+        localStorage.removeItem("faLastName");
+        localStorage.removeItem("faBirthday");
+        localStorage.removeItem("faGender");
+      }
+      hasRun.current = !hasRun.current;
+    };
   }, []);
 
   const generateQuotes = async () => {
@@ -98,7 +178,7 @@ const QuotePage = () => {
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
-        "authId": `${session?.user?.id}`
+        authId: `${session?.user?.id}`,
       },
       body: JSON.stringify({
         patientName: data.fullName,
@@ -119,13 +199,15 @@ const QuotePage = () => {
       .then((data) => data.json())
       .then((data) => {
         console.log(typeof data);
-        if (typeof data == "string" || Object.keys(data.premiumLevelRecommendation).length === 0) {
-          setReturnedQuotes(placeHolderReturn)
+        if (
+          typeof data == "string" ||
+          Object.keys(data.premiumLevelRecommendation).length === 0
+        ) {
+          setReturnedQuotes(placeHolderReturn);
         } else {
           setReturnedQuotes(data);
         }
-      }
-    );
+      });
   };
 
   const handleIncrement = (states: typeof data) => {

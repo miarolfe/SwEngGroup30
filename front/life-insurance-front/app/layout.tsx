@@ -13,13 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ height: "100%" }}>
       <body className="grad-bg flex flex-col min-h-screen h-full">
         <AuthProvider>
           <Header />
-          <main className="flex-grow py-5">
-            {children}
-          </main>
+          <main className="grow py-5">{children}</main>
           <Footer />
         </AuthProvider>
       </body>
