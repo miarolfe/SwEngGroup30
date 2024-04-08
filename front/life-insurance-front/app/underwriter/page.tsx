@@ -3,6 +3,7 @@
 import Chatbot, { type Message } from "@/components/Chatbot/Chatbot";
 import UnderWriterQuoteCard from "@/components/UnderwriterQuoteCard";
 import { useState, useEffect } from "react";
+import UnderwriterQuoteList from "@/components/UnderwriterQuoteList"
 
 const sample: Message[] = [
   {

@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import AcceptRejectButton from '@/components/acceptRejectButton';
+// import UnderwriterQuoteList from '@components/UnderwriterQuoteList';
 
 interface Claim {
     id: number;
     description: string;
     status: 'pending' | 'accepted' | 'rejected';
 }
+
 
 function UnderWriterQuoteList() {
     const initialClaims = [
@@ -14,6 +17,7 @@ function UnderWriterQuoteList() {
     ];
 
     const [claims, setClaims] = useState(initialClaims);
+
 
     const handleAccept = (id: number) => {
         const updatedClaims = claims.map(claim => {
@@ -35,14 +39,27 @@ function UnderWriterQuoteList() {
         setClaims(updatedClaims);
     };
 
+    
+
     return (
         <div>
             <ul>
                 {claims.map(claim => (
-                    <li key={claim.id}>
+                    <li key={claim.id} style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
                         {claim.description} - {claim.status}
-                        <button onClick={() => handleAccept(claim.id)}> Accept</button>
-                        <button onClick={() => handleReject(claim.id)}> Reject</button>
+                        <AcceptRejectButton
+                        text="Accept"
+                        imageUrl="" // if check is to be implemented
+                        backgroundColor="#4CAF50"
+                        onClick={() => handleAccept(claim.id)}
+                    />
+                    <AcceptRejectButton
+                        text="Reject"
+                        imageUrl="" // if cross is to be implemented
+                        backgroundColor="#D32F2F" 
+                        onClick={() => handleReject(claim.id)}
+                    />
+                    <br/>
                     </li>
                 ))}
             </ul>
