@@ -121,9 +121,6 @@ const UserNavPage = () => {
       <div className="flex flex-col p-2 h-full">
         <h1 className="text-white text-6xl font-semibold mb-2">Hello, User!</h1>
         <div className="glass w-full h-fit rounded-md p-2">
-          <h2 className="text-white text-3xl font-semibold w-full text-center">
-            You don't have any quotes
-          </h2>
           <div className="h-36 w-full flex">
             <div className="w-1/2 rounded-md m-2">
               <a
