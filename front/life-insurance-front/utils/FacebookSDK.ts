@@ -62,6 +62,7 @@ export const fbUser = () => {
       localStorage.setItem("faBirthday", response.birthday);
       localStorage.setItem("faGender", response.gender);
       console.log(response);
+      resolve(response);
     })
   })
 }

@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en" style={{ height: "100%" }}>
       <body className="grad-bg flex flex-col min-h-screen h-full">
         <Header />
-        <main className="grow h-full">
+        <main className="grow">
           <AuthProvider>{children}</AuthProvider>
         </main>
         <Footer />

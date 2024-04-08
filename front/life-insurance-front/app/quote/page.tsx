@@ -77,6 +77,7 @@ const QuotePage = () => {
   const [data, setData] = useState<{ [stateName: string]: string | string[] }>(
     {}
   );
+  const hasRun = useRef<boolean>(false);
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [returnedQuotes, setReturnedQuotes] =
     useState<ReturnedQuotes>(placeHolderReturn);
@@ -88,7 +89,11 @@ const QuotePage = () => {
         if (!data.hasOwnProperty(question.stateName)) {
           switch (question.stateName) {
             case "fullName": {
-              if (!!localStorage.getItem("faFirstName")) {
+              if (
+                !!localStorage.getItem("faFirstName") &&
+                data[question.stateName] === undefined
+              ) {
+                console.log("yo");
                 setData((prev) => ({
                   ...prev,
                   [question.stateName]:
@@ -96,32 +101,36 @@ const QuotePage = () => {
                     " " +
                     localStorage.getItem("faLastName"),
                 }));
-                // localStorage.removeItem("faFirstName");
-                // localStorage.removeItem("faLastName");
               } else setData((prev) => ({ ...prev, [question.stateName]: "" }));
               break;
             }
             case "dob": {
-              if (!!localStorage.getItem("faBirthday")) {
+              if (
+                !!localStorage.getItem("faBirthday") &&
+                !data[question.stateName]
+              ) {
+                console.log("yo1");
                 setData((prev) => ({
                   ...prev,
                   [question.stateName]: localStorage.getItem(
                     "faBirthday"
                   ) as string,
                 }));
-                // localStorage.removeItem("faBirthday");
               } else setData((prev) => ({ ...prev, [question.stateName]: "" }));
               break;
             }
             case "sex": {
-              if (!!localStorage.getItem("faGender")) {
+              if (
+                !!localStorage.getItem("faGender") &&
+                !data[question.stateName]
+              ) {
+                console.log("yo2");
                 setData((prev) => ({
                   ...prev,
                   [question.stateName]: localStorage.getItem(
                     "faGender"
                   ) as string,
                 }));
-                // localStorage.removeItem("faGender");
               } else setData((prev) => ({ ...prev, [question.stateName]: "" }));
               break;
             }
@@ -131,6 +140,17 @@ const QuotePage = () => {
         }
       });
     });
+
+    return () => {
+      if (hasRun.current) {
+        console.log("UNMOUNT");
+        localStorage.removeItem("faFirstName");
+        localStorage.removeItem("faLastName");
+        localStorage.removeItem("faBirthday");
+        localStorage.removeItem("faGender");
+      }
+      hasRun.current = !hasRun.current;
+    };
   }, []);
 
   const generateQuotes = async () => {

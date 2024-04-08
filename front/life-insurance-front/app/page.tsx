@@ -3,6 +3,13 @@ import Script from "next/script";
 import Header from "../components/Header";
 import { Amplify } from "aws-amplify";
 import awsconfig from "../aws-exports";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 //import config from '../aws-exports';
 
 // Amplify.configure({
@@ -19,18 +26,9 @@ Amplify.configure(awsconfig);
 const Index: React.FC = () => {
   return (
     <>
-      <div className="h-fit grow">
+      <div className="h-full grow">
         <Head>
           <title>Munich Re Automation Solution Ltd</title>
-          {/* <script>
-          window.fbAsyncInit = function() {
-            FB.init({
-              appId            : 'your-app-id',
-              xfbml            : true,
-              version          : 'v19.0'
-            });
-          };
-        </script> */}
         </Head>
         <div className="h-full grow my-8">
           {/* Title */}
@@ -44,7 +42,7 @@ const Index: React.FC = () => {
           </div>
 
           {/* Chatbot */}
-          <div className="w-full flex">
+          <div className="w-full flex mb-16">
             <div className="w-3/5 px-2 flex flex-col justify-center pl-8">
               <h3 className="text-3xl font-semibold text-white">
                 AI Assistant
@@ -72,11 +70,35 @@ const Index: React.FC = () => {
             </div>
           </div>
 
-          {/* Quote */}
-          <div className="w-full flex">
-            <div className="w-2/5 flex justify-center items-center">
-              <img src="/quote.png" className="shadow rounded-md w-4/5" />
+          {/* Social Media */}
+          <div className="w-full flex mb-16">
+            <div className="w-2/5 flex justify-evenly items-center">
+              <div className="h-16 aspect-square bg-[#4267B2] rounded-full">
+                <FontAwesomeIcon className="text-white m-4" icon={faFacebook} />
+              </div>
+              <div className="h-16 aspect-square bg-[#C13584] rounded-full">
+                <FontAwesomeIcon
+                  className="text-white m-4"
+                  icon={faInstagram}
+                />
+              </div>
+              <div className="h-16 aspect-square bg-[#000000] rounded-full">
+                <FontAwesomeIcon className="text-white m-4" icon={faXTwitter} />
+              </div>
             </div>
+            <div className="w-3/5 px-2 flex flex-col justify-center pl-8">
+              <h3 className="text-3xl font-semibold text-white">
+                Automatic fill-in with Social Media
+              </h3>
+              <p className="text-white">
+                Securely fill in details on the application using AI and social
+                media profiles
+              </p>
+            </div>
+          </div>
+
+          {/* Quote */}
+          <div className="w-full flex my-8">
             <div className="w-3/5 px-2 flex flex-col justify-center pl-8">
               <h3 className="text-3xl font-semibold text-white">
                 Easy-to-use Form
@@ -84,6 +106,9 @@ const Index: React.FC = () => {
               <p className="text-white">
                 An clear and concise form for end-users to fill in
               </p>
+            </div>
+            <div className="w-2/5 flex justify-center items-center">
+              <img src="/quote.png" className="shadow rounded-md w-4/5" />
             </div>
           </div>
         </div>
