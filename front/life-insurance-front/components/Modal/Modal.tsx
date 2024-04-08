@@ -8,12 +8,12 @@ const Modal = ({
 }: {
   title?: string;
   description?: string;
-  triggerEl: string;
+  triggerEl: React.ReactNode;
   children: React.ReactNode;
 }) => {
   return (
     <Dialog.Root>
-      <Dialog.Trigger>{triggerEl}</Dialog.Trigger>
+      <Dialog.Trigger asChild>{triggerEl}</Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="z-10 inset-0 fixed glass-slate" />
         <Dialog.Content className="z-20 h-fit w-3/4 p-2 rounded-md glass text-white translate-x-[18%] -translate-y-1/2 top-1/2 bottom-1/2 fixed">

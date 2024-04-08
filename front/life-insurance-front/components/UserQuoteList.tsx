@@ -4,6 +4,25 @@ import { useSession } from "next-auth/react";
 import Modal from "@/components/Modal/Modal";
 import Quote from "@/components/Quote/Quote";
 
+const RecTable = (quote: ReturnedQuotes) => {
+  return (
+    <table>
+      <tr>
+        <td>Premium</td>
+        <td>{quote.premiumLevelRecommendation.premium}</td>
+      </tr>
+    <tr>
+      <td>High</td>
+      <td>{quote.highLevelRecommendation.premium}</td>
+    </tr>
+    <tr>
+      <td>Entry</td>
+      <td>{quote.entryLevelRecommendation.premium}</td>
+    </tr>
+  </table>
+  );
+}
+
 const UserQuoteList = () => {
     const placeholderQuote: QuoteDetails = {
         premium: -1000,
@@ -39,12 +58,29 @@ const UserQuoteList = () => {
     }, []);
 
     return (
-        <div>
-            {quotes.map((quote) => <Modal triggerEl={`${String(quote.entryLevelRecommendation.premium)}
-                                        \n${String(quote.highLevelRecommendation.premium)}
-                                        \n${String(quote.premiumLevelRecommendation.premium)}`}>
-                                        <Quote {...quote} />
-                                   </Modal>)}
+        <div className="flex-initial" style={{display: "flex", flexDirection: "row", gap: "15px"}}>
+            {quotes.map((quote) => {
+              return (
+                <Modal triggerEl={
+                  <table className= "glass border-[1px] border-white mb-2 table-auto" style={{cursor: "pointer"}}>
+                    <tr className="border-[1px] border-white">
+                      <td>Premium:</td>
+                      <td>{quote.premiumLevelRecommendation.premium.toFixed(0)}</td>
+                    </tr>
+                    <tr className="border-[1px] border-white">
+                      <td>High:</td>
+                      <td>{quote.highLevelRecommendation.premium.toFixed(0)}</td>
+                    </tr>
+                    <tr className="border-[1px] border-white">
+                      <td>Entry:</td>
+                      <td>{quote.entryLevelRecommendation.premium.toFixed(0)}</td>
+                    </tr>
+                  </table>
+                }>
+                  <Quote {...quote} />
+                </Modal>
+              );
+            })};
         </div>
     );
 }
