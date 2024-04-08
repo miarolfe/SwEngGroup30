@@ -6,8 +6,6 @@ import Quote from "@/components/Quote/Quote";
 import qData from "./questions.json";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
 import { useSession } from "next-auth/react";
-import { connectMongoDB } from "@/lib/mongodb";
-import User from "@/models/user";
 
 const QuoteBlock = ({
   position,
@@ -64,7 +62,7 @@ const QuoteBlock = ({
 
 const QuotePage = () => {
   const placeholderQuote: QuoteDetails = {
-    premium: 1000,
+    premium: -1000,
     amountInsured: 300000,
     maxYearInsured: 50,
   };
@@ -95,14 +93,12 @@ const QuotePage = () => {
   }, []);
 
   const generateQuotes = async () => {
-    const herConditions: string[] = [data.hereditaryConditions as string];
-    const currConditions: string[] = [data.healthConditions as string];
-
     await fetch(`http://0.0.0.0:8000/api/premium/${session?.user?.id}`, {
       method: "POST",
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
+        "authId": `${session?.user?.id}`
       },
       body: JSON.stringify({
         patientName: data.fullName,
@@ -114,17 +110,22 @@ const QuotePage = () => {
         weightInKG: parseFloat(data.weight as string),
         heightInCM: parseFloat(data.height as string),
         exerciseHourPerWeek: parseFloat(data.exerciseHours as string),
-        smokingHistory: 0,
-        drinkingHistory: 0,
-        hereditaryConditions: herConditions,
-        healthConditions: currConditions,
+        smokingHistory: parseFloat(data.smokedBefore as string),
+        drinkingHistory: parseFloat(data.smokedBefore as string),
+        hereditaryConditions: data.hereditaryConditions,
+        healthConditions: data.healthConditions,
       }),
     })
       .then((data) => data.json())
       .then((data) => {
-        setReturnedQuotes(data);
-        console.log(returnedQuotes);
-      });
+        console.log(typeof data);
+        if (typeof data == "string" || Object.keys(data.premiumLevelRecommendation).length === 0) {
+          setReturnedQuotes(placeHolderReturn)
+        } else {
+          setReturnedQuotes(data);
+        }
+      }
+    );
   };
 
   const handleIncrement = (states: typeof data) => {
@@ -135,7 +136,6 @@ const QuotePage = () => {
     });
     if (curr === qData.length - 1 || x) return;
     setCurr((prev) => prev + 1);
-    console.log(session?.user?.id);
   };
 
   const handleDecrement = () => {
@@ -176,7 +176,7 @@ const QuotePage = () => {
   }, [currentStep, curr, data]);
 
   return (
-    <div className="h-screen overflow-x-hidden grad-bg w-full test persp">
+    <div className="h-full overflow-x-hidden grad-bg w-full test persp">
       <div className="progress-grid-child flex justify-around items-center">
         <ProgressBar
           number={1}

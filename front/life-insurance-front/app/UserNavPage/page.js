@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import UserQuoteList from "@/components/UserQuoteList";
 
 const UserNavPage = () => {
   const [showSocialMediaForm, setShowSocialMediaForm] = useState(false);
@@ -43,6 +44,7 @@ const UserNavPage = () => {
         <div class="main-bg min-h-screen p-8 rounded-lg shadow-md">
 
           <h2 class="text-center text-2xl font-bold text-gray-800 mb-4">Your medical records</h2>
+          <UserQuoteList />
           <div class="flex justify-center space-x-4">
             <Link href="/quote">
               <button class="focus:shadow-outline h-20 w-48 rounded-lg bg-indigo-700 text-xl text-white

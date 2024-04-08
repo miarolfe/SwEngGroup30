@@ -1,9 +1,10 @@
-from fastapi import APIRouter
-from config.database import collection_name as user_collection, collection_disease as disease_collection
+from fastapi import APIRouter, HTTPException, Header
+from config.database import collection_name as user_collection, authUserCollection
 from schemas.users_schema import users_serialiser
 from pydantic import BaseModel
 from services.premiumCalculationService import calculatePremium
 from services.riskCalculationService import calculateAgeFromDOB
+from bson import ObjectId
 
 premium_calculator_router = APIRouter(
     prefix="/api/premium"
@@ -16,7 +17,16 @@ def helloWorld():
 
 
 @premium_calculator_router.get("/{userId}/{userSocialMediaName}")
-async def getPremiumForUser(userId : str, userSocialMediaName : str):
+async def getPremiumForUser(userId : str, userSocialMediaName : str, authId : str = Header(None)):
+    userSearch = {}
+    try:
+        userSearch = authUserCollection.find_one({"_id": ObjectId(authId)})
+    except:
+        raise HTTPException(status_code=401, detail="User not Logged in")
+    
+    if not userSearch:
+        raise HTTPException(status_code=401, detail="User not Logged in")
+
     users = users_serialiser(user_collection.find())
     return calculatePremium(users[0], userId)
 
@@ -40,7 +50,15 @@ class MedicalHistory(BaseModel):
 
 
 @premium_calculator_router.post("/{userId}")
-async def getPremiumForUser(userId : str, user : MedicalHistory):
+async def getPremiumForUser(userId : str, user : MedicalHistory, authId : str = Header(None)):
+    userSearch = {}
+    try:
+        userSearch = authUserCollection.find_one({"_id": ObjectId(authId)})
+    except:
+        raise HTTPException(status_code=401, detail="User not Logged in")
+    
+    if not userSearch:
+        raise HTTPException(status_code=401, detail="User not Logged in")
 
     print(f"req.body = {user}\n")
     userDictionary : dict = {}

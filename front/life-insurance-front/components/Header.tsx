@@ -32,15 +32,20 @@ const Header: React.FC = () => {
         }
     }
 
-    return (
-        <header className="header-bg top-0 sticky">
-            <div className="grid grid-cols-3 text-center">
-                <HeaderButton link="/team" label="The Team" />
-                <IconButton link={homeLink} imgSrc="/logo.png" />
-                {session ? <div onClick={handleSignOut}><HeaderButton link={accountLink} label={accountButton} /></div> : <HeaderButton link={accountLink} label={accountButton} />}
-            </div>
-        </header>
-    );
+  return (
+    <header className="flex items-center glass-slate h-24 w-full top-0 sticky text-white px-4 z-20">
+      <div className="flex items-center justify-center h-full w-1/6 px-2">
+        <a href="/">
+          <img src="/munich_logo_name_white.png" width="100%" />
+        </a>
+      </div>
+      <div className="grow flex justify-around text-xl">
+        <a href="/">Home</a>
+        <a href="/team">The Team</a>
+      </div>
+      {session ? <div onClick={handleSignOut}><a className="border-[1px] border-white py-2 px-6 rounded-md transition-all hover:bg-white hover:text-violet-700" href={accountLink}>{accountButton}</a></div> : <a className="border-[1px] border-white py-2 px-6 rounded-md transition-all hover:bg-white hover:text-violet-700" href={accountLink}>{accountButton}</a>}
+    </header>
+  );
 };
 
 export default Header;

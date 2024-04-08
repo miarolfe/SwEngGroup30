@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen">
+      <body className="grad-bg flex flex-col min-h-screen h-full">
         <AuthProvider>
           <Header />
           <main className="flex-grow py-5">
