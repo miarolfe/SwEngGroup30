@@ -13,13 +13,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ height: "100%" }}>
+    <html lang="en">
       <body className="grad-bg flex flex-col min-h-screen h-full">
-        <Header />
-        <main className="grow h-full">
-          <AuthProvider>{children}</AuthProvider>
-        </main>
-        <Footer />
+        <AuthProvider>
+          <Header />
+          <main className="flex-grow py-5">
+            {children}
+          </main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

@@ -3,38 +3,72 @@ import '../../../app/globals.css';
 import React, { useState } from 'react';
 import Image from "next/image";
 import styles from '../../../styles/mainApp.module.css';
-import { signIn } from 'aws-amplify/auth';
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+
 
 const LoginPage = () => {
-    const [username, setUsername] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const [response, setResponse] = useState<string | null>(null);
+    const router = useRouter();
+    const [username, setUsername] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+  
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log('login process started');
-
-        try {
-            const user = await signIn({username, password});
-            console.log(user); // User is signed in
-            const response = await fetch(`/api/quoteRequest/get`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            });
-
-            if (response.ok) {
-                console.log('Login successful');
-                const data = await response.json();
-                setResponse(JSON.stringify(data));
-                // Handle success
-            } else {
-                // Handle error
-                setResponse('request failed' + response.status);
-            }
-        } catch (error) {
-            console.error('Login failed', error);
+      e.preventDefault();
+  
+      try {
+        const res = await signIn("credentials", {
+          email: username,
+          password,
+          redirect: false,
+        });
+  
+        if (!res || res.error) {
+          console.log("Invalid Crentials");
+          return;
         }
+  
+        await router.push("/underwriter");
+        console.log("hurray");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    const handleRegister = async (
+      e: React.MouseEvent<HTMLDivElement, MouseEvent>
+    ) => {
+      try {
+        const resUserExists = await fetch("/api/userExists", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: username }),
+        });
+  
+        const { user } = await resUserExists.json();
+        if (user) {
+          console.log("User Exists");
+          return;
+        }
+  
+        const res = await fetch("/api/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: username,
+            password,
+          }),
+        });
+  
+        if (res.ok) {
+          console.log("Worked");
+        }
+      } catch (error) {
+        console.log(error);
+      }
     };
 
 
@@ -45,7 +79,7 @@ const LoginPage = () => {
                     <div className={styles.loginLogo}>
                         <Image src="/logo.png" alt="Munich RE" width={150} height={100}/>
                     </div>
-                    <label htmlFor="username" className="block mb-2">Username:</label>
+                    <label htmlFor="username" className="block mb-2">Email:</label>
                     <input
                         type="text"
                         id="username"
@@ -66,12 +100,6 @@ const LoginPage = () => {
                 </div>
                 <button type="submit" className="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">Login</button>
             </form>
-            {response && (
-                <div className="mt-4">
-                    <p>Response from server:</p>
-                    <div className="p-4 bg-gray-200 rounded">{response}</div>
-                </div>
-            )}
         </div>
     );
 
