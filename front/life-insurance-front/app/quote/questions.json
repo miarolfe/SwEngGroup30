@@ -40,6 +40,17 @@
     ]
   },
   {
+    "question": "Activities",
+    "inputs": [
+      {
+        "dropdownMultipleOptions": ["None", "Skydiving", "Bouldering", "Free Soloing", "Skateboarding", "Motorbiking"],
+        "label": "Please list any of the activities that you participate in",
+        "stateName": "activites",
+        "required": true
+      }
+    ]
+  },
+  {
     "question": "Basic Health Information",
     "inputs": [
       {

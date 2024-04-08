@@ -37,7 +37,7 @@ const authOptions = {
     },
     secret: process.env.NEXTAUTH_SECRET,
     pages: {
-        signIn: "/Login/loginClient",
+        signIn: "/login/client",
     },
     callbacks: {
         async session({session, token, user}) {
@@ -45,6 +45,7 @@ const authOptions = {
             await connectMongoDB();
             const sessionUser = await User.findOne({email: token.email});
             session.user.id = sessionUser._id.toString();
+            session.user.employeeStatus = sessionUser.employeeStatus;
             return session;
         }
     }

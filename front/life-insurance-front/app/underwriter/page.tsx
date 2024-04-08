@@ -1,4 +1,8 @@
+"use client";
 import Chatbot, { type Message } from "@/components/Chatbot/Chatbot";
+import { useSession } from "next-auth/react";
+import { useRouter } from 'next/navigation';
+import { useEffect } from "react";
 
 const sample: Message[] = [
   {
@@ -8,6 +12,20 @@ const sample: Message[] = [
 ];
 
 const UnderwriterPage = () => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      if (!session?.user?.employeeStatus) {
+        router.push("/");
+      }
+    } 
+    //else if (!session?.user?.employeeStatus) {
+    //     router.push("/");
+    // }
+  }, [status]);
+
   return (
     <div className="h-full w-full">
       <div className="flex flex-col p-2 h-full">

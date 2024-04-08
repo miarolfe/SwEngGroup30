@@ -147,7 +147,7 @@ const Quote = (quotes: ReturnedQuotes) => {
                 Annual cost
               </td>
               <td className="rounded-tr-md border-t-2 border-r-2 border-b-2">
-                €3000
+                €{(currentQuote.premium * 52).toFixed(0)}
               </td>
             </tr>
             <tr>

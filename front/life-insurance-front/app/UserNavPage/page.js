@@ -69,6 +69,7 @@ const UserNavPage = () => {
     });
   }, []);
 
+
   async function login() {
     const res = await getFacebookLoginStatus();
 
@@ -122,18 +123,22 @@ const UserNavPage = () => {
       />
       <div className="flex flex-col p-2 h-full">
         <h1 className="text-white text-6xl font-semibold mb-2">Hello!</h1>
-          <h2 class="text-center text-2xl font-bold text-gray-800 mb-4">Your medical records</h2>
+    <div>
+      <main>
+        <div className="main-bg min-h-screen p-8 rounded-lg shadow-md">
+
+          <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">Your medical records</h2>
           <UserQuoteList />
-        <div className="glass w-full h-fit rounded-md p-2">
-          <div className="h-36 w-full flex">
-            <div className="w-1/2 rounded-md m-2">
-              <a
-                className="transition-colors flex h-full w-full rounded-md bg-violet-700 items-center justify-center text-white hover:bg-violet-600"
-                href="/quote"
-              >
-                Manual Application
-              </a>
-            </div>
+          <div className="glass w-full h-fit rounded-md p-2">
+            <div className="h-36 w-full flex">
+              <div className="w-1/2 rounded-md m-2">
+                <a
+                  className="transition-colors flex h-full w-full rounded-md bg-violet-700 items-center justify-center text-white hover:bg-violet-600"
+                  href="/quote"
+                >
+                  Manual Application
+                </a>
+              </div>
             <div className="flex flex-col justify-between w-1/2 m-2">
               <button
                 onClick={login}
