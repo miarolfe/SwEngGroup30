@@ -40,7 +40,7 @@ const Header: React.FC = () => {
         </a>
       </div>
       <div className="grow flex justify-around text-xl">
-        <a href="/">Home</a>
+        <a href={homeLink}>Home</a>
         <a href="/team">The Team</a>
       </div>
       {session ? <div onClick={handleSignOut}><a className="border-[1px] border-white py-2 px-6 rounded-md transition-all hover:bg-white hover:text-violet-700" href={accountLink}>{accountButton}</a></div> : <a className="border-[1px] border-white py-2 px-6 rounded-md transition-all hover:bg-white hover:text-violet-700" href={accountLink}>{accountButton}</a>}
