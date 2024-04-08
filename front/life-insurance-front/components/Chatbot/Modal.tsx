@@ -39,8 +39,8 @@ const Modal = ({
     <Dialog.Root>
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className="z-10 inset-0 fixed glass-slate" />
-        <Dialog.Content className="z-20 h-fit w-3/4 p-2 rounded-md glass text-white translate-x-[18%] -translate-y-1/2 top-1/2 bottom-1/2 fixed">
+        <Dialog.Overlay className="z-30 inset-0 fixed glass-slate" />
+        <Dialog.Content className="z-40 h-fit w-3/4 p-2 rounded-md glass text-white translate-x-[18%] -translate-y-1/2 top-1/2 bottom-1/2 fixed">
           <Dialog.Title className="text-3xl font-bold">
             Detailed Response
           </Dialog.Title>

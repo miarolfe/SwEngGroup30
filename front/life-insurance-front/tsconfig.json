@@ -5,6 +5,7 @@
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
+    "typeRoots": ["./node_modules/@types", "./src/types"],
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -21,6 +22,12 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "./request-data-types.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "./request-data-types.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }

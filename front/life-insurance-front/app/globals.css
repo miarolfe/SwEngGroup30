@@ -140,6 +140,14 @@
     animation-delay: 0.4s;
   }
 
+  .button-close {
+    opacity: 1;
+    transform: scale(1) translateX(0rem) translateY(0rem);
+    animation: button-close 0.4s forwards;
+    animation-timing-function: cubic-bezier(0.295, 0.880, 0.415, 0.960);
+    /* animation-delay: 0.4s; */
+  }
+
   .transition-chatbot {
     transition: all 0.4s;
     transition-timing-function: cubic-bezier(0.295, 0.880, 0.415, 0.960);
@@ -154,6 +162,17 @@
     100% {
       transform: scale(1);
       opacity: 1;
+    }
+  }
+
+  @keyframes button-close {
+    0% {
+      transform: scale(1) translateX(0rem) translateY(0rem);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.5) translateX(12rem) translateY(12rem);
+      opacity: 0;
     }
   }
   

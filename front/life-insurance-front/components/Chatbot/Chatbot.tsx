@@ -121,7 +121,7 @@ const Chatbot = ({ messages }: { messages: Message[] }) => {
 
   const buttonStyle = useMemo(() => {
     if (!open) return "button-open";
-    return "scale-50 opacity-0 translate-x-48 translate-y-48";
+    return "button-close";
   }, [open]);
 
   const chatStyle = useMemo(() => {
