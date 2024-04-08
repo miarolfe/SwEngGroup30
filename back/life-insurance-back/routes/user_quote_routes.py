@@ -15,6 +15,7 @@ def getEntireQuoteHistory(userId : str, authId : str = Header(None)):
     userSearch = {}
     try:
         userSearch = authUserCollection.find_one({"_id": ObjectId(authId)})
+        print(userSearch)
     except:
         raise HTTPException(status_code=401, detail="User not Logged in")
     
