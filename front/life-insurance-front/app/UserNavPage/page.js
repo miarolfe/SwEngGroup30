@@ -121,7 +121,7 @@ const UserNavPage = () => {
         }
       />
       <div className="flex flex-col p-2 h-full">
-        <h1 className="text-white text-6xl font-semibold mb-2">Hello, User!</h1>
+        <h1 className="text-white text-6xl font-semibold mb-2">Hello!</h1>
           <h2 class="text-center text-2xl font-bold text-gray-800 mb-4">Your medical records</h2>
           <UserQuoteList />
         <div className="glass w-full h-fit rounded-md p-2">
