@@ -30,7 +30,7 @@ const UnderwriterQuoteCard = (props) => {
                         <td>{medicalRecord.smokingHistory}</td>
                     </tr>
                     <tr>
-                        <td>Exercise Hours Per Week:</td>
+                        <td>Average Hours of Exercise Per Week:</td>
                         <td>{medicalRecord.excerciseHourPerWeek}</td>
                     </tr>
                     <tr>
