@@ -79,7 +79,7 @@ const LoginPage = () => {
                     <div className={styles.loginLogo}>
                         <Image src="/logo.png" alt="Munich RE" width={150} height={100}/>
                     </div>
-                    <label htmlFor="username" className="block mb-2">Username:</label>
+                    <label htmlFor="username" className="block mb-2">Email:</label>
                     <input
                         type="text"
                         id="username"

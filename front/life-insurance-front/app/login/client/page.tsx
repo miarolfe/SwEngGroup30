@@ -72,7 +72,7 @@ const LoginClient: React.FC = () => {
       <form onSubmit={handleLogin} className="w-80">
         <div className="mb-4">
           <label htmlFor="username" className="block mb-2 text-white">
-            Username:
+            Email:
           </label>
           <input
             type="text"
