@@ -93,7 +93,6 @@ const QuotePage = () => {
                 !!localStorage.getItem("faFirstName") &&
                 data[question.stateName] === undefined
               ) {
-                console.log("yo");
                 setData((prev) => ({
                   ...prev,
                   [question.stateName]:
@@ -109,7 +108,6 @@ const QuotePage = () => {
                 !!localStorage.getItem("faBirthday") &&
                 !data[question.stateName]
               ) {
-                console.log("yo1");
                 setData((prev) => ({
                   ...prev,
                   [question.stateName]: localStorage.getItem(
@@ -124,12 +122,23 @@ const QuotePage = () => {
                 !!localStorage.getItem("faGender") &&
                 !data[question.stateName]
               ) {
-                console.log("yo2");
                 setData((prev) => ({
                   ...prev,
                   [question.stateName]: localStorage.getItem(
                     "faGender"
                   ) as string,
+                }));
+              } else setData((prev) => ({ ...prev, [question.stateName]: "" }));
+              break;
+            }
+            case "occupation": {
+              if (
+                !!localStorage.getItem("faGender") &&
+                !data[question.stateName]
+              ) {
+                setData((prev) => ({
+                  ...prev,
+                  [question.stateName]: "Student",
                 }));
               } else setData((prev) => ({ ...prev, [question.stateName]: "" }));
               break;
