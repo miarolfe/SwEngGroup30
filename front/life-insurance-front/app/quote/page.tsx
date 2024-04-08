@@ -163,7 +163,6 @@ const QuotePage = () => {
 
     return () => {
       if (hasRun.current) {
-        console.log("UNMOUNT");
         localStorage.removeItem("faFirstName");
         localStorage.removeItem("faLastName");
         localStorage.removeItem("faBirthday");
