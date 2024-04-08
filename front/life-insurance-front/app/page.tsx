@@ -104,7 +104,7 @@ const Index: React.FC = () => {
                 Easy-to-use Form
               </h3>
               <p className="text-white">
-                An clear and concise form for end-users to fill in
+                A clear and concise form for end-users to fill in
               </p>
             </div>
             <div className="w-2/5 flex justify-center items-center">
