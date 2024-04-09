@@ -7,7 +7,7 @@ const UnderwriterQuoteList = () => {
     const {data: session} = useSession();
 
     const initSetup = async () => {
-        await fetch("http://18.168.50.21:8000/api/quoteRequest/get", {method: "GET", headers: {"authID": session?.user?.id}})
+        await fetch("http://18.168.50.21:80/api/quoteRequest/get", {method: "GET", headers: {"authID": session?.user?.id}})
         .then((data) => data.json())
         .then((data) => setQuoteData(data));
     }

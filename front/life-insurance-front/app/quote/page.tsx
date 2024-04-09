@@ -173,7 +173,7 @@ const QuotePage = () => {
   }, []);
 
   const generateQuotes = async () => {
-    await fetch(`http://18.168.50.21:8000/api/premium/${session?.user?.id}`, {
+    await fetch(`http://18.168.50.21:80/api/premium/${session?.user?.id}`, {
       method: "POST",
       mode: "cors",
       headers: {
