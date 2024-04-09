@@ -35,7 +35,7 @@ const UserNavPage = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/premium/${username}`,
+        `http://18.168.50.21:8000/api/premium/${username}`,
         {
           method: "GET",
           headers: {

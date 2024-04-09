@@ -9,7 +9,7 @@ const UnderwriterQuoteCard = (props) => {
     const {data: session} = useSession();
 
     async function deleteQuote() {
-        fetch("http://0.0.0.0:8000/api/quoteRequest/`{quote.userId}", {
+        fetch("http://18.168.50.21:8000/api/quoteRequest/`{quote.userId}", {
             method: "GET",
             headers: {"authID": session?.user?.id},
             body: {
