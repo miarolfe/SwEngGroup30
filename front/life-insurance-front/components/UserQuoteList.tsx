@@ -22,7 +22,7 @@ const UserQuoteList = () => {
 
     const initDisplay = async () => {
       if (status ===  "authenticated") {
-        await fetch(`http://18.168.50.21:8000/api/user/quotelist/api/user/quotelist/${session?.user?.id}`, {
+        await fetch(`http://18.168.50.21:80/api/user/quotelist/api/user/quotelist/${session?.user?.id}`, {
             method: "GET",
             mode: "cors",
             headers: {
