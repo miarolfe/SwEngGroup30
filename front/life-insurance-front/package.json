@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@aws-amplify/cli": "^12.10.1",
+    "@aws-crypto/sha256-js": "^5.2.0",
     "@aws-sdk/client-cognito-identity": "^3.540.0",
     "@aws-sdk/client-comprehend": "^3.540.0",
     "@aws-sdk/client-dynamodb": "^3.540.0",
