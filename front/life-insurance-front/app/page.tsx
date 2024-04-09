@@ -80,7 +80,7 @@ const Index: React.FC = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

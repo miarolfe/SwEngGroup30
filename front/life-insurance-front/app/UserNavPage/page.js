@@ -19,7 +19,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import Script from "next/script";
 import UserQuoteList from "@/components/UserQuoteList";
-import { initFacebookSdk } from "@/utils/FacebookSDK";
+import { initFacebookSdk, getFacebookLoginStatus } from "@/utils/FacebookSDK";
 
 const UserNavPage = () => {
   const [showSocialMediaForm, setShowSocialMediaForm] = useState(false);
