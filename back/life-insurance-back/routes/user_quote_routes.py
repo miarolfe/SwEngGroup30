@@ -10,7 +10,7 @@ userQuoteListRouter = APIRouter(
     prefix="/api/user/quotelist"
 )
 
-@userQuoteListRouter.get("/api/user/quotelist/{userId}")
+@userQuoteListRouter.get("/{userId}")
 def getEntireQuoteHistory(userId : str, authId : str = Header(None)):
     userSearch = {}
     try:
