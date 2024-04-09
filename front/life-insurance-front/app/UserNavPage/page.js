@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Script from 'next/script';
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,6 +19,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import Script from "next/script";
 import UserQuoteList from "@/components/UserQuoteList";
+import { initFacebookSdk } from "@/utils/FacebookSDK";
 
 const UserNavPage = () => {
   const [showSocialMediaForm, setShowSocialMediaForm] = useState(false);
@@ -148,7 +150,7 @@ const UserNavPage = () => {
               </button>
               <button className="transition-colors w-full h-1/4 rounded-md bg-black hover:bg-[#333333] text-white">
                 Fill in with X
-                <FontAwesomeIcon icon={faXTwitter} className="ml-2" />
+                <FontAwesomeIcon icon={faTwitter} className="ml-2" />
               </button>
             </div>
           </div>
