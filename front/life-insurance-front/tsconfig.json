@@ -27,7 +27,8 @@
     "./request-data-types.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "utils/FacebookSDK.js"
   ],
   "exclude": ["node_modules"]
 }
