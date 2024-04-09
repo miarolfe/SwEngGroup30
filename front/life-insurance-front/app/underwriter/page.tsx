@@ -1,9 +1,8 @@
 "use client";
-"use client";
 import Chatbot, { type Message } from "@/components/Chatbot/Chatbot";
 import UnderWriterQuoteCard from "@/components/UnderwriterQuoteCard";
 import { useState, useEffect } from "react";
-import UnderwriterQuoteList from "@/components/UnderwriterQuoteList"
+import UnderwriterQuoteList from "@/components/UnderwriterQuoteList";
 
 const sample: Message[] = [
   {
@@ -16,11 +15,13 @@ const UnderwriterPage = () => {
   const [quoteData, setQuoteData] = useState([]);
 
   const initSetup = async () => {
-      await fetch("http://18.168.50.21:80/api/quoteRequest/get").then((data) => data.json()).then((data) => setQuoteData(data));
-  }
-  
+    await fetch("http://18.168.50.21:80/api/quoteRequest/get")
+      .then((data) => data.json())
+      .then((data) => setQuoteData(data));
+  };
+
   useEffect(() => {
-      initSetup();
+    initSetup();
   }, []);
 
   return (

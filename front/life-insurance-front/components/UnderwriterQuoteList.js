@@ -1,3 +1,4 @@
+"use client"
 import { useState, useEffect } from "react";
 import Modal from "@/components/Modal/Modal";
 import UnderwriterQuoteCard from "./UnderwriterQuoteCard";

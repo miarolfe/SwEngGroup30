@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect, useRef, useMemo } from "react";
 import CountUp from "react-countup";
 
@@ -65,7 +66,9 @@ const Quote = (quotes: ReturnedQuotes) => {
   );
 
   const doneInitialRender = useRef<boolean>(false);
-  useEffect(() => {console.log(quotes), []})
+  useEffect(() => {
+    console.log(quotes), [];
+  });
 
   useEffect(() => {
     // console.log("testing");
@@ -83,25 +86,29 @@ const Quote = (quotes: ReturnedQuotes) => {
   return (
     <div className="h-full flex flex-col justify-center items-center">
       <div className="w-5/6 h-5/6 flex rounded-md overflow-hidden">
-      {quotes.entryLevelRecommendation.premium !== -1000 ? <div className="flex flex-col justify-around items-center">
-          <QuoteAddonBlock
-            name="Premium"
-            start
-            selected={selected === "premiumLevelRecommendation"}
-            onClick={() => setSelected("premiumLevelRecommendation")}
-          />
-          <QuoteAddonBlock
-            name="High"
-            selected={selected === "highLevelRecommendation"}
-            onClick={() => setSelected("highLevelRecommendation")}
-          />
-          <QuoteAddonBlock
-            name="Entry"
-            end
-            selected={selected === "entryLevelRecommendation"}
-            onClick={() => setSelected("entryLevelRecommendation")}
-          />
-        </div> : <></>}
+        {quotes.entryLevelRecommendation.premium !== -1000 ? (
+          <div className="flex flex-col justify-around items-center">
+            <QuoteAddonBlock
+              name="Premium"
+              start
+              selected={selected === "premiumLevelRecommendation"}
+              onClick={() => setSelected("premiumLevelRecommendation")}
+            />
+            <QuoteAddonBlock
+              name="High"
+              selected={selected === "highLevelRecommendation"}
+              onClick={() => setSelected("highLevelRecommendation")}
+            />
+            <QuoteAddonBlock
+              name="Entry"
+              end
+              selected={selected === "entryLevelRecommendation"}
+              onClick={() => setSelected("entryLevelRecommendation")}
+            />
+          </div>
+        ) : (
+          <></>
+        )}
         {/* Quote on right */}
         <div className="grow flex flex-col text-6xl glass-noshadow text-white px-4 py-2">
           {/* <div className="w-5/6 h-5/6 flex flex-col justify-center items-center text-6xl text-white rounded-md"> */}
@@ -114,59 +121,74 @@ const Quote = (quotes: ReturnedQuotes) => {
             }}
           >
             <p className="mr-6 font-bold">Recommendation</p>
-            {quotes.entryLevelRecommendation.premium !== -1000 ? <div
-              className="flex flex-col text-white"
-              style={{
-                transition: "0.5s all ease-in-out",
-                transform: "translateY(-" + translateBy + "em)",
-              }}
-            >
-              <p>Premium</p>
-              <p>High</p>
-              <p>Entry</p>
-            </div> : <></>}
-          </div>
-          {quotes.entryLevelRecommendation.premium !== -1000 ? <CountUp
-            start={countFrom}
-            end={currentQuote.premium}
-            duration={0.65}
-            separator=""
-            decimal="."
-            prefix="€"
-          >
-            {({ countUpRef }) => (
-              <div className="mb-4">
-                <span ref={countUpRef} />
+            {quotes.entryLevelRecommendation.premium !== -1000 ? (
+              <div
+                className="flex flex-col text-white"
+                style={{
+                  transition: "0.5s all ease-in-out",
+                  transform: "translateY(-" + translateBy + "em)",
+                }}
+              >
+                <p>Premium</p>
+                <p>High</p>
+                <p>Entry</p>
               </div>
+            ) : (
+              <></>
             )}
-          </CountUp> : <></>}
+          </div>
+          {quotes.entryLevelRecommendation.premium !== -1000 ? (
+            <CountUp
+              start={countFrom}
+              end={currentQuote.premium}
+              duration={0.65}
+              separator=""
+              decimal="."
+              prefix="€"
+            >
+              {({ countUpRef }) => (
+                <div className="mb-4">
+                  <span ref={countUpRef} />
+                </div>
+              )}
+            </CountUp>
+          ) : (
+            <></>
+          )}
           {/* Details table */}
-          {quotes.entryLevelRecommendation.premium !== -1000 ? <table className="text-xl border-white overflow-hidden border-separate border-spacing-0">
-            <tr className="">
-              <td className="rounded-tl-md border-l-2 border-t-2 border-b-2 pl-2">
-                Annual cost
-              </td>
-              <td className="rounded-tr-md border-t-2 border-r-2 border-b-2">
-                €{(currentQuote.premium * 52).toFixed(0)}
-              </td>
-            </tr>
-            <tr>
-              <td className="border-l-2 border-b-2 pl-2">
-                Maximum insured amount
-              </td>
-              <td className="border-r-2 border-b-2">
-                €{currentQuote.amountInsured}
-              </td>
-            </tr>
-            <tr>
-              <td className="rounded-bl-md border-l-2 border-b-2 pl-2">
-                Maximum insured years
-              </td>
-              <td className="rounded-br-md border-r-2 border-b-2">
-                {currentQuote.maxYearInsured} years
-              </td>
-            </tr>
-          </table> : <p className="mr-6 text-xl">Apologies, we are unable to automatically give you a quote, an underwriter will manually review your details</p>}
+          {quotes.entryLevelRecommendation.premium !== -1000 ? (
+            <table className="text-xl border-white overflow-hidden border-separate border-spacing-0">
+              <tr className="">
+                <td className="rounded-tl-md border-l-2 border-t-2 border-b-2 pl-2">
+                  Annual cost
+                </td>
+                <td className="rounded-tr-md border-t-2 border-r-2 border-b-2">
+                  €{(currentQuote.premium * 52).toFixed(0)}
+                </td>
+              </tr>
+              <tr>
+                <td className="border-l-2 border-b-2 pl-2">
+                  Maximum insured amount
+                </td>
+                <td className="border-r-2 border-b-2">
+                  €{currentQuote.amountInsured}
+                </td>
+              </tr>
+              <tr>
+                <td className="rounded-bl-md border-l-2 border-b-2 pl-2">
+                  Maximum insured years
+                </td>
+                <td className="rounded-br-md border-r-2 border-b-2">
+                  {currentQuote.maxYearInsured} years
+                </td>
+              </tr>
+            </table>
+          ) : (
+            <p className="mr-6 text-xl">
+              Apologies, we are unable to automatically give you a quote, an
+              underwriter will manually review your details
+            </p>
+          )}
         </div>
         {/* </div> */}
       </div>
