@@ -1,7 +1,7 @@
-import '../../app/globals.css';
+import '@/app/globals.css';
 import * as React from 'react';
 import Image from "next/image";
-import styles from '../../styles/mainApp.module.css';
+import styles from '@/styles/mainApp.module.css';
 import { Auth } from 'aws-amplify';
 
 const LoginUnderwriter = () => {
