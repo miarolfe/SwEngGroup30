@@ -1,8 +1,9 @@
 "use client";
+"use client";
 import Chatbot, { type Message } from "@/components/Chatbot/Chatbot";
-import { useSession } from "next-auth/react";
-import { useRouter } from 'next/navigation';
-import { useEffect } from "react";
+import UnderWriterQuoteCard from "@/components/UnderwriterQuoteCard";
+import { useState, useEffect } from "react";
+import UnderwriterQuoteList from "@/components/UnderwriterQuoteList"
 
 const sample: Message[] = [
   {
@@ -12,19 +13,15 @@ const sample: Message[] = [
 ];
 
 const UnderwriterPage = () => {
-  const { data: session, status } = useSession();
-  const router = useRouter();
+  const [quoteData, setQuoteData] = useState([]);
 
+  const initSetup = async () => {
+      await fetch("http://18.168.50.21:8000/api/quoteRequest/get").then((data) => data.json()).then((data) => setQuoteData(data));
+  }
+  
   useEffect(() => {
-    if (status === "authenticated") {
-      if (!session?.user?.employeeStatus) {
-        router.push("/");
-      }
-    } 
-    //else if (!session?.user?.employeeStatus) {
-    //     router.push("/");
-    // }
-  }, [status]);
+      initSetup();
+  }, []);
 
   return (
     <div className="h-full w-full">
