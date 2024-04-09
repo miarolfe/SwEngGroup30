@@ -44,26 +44,27 @@ const UserQuoteList = () => {
         <div className="grid grid-cols-10 gap-4 content-around">
             {quotes.map((quote) => {
               return (
-                <Modal triggerEl={
-                  <table className= "glass border-[1px] border-white mb-2 table-auto" style={{cursor: "pointer"}}>
-                    <tbody>
-                      <tr className="border-[1px] border-white">
-                        <td>Premium:</td>
-                        <td>€{quote.premiumLevelRecommendation.premium.toFixed(0)}</td>
-                      </tr>
-                      <tr className="border-[1px] border-white">
-                        <td>High:</td>
-                        <td>€{quote.highLevelRecommendation.premium.toFixed(0)}</td>
-                      </tr>
-                      <tr className="border-[1px] border-white">
-                        <td>Entry:</td>
-                        <td>€{quote.entryLevelRecommendation.premium.toFixed(0)}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                }>
-                  <Quote {...quote} />
-                </Modal>
+                <div/>
+                // <Modal triggerEl={
+                //   <table className= "glass border-[1px] border-white mb-2 table-auto" style={{cursor: "pointer"}}>
+                //     <tbody>
+                //       <tr className="border-[1px] border-white">
+                //         <td>Premium:</td>
+                //         <td>€{quote.premiumLevelRecommendation.premium.toFixed(0)}</td>
+                //       </tr>
+                //       <tr className="border-[1px] border-white">
+                //         <td>High:</td>
+                //         <td>€{quote.highLevelRecommendation.premium.toFixed(0)}</td>
+                //       </tr>
+                //       <tr className="border-[1px] border-white">
+                //         <td>Entry:</td>
+                //         <td>€{quote.entryLevelRecommendation.premium.toFixed(0)}</td>
+                //       </tr>
+                //     </tbody>
+                //   </table>
+                // }>
+                //   <Quote {...quote} />
+                // </Modal>
               );
             })
           }
