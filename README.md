@@ -2,6 +2,15 @@
 
 ## Setup
 
+### Client Account
+email: jamckenn@tcd.ie
+password: 123456
+You can also register a user account
+
+### Underwriter Account
+email: admin@tcd.ie
+password: 1234
+
 ### Running with API on AWS
 Note: This method is only possible with our EC2 instance being kept active
 
